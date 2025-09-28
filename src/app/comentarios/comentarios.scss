@@ -12,13 +12,29 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   font-family: var(--fonte-secundaria);
 
-  h2, h3 {
+  h3 {
     color: var(--cor-texto);
     font-family: var(--fonte-primaria);
     border-bottom: 1px solid var(--cor-ui-sutil);
     padding-bottom: 0.5rem;
     margin-top: 0;
     margin-bottom: 1rem;
+  }
+
+  .comments-header-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--cor-ui-sutil);
+    margin-bottom: 1rem;
+
+    h2 {
+      color: var(--cor-texto);
+      font-family: var(--fonte-primaria);
+      padding-bottom: 0.5rem;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
   }
 
   .comment-list {
@@ -67,6 +83,8 @@
     font-weight: 700;
     color: var(--cor-destaque-secundaria);
     font-size: 1.1rem;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .comment-text {
@@ -74,6 +92,8 @@
     color: var(--cor-texto);
     white-space: pre-wrap;
     line-height: 1.6;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .comment-timestamp {
@@ -91,6 +111,92 @@
     padding: 1rem;
   }
 
+  .auto-reload-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+
+    label {
+      color: var(--cor-texto);
+    }
+
+    select {
+      background-color: var(--cor-fundo);
+      color: var(--cor-texto);
+    }
+
+    .control-group {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .loading-indicator,
+  .error-message {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  .loading-indicator {
+    color: var(--cor-destaque-secundaria);
+  }
+
+  .error-message {
+    color: #ff6b6b; // Cor para erros
+    background-color: rgba(255, 107, 107, 0.1);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+  }
+
+  .api-status {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #6c757d; // Cinza para estado inicial/desconhecido
+    transition: background-color 0.5s ease;
+    box-shadow: 0 0 5px #0003;
+
+    &.online {
+      background-color: #28a745; // Verde
+      box-shadow: 0 0 8px #28a745;
+    }
+
+    &.offline {
+      background-color: #dc3545; // Vermelho
+      box-shadow: 0 0 8px #dc3545;
+      animation: pulse-offline 1.5s infinite;
+    }
+  }
+
+  @keyframes pulse-offline {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .form-field {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  .char-counter {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    font-size: 0.8rem;
+    color: var(--cor-ui-sutil);
+    background-color: var(--cor-fundo);
+    padding: 0 4px;
+    border-radius: 3px;
+    pointer-events: none; // Impede que o contador interfira com o clique no campo
+
+    &.error {
+      color: #ff6b6b;
+    }
+  }
+
   .new-comment-form {
     input[type="text"],
     textarea {
@@ -98,7 +204,7 @@
       padding: 0.75rem;
       border-radius: 4px;
       border: 1px solid var(--cor-borda);
-      margin-bottom: 1rem;
+      margin-bottom: 0; // Removido pois o .form-field agora controla o espaçamento
       box-sizing: border-box;
       font-size: 1rem;
       background-color: var(--cor-fundo);
@@ -118,6 +224,8 @@
 
     textarea {
       resize: vertical;
+      // Adiciona um padding extra para não sobrepor o contador
+      padding-right: 60px;
     }
 
     button {

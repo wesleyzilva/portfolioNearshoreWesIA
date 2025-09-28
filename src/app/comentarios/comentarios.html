@@ -1,27 +1,63 @@
 <section class="comentarios-container">
-  <h2>Comments</h2>
+  <div class="comments-header-controls">
+    <h2>Comments</h2>
+    <div class="auto-reload-toggle">
+      <div class="api-status" [ngClass]="{'online': isApiOnline === true, 'offline': isApiOnline === false}" [title]="isApiOnline ? 'API Online' : (isApiOnline === false ? 'API Offline' : 'Verificando API...')"></div>
+      <div class="control-group">
+        <label for="auto-reload-select">Auto-reload:</label>
+        <select id="auto-reload-select" [(ngModel)]="autoReloadIntervalValue" (ngModelChange)="onAutoReloadChange()">
+          <option [ngValue]="0">Off</option>
+          <option [ngValue]="1000">1s</option>
+          <option [ngValue]="3000">3s</option>
+          <option [ngValue]="5000">5s</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label for="auto-scroll">Auto-scroll</label>
+        <input type="checkbox" id="auto-scroll" [(ngModel)]="isAutoScrollEnabled" />
+      </div>
+    </div>
+  </div>
 
   <!-- Lista de comentários existentes -->
-  <div class="comment-list">
-    <div *ngIf="comments.length === 0" class="no-comments">
+  <div *ngIf="isLoading" class="loading-indicator">
+    Carregando comentários...
+  </div>
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+  <div #commentListContainer class="comment-list" *ngIf="!isLoading && !error">
+    <div *ngIf="comments.length === 0 && !isLoading" class="no-comments">
       There are no comments yet. Be the first to comment!
     </div>
     <div *ngFor="let comment of comments" class="comment">
       <div class="comment-header">
-        <span class="comment-author">{{ comment.name }}</span>
+        <span class="comment-author">{{ comment.author }}</span>
         <span class="comment-timestamp">
           {{ comment.timestamp | date:'MM/dd/yyyy HH:mm' }}
         </span>
       </div>
-      <p class="comment-text">{{ comment.text }}</p>
+      <p class="comment-text">{{ comment.content }}</p>
     </div>
   </div>
 
   <!-- Formulário para novo comentário -->
   <div class="new-comment-form">
     <h3>Leave your name and comment</h3>
-    <input type="text" [(ngModel)]="newCommentName" placeholder="Your name" />
-    <textarea [(ngModel)]="newCommentText" placeholder="Write your comment here..." rows="4"></textarea>
-    <button (click)="submitComment()" [disabled]="!newCommentName.trim() || !newCommentText.trim()">Submit</button>
+    <div class="form-field">
+      <input type="text" [(ngModel)]="newCommentAuthor" placeholder="Your name" [attr.maxlength]="maxAuthorLength" [disabled]="!isApiOnline" />
+      <div class="char-counter" [class.error]="newCommentAuthor.length > maxAuthorLength">
+        {{ newCommentAuthor.length }} / {{ maxAuthorLength }}
+      </div>
+    </div>
+    <div class="form-field">
+      <textarea [(ngModel)]="newCommentContent" placeholder="Write your comment here..." rows="4" [attr.maxlength]="maxCommentLength" [disabled]="!isApiOnline"></textarea>
+      <div class="char-counter" [class.error]="newCommentContent.length > maxCommentLength">
+        {{ newCommentContent.length }} / {{ maxCommentLength }}
+      </div>
+    </div>
+    <button (click)="submitComment()" [disabled]="!isApiOnline || !newCommentAuthor.trim() || newCommentAuthor.length > maxAuthorLength || !newCommentContent.trim() || newCommentContent.length > maxCommentLength || isSubmitting">
+      {{ isSubmitting ? 'Enviando...' : 'Submit' }}
+    </button>
   </div>
 </section>
