@@ -3,14 +3,17 @@
     <h2>Comments</h2>
     <div class="auto-reload-toggle">
       <div class="api-status" [ngClass]="{'online': isApiOnline === true, 'offline': isApiOnline === false}" [title]="isApiOnline ? 'API Online' : (isApiOnline === false ? 'API Offline' : 'Verificando API...')"></div>
-      <div class="control-group">
-        <label for="auto-reload-select">Auto-reload:</label>
-        <select id="auto-reload-select" [(ngModel)]="autoReloadIntervalValue" (ngModelChange)="onAutoReloadChange()">
-          <option [ngValue]="0">Off</option>
-          <option [ngValue]="1000">1s</option>
-          <option [ngValue]="3000">3s</option>
-          <option [ngValue]="5000">5s</option>
-        </select>
+      <div class="api-status" [ngClass]="{'online': isPersistenceOnline === true, 'offline': isPersistenceOnline === false}" [title]="isPersistenceOnline ? 'Persistência Online' : (isPersistenceOnline === false ? 'Persistência Offline' : 'Verificando Persistência...')"></div>
+      <div [formGroup]="autoReloadControl">
+        <div class="control-group">
+          <label for="auto-reload-select">Auto-reload:</label>
+          <select id="auto-reload-select" formControlName="interval">
+            <option [ngValue]="0">Off</option>
+            <option [ngValue]="1000">1s</option>
+            <option [ngValue]="3000">3s</option>
+            <option [ngValue]="5000">5s</option>
+          </select>
+        </div>
       </div>
       <div class="control-group">
         <label for="auto-scroll">Auto-scroll</label>
@@ -42,22 +45,22 @@
   </div>
 
   <!-- Formulário para novo comentário -->
-  <div class="new-comment-form">
+  <form class="new-comment-form" [formGroup]="commentForm" (ngSubmit)="submitComment()">
     <h3>Leave your name and comment</h3>
     <div class="form-field">
-      <input type="text" [(ngModel)]="newCommentAuthor" placeholder="Your name" [attr.maxlength]="maxAuthorLength" [disabled]="!isApiOnline" />
-      <div class="char-counter" [class.error]="newCommentAuthor.length > maxAuthorLength">
-        {{ newCommentAuthor.length }} / {{ maxAuthorLength }}
+      <input type="text" formControlName="author" placeholder="Your name" [attr.maxlength]="maxAuthorLength" />
+      <div class="char-counter" [class.error]="commentForm.get('author')?.hasError('maxlength')">
+        {{ commentForm.get('author')?.value?.length || 0 }} / {{ maxAuthorLength }}
       </div>
     </div>
     <div class="form-field">
-      <textarea [(ngModel)]="newCommentContent" placeholder="Write your comment here..." rows="4" [attr.maxlength]="maxCommentLength" [disabled]="!isApiOnline"></textarea>
-      <div class="char-counter" [class.error]="newCommentContent.length > maxCommentLength">
-        {{ newCommentContent.length }} / {{ maxCommentLength }}
+      <textarea formControlName="content" placeholder="Write your comment here..." rows="4" [attr.maxlength]="maxCommentLength"></textarea>
+      <div class="char-counter" [class.error]="commentForm.get('content')?.hasError('maxlength')">
+        {{ commentForm.get('content')?.value?.length || 0 }} / {{ maxCommentLength }}
       </div>
     </div>
-    <button (click)="submitComment()" [disabled]="!isApiOnline || !newCommentAuthor.trim() || newCommentAuthor.length > maxAuthorLength || !newCommentContent.trim() || newCommentContent.length > maxCommentLength || isSubmitting">
+    <button type="submit" [disabled]="!isApiOnline || commentForm.invalid || isSubmitting">
       {{ isSubmitting ? 'Enviando...' : 'Submit' }}
     </button>
-  </div>
+  </form>
 </section>

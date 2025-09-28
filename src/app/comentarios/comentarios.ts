@@ -1,6 +1,7 @@
 import { AfterViewChecked, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Subject, timer, switchMap, takeUntil, EMPTY, tap } from 'rxjs';
 import { Comment, CommentRequest } from './comment.model';
 import { CommentService } from './comment.service';
 
@@ -16,53 +17,63 @@ export class Comentarios implements OnInit, OnDestroy, AfterViewChecked {
   @ViewChild('commentListContainer') private commentListContainer!: ElementRef;
 
   comments: Comment[] = [];
-  newCommentAuthor: string = ''; // Renomeado de newCommentName
-  newCommentContent: string = ''; // Renomeado de newCommentText
   isLoading: boolean = true;
   isSubmitting: boolean = false;
   error: string | null = null;
   maxCommentLength: number = 100;
   maxAuthorLength: number = 20;
   private shouldScrollToBottom = false;
-  autoReloadIntervalValue: number = 1000; // Inicia com 1s por padrão
   isAutoScrollEnabled: boolean = true;
   isApiOnline: boolean | null = null;
+  isPersistenceOnline: boolean | null = null;
 
-  private autoReloadInterval: any = null;
-  private apiStatusInterval: any = null;
+  commentForm: FormGroup;
+  autoReloadControl: FormGroup;
 
-  constructor(private commentService: CommentService) { }
+  private destroy$ = new Subject<void>();
+
+  constructor(
+    private commentService: CommentService,
+    private fb: FormBuilder
+  ) {
+    this.commentForm = this.fb.group({
+      author: ['', [Validators.required, Validators.maxLength(this.maxAuthorLength)]],
+      content: ['', [Validators.required, Validators.maxLength(this.maxCommentLength)]],
+    });
+
+    this.autoReloadControl = this.fb.group({
+      interval: [1000], // Inicia com 1s por padrão
+    });
+  }
 
   ngOnInit(): void {
     this.loadComments();
-    this.onAutoReloadChange(); // Inicia o auto-reload com o valor padrão
-    this.startApiStatusCheck();
+    this.setupAutoReload();
+    this.setupApiStatusCheck();
   }
 
   ngOnDestroy(): void {
-    this.stopAutoReload(); // Garante que o intervalo seja limpo ao destruir o componente
-    this.stopApiStatusCheck();
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   ngAfterViewChecked() {
-    if (this.shouldScrollToBottom) {
+    if (this.shouldScrollToBottom && this.isAutoScrollEnabled) {
       this.scrollToBottom();
       this.shouldScrollToBottom = false;
     }
   }
 
   loadComments(): void {
-    // Só mostra o indicador de "loading" na primeira carga ou em recargas manuais.
-    // Evita que o indicador pisque durante a recarga automática.
-    if (this.autoReloadIntervalValue === 0) {
+    const isManualLoad = this.autoReloadControl.get('interval')?.value === 0;
+    if (isManualLoad || this.isLoading) { // Only show loading on first load or manual refresh
       this.isLoading = true;
     }
 
-    this.error = null;
     this.commentService.getComments().subscribe({
       next: (data: Comment[]) => {
         this.comments = data;
-        this.shouldScrollToBottom = this.isAutoScrollEnabled;
+        this.shouldScrollToBottom = true;
         this.isLoading = false;
         this.isApiOnline = true;
         this.error = null; // Limpa qualquer erro anterior
@@ -76,65 +87,59 @@ export class Comentarios implements OnInit, OnDestroy, AfterViewChecked {
   }
 
   submitComment(): void {
-    if (this.newCommentAuthor.trim() && this.newCommentAuthor.length <= this.maxAuthorLength && this.newCommentContent.trim() && this.newCommentContent.length <= this.maxCommentLength && !this.isSubmitting) {
+    if (this.commentForm.valid && !this.isSubmitting) {
       this.isSubmitting = true;
-      const newCommentRequest: CommentRequest = {
-        author: this.newCommentAuthor,
-        content: this.newCommentContent
-      };
+      const newCommentRequest: CommentRequest = this.commentForm.value;
 
       this.commentService.addComment(newCommentRequest).subscribe({
         next: (createdComment: Comment) => {
           this.comments.push(createdComment);
-          this.newCommentAuthor = '';
-          this.newCommentContent = '';
-          this.shouldScrollToBottom = this.isAutoScrollEnabled;
+          this.commentForm.reset();
+          this.shouldScrollToBottom = true;
           this.isSubmitting = false;
           this.isApiOnline = true;
         },
         error: (err: any) => {
           console.error('Erro ao enviar comentário:', err);
           this.isApiOnline = false;
-          // Opcional: Adicionar uma mensagem de erro para o usuário na UI
           this.isSubmitting = false;
         }
       });
     }
   }
 
-  onAutoReloadChange(): void {
-    if (this.autoReloadIntervalValue > 0) {
-      this.startAutoReload();
-    } else {
-      this.stopAutoReload();
-    }
+  private setupAutoReload(): void {
+    this.autoReloadControl.get('interval')?.valueChanges.pipe(
+      switchMap(interval => (interval > 0 ? timer(0, interval) : EMPTY)),
+      takeUntil(this.destroy$)
+    ).subscribe(() => this.loadComments());
   }
 
-  private startAutoReload(): void {
-    // Garante que não haja múltiplos intervalos rodando
-    this.stopAutoReload();
-
-    // Recarrega os comentários com base no intervalo selecionado
-    this.autoReloadInterval = setInterval(() => this.loadComments(), this.autoReloadIntervalValue);
-  }
-
-  private stopAutoReload(): void {
-    clearInterval(this.autoReloadInterval);
-  }
-
-  private startApiStatusCheck(): void {
-    this.checkApiStatus(); // Verifica imediatamente
-    this.apiStatusInterval = setInterval(() => this.checkApiStatus(), 10000); // E depois a cada 10s
-  }
-
-  private stopApiStatusCheck(): void {
-    clearInterval(this.apiStatusInterval);
+  private setupApiStatusCheck(): void {
+    timer(0, 10000).pipe( // Check status every 10 seconds
+      takeUntil(this.destroy$)
+    ).subscribe(() => {
+      this.checkApiStatus();
+      this.checkPersistenceStatus();
+    });
   }
 
   private checkApiStatus(): void {
     this.commentService.checkApiStatus().subscribe({
-      next: () => this.isApiOnline = true,
+      next: () => {
+        if (this.isApiOnline === false) { // If it was offline, trigger a reload
+          this.loadComments();
+        }
+        this.isApiOnline = true;
+      },
       error: () => this.isApiOnline = false
+    });
+  }
+
+  private checkPersistenceStatus(): void {
+    this.commentService.checkPersistenceStatus().subscribe({
+      next: () => this.isPersistenceOnline = true,
+      error: () => this.isPersistenceOnline = false
     });
   }
 

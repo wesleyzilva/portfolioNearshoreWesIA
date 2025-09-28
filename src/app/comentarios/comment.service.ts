@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from './environment';
 import { Comment, CommentRequest } from './comment.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CommentService {
-  // A URL base da sua facade. Em um projeto real, isso viria dos arquivos de ambiente.
-  private apiUrl = 'http://localhost:8081/api/facadeComments';
+  // URL da API centralizada no arquivo de ambiente
+  private apiUrl = `${environment.apiUrl}/facadeComments`;
+  private persistenceApiUrl = 'http://localhost:8082/api/persistComments';
 
   constructor(private http: HttpClient) {}
 
@@ -32,5 +34,12 @@ export class CommentService {
    */
   checkApiStatus(): Observable<any> {
     return this.http.head(this.apiUrl, { observe: 'response' });
+  }
+
+  /**
+   * Verifica o status da API de persistência.
+   */
+  checkPersistenceStatus(): Observable<any> {
+    return this.http.head(this.persistenceApiUrl, { observe: 'response' });
   }
 }
