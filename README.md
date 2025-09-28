@@ -1,4 +1,28 @@
-# PaginaAngular
+# Wesley's Full-Stack Portfolio Project (PaginaAngular)
+
+This project is a technical portfolio designed to showcase Wesley's skills and knowledge in full-stack cloud development. It features a responsive frontend built with Angular and a robust backend powered by Java, demonstrating a complete, end-to-end application architecture.
+
+## Project Objective
+
+The primary goal of this repository is to serve as a live demonstration of full-stack development capabilities, covering everything from the user interface to database persistence.
+
+### Frontend
+
+The user interface was initially a static page built with simple HTML and CSS. It has been completely refactored into a dynamic and modern single-page application (SPA) using the **Angular** framework. This conversion highlights the ability to modernize legacy web pages and build scalable frontend solutions.
+
+### Backend
+
+The frontend communicates with a backend system built entirely in **Java**. The backend architecture is designed with clear separation of concerns and includes:
+
+*   **Facade Layer**: A Facade design pattern is used as the primary entry point for the frontend, simplifying communication and decoupling the client from the complex internal logic.
+*   **Service/Intermediate Layer**: This layer contains the core business logic of the application.
+*   **Persistence Layer**: Responsible for all database interactions, connecting to a **PostgreSQL** database to store and retrieve data.
+
+This multi-layered Java backend demonstrates a solid understanding of enterprise application design and database connectivity.
+
+---
+
+## Angular Project Information
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.2.
 
