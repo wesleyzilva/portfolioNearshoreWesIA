@@ -1,0 +1,31 @@
+<section id="services" class="services-section">
+  <div class="section-inner">
+    <div class="section-label">
+      <span class="label-line"></span>
+      <span>{{ lang() === 'pt' ? 'O que ofereço' : 'What I offer' }}</span>
+      <span class="label-line"></span>
+    </div>
+    <h2 class="section-heading">
+      {{ lang() === 'pt' ? 'Serviços para projetos' : 'Services for' }}
+      <span class="accent"> Nearshore</span>
+    </h2>
+    <p class="section-sub">
+      {{ lang() === 'pt'
+        ? 'Combinando IA, metodologia ágil e experiência multicultural para entregar resultados em qualquer parte do mundo.'
+        : 'Combining AI, agile methodology and multicultural experience to deliver results anywhere in the world.' }}
+    </p>
+
+    <div class="services-grid">
+      <div class="service-card" *ngFor="let s of services">
+        <div class="service-icon-wrapper">
+          <i [class]="s.icon"></i>
+        </div>
+        <h3>{{ lang() === 'pt' ? s.titlePt : s.titleEn }}</h3>
+        <p>{{ lang() === 'pt' ? s.descPt : s.descEn }}</p>
+        <div class="service-tags">
+          <span *ngFor="let tag of s.tags" class="stag">{{ tag }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

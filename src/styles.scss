@@ -39,13 +39,12 @@ body {
     font-family: var(--fonte-secundaria), Arial, sans-serif;
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
-    padding-top: 80px; /* Space for the header */
-    padding-bottom: 80px; /* Space for the fixed footer */
+    padding-top: 68px; /* Space for the header */
 }
 
 @media (max-width: 768px) {
     body {
-        padding-top: 140px; /* Space for the mobile header */
+        padding-top: 110px;
     }
 }
 

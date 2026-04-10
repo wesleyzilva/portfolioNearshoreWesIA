@@ -1,85 +1,319 @@
-<div class="page-container">
-  <!-- Coluna da Esquerda: Sobre Mim -->
-  <div class="profile-column">
-    <div class="profile-card">
-        <img src="assets/wesley.jpg" alt="Wesley Gomes" class="profile-photo">
-        <h2 class="profile-name">Wesley Gomes</h2>
-        <p class="profile-title">IT Coordinator | Agile Expert | Yellow Belt | International Agile Coach | Remote Teams | High Performance</p>
-        <div class="profile-summary">
-            <p>
-                Experienced IT leader with over 15 years in the technology market, specializing in project management, team leadership, and digital transformation. Proven ability to drive results in complex environments, from vulnerability remediation to implementing data governance and agile methodologies.
-            </p>
-            <p>
-                Passionate about fostering team autonomy, optimizing processes with methodologies like Lean Six Sigma, and mentoring professionals globally. My goal is to leverage technology to solve business challenges and create sustainable, high-performing ecosystems.
-            </p>
-            <p>
-                To the right, you'll find a selection of projects that highlight the knowledge I've acquired over time, each with its own characteristics.
-            </p>
+<!-- ===================== ABOUT / PROFILE ===================== -->
+<section id="about" class="section-wrapper">
+  <div class="section-inner">
+    <div class="section-label">
+      <span class="label-line"></span>
+      <span>{{ lang() === 'pt' ? 'Sobre mim' : 'About me' }}</span>
+      <span class="label-line"></span>
+    </div>
+
+    <div class="about-top-actions">
+      <a href="/personal-about" target="_blank" rel="noopener" class="personal-about-link" aria-label="Open personal about page in a new tab">
+        <i class="fas fa-images"></i>
+        {{ lang() === 'pt' ? 'Personal About' : 'Personal About' }}
+      </a>
+    </div>
+
+    <h2 class="section-heading">
+      <span class="heading-main">
+        {{ lang() === 'pt' ? 'Resumo rápido para recrutadores' : 'Quick snapshot for recruiters' }}
+      </span>
+      <span class="accent-sub">Nearshore · Agile · Team Dynamic · IA Powered</span>
+    </h2>
+
+    <p class="about-lead">
+      {{ lang() === 'pt'
+        ? 'Em 3 a 5 minutos você entende meu nível de senioridade, contexto internacional, stack de atuação e aderência para posições de liderança, produto e delivery.'
+        : 'In 3 to 5 minutes you can assess my seniority, international context, operating stack and fit for leadership, product and delivery roles.' }}
+    </p>
+
+    <div class="about-overview-grid">
+      <article class="about-spotlight">
+        <span class="spotlight-badge">{{ lang() === 'pt' ? 'Perfil' : 'Profile' }}</span>
+        <h3>Wesley <span class="hl">Gomes</span> da Silva</h3>
+        <p class="spotlight-role">IT Manager · Agile Coach · PO Tech · AI Workspace</p>
+        <p class="spotlight-text">
+          {{ lang() === 'pt'
+            ? 'Profissional com 14+ anos em tecnologia, com vivência em Serasa Experian e Amdocs, conduzindo squads remotas, modernização de aplicações, governança ágil e integração entre produto, negócio e engenharia.'
+            : 'Technology professional with 14+ years of experience across Serasa Experian and Amdocs, leading remote squads, application modernization, agile governance, and strong product-business-engineering alignment.' }}
+        </p>
+        <div class="about-chips">
+          <span class="summary-chip">14+ Years</span>
+          <span class="summary-chip">Nearshore</span>
+          <span class="summary-chip">English C1</span>
+          <span class="summary-chip">PO Tech</span>
+          <span class="summary-chip">DevSecOps</span>
         </div>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/wesleyzilva/" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/wesleyzilva" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-            <a href="https://www.instagram.com/wesley.zilva" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon"><i class="fab fa-instagram"></i></a>
+      </article>
+
+      <article class="about-summary-card">
+        <h4>{{ lang() === 'pt' ? 'O que entrego' : 'What I deliver' }}</h4>
+        <ul class="summary-list">
+          <li>{{ lang() === 'pt' ? 'Liderança de times no Brasil, Índia e África do Sul' : 'Leadership of teams in Brazil, India and South Africa' }}</li>
+          <li>{{ lang() === 'pt' ? 'Gestão de backlog, roadmap e priorização orientada a produto' : 'Backlog, roadmap and product-driven prioritization' }}</li>
+          <li>{{ lang() === 'pt' ? 'Aceleração com IA: Copilot, ChatGPT e automações' : 'AI acceleration with Copilot, ChatGPT and automations' }}</li>
+          <li>{{ lang() === 'pt' ? 'Governança de SDLC com Veracode, Checkmarx, Rapid7 e Datadog' : 'SDLC governance with Veracode, Checkmarx, Rapid7 and Datadog' }}</li>
+        </ul>
+      </article>
+
+      <article class="about-summary-card">
+        <h4>{{ lang() === 'pt' ? 'Melhor aderência' : 'Best role fit' }}</h4>
+        <ul class="summary-list">
+          <li>IT Manager / Delivery Manager</li>
+          <li>Technical Product Owner</li>
+          <li>Agile Lead / Scrum of Scrums</li>
+          <li>{{ lang() === 'pt' ? 'Criação de times e dinâmica de equipe' : 'Team creation and dynamic' }}</li>
+        </ul>
+        <div class="about-cta-row">
+          <a href="assets/cv.pdf" download="WesleyGomes_CV.pdf" class="btn-recruiter-cv">
+            <i class="fas fa-file-pdf"></i>
+            {{ lang() === 'pt' ? 'Baixar CV' : 'Download CV' }}
+          </a>
+          <a href="https://www.linkedin.com/in/wesleyzilva/" target="_blank" rel="noopener" class="btn-recruiter-li">
+            <i class="fab fa-linkedin"></i>
+            LinkedIn
+          </a>
+          <a href="https://wa.me/5516997212966?text=Hello%20Wesley" target="_blank" rel="noopener" class="btn-recruiter-wa">
+            <i class="fab fa-whatsapp"></i>
+            WhatsApp
+          </a>
         </div>
+      </article>
+    </div>
+
+    <div class="value-grid-row">
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-brain"></i></div>
+        <h4>{{ lang() === 'pt' ? 'IA para Times Remotos' : 'AI for Remote Teams' }}</h4>
+        <p>{{ lang() === 'pt'
+          ? 'Copilot, ChatGPT e Datadog AI aplicados para reduzir fricção e acelerar entrega.'
+          : 'Copilot, ChatGPT and Datadog AI applied to reduce friction and accelerate delivery.' }}</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-globe-americas"></i></div>
+        <h4>{{ lang() === 'pt' ? 'Gestão Nearshore' : 'Nearshore Management' }}</h4>
+        <p>{{ lang() === 'pt'
+          ? 'Squads multiculturais com rituais adaptados por fuso, idioma e contexto de negócio.'
+          : 'Multicultural squads with rituals adapted by time zone, language and business context.' }}</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-rocket"></i></div>
+        <h4>{{ lang() === 'pt' ? 'Entrega Ágil' : 'Agile Delivery' }}</h4>
+        <p>{{ lang() === 'pt'
+          ? 'Scrum, SAFe e Scrum of Scrums em ambientes com alta pressão e reporting executivo.'
+          : 'Scrum, SAFe and Scrum of Scrums in high-pressure environments with executive reporting.' }}</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-shield-alt"></i></div>
+        <h4>DevSecOps & PO Tech</h4>
+        <p>{{ lang() === 'pt'
+          ? 'Pipelines seguros, backlog orientado a produto e visão API-First para modernização sustentável.'
+          : 'Secure pipelines, product-oriented backlog and an API-first mindset for sustainable modernization.' }}</p>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- Coluna da Direita: Carrossel de Projetos -->
-  <div class="projects-column">
-    <h2 class="section-title">My Projects</h2>
-    <div class="projects-carousel">
-      <!-- Renderiza os projetos um por um -->
-      <ng-container *ngFor="let project of projects; let i = index">
-        <div class="project-card" *ngIf="i === currentProjectIndex">
-          <img [src]="project.seal" alt="Recognition Seal" class="project-seal" *ngIf="project.seal">
-          <h3>{{ project.title }}</h3>
-          <p><strong>Scope:</strong> {{ project.scope }}</p>
-          <table class="project-table">
-            <thead>
-              <tr>
-                <th>Duration</th>
-                <th>Team</th>
-                <th>Achievements</th>
-                <th>Highlights</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{{ project.duration }}</td>
-                <td>{{ project.team }}</td>
-                <td>{{ project.achievements }}</td>
-                <td [innerHTML]="project.highlights"></td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="project-actions">
-            <div class="project-links">
-              <a *ngFor="let link of project.links" [href]="link.url" class="btn" target="_blank" [hidden]="!link.text">{{ link.text }}</a>
-            </div>
-            <div class="like-container">
-              <button class="like-button" (click)="likeProject(project)" [class.liked]="project.liked">
-                <i class="fas fa-heart"></i>
-              </button>
-              <span class="like-count">{{ project.likes }}</span>
+<!-- ===================== HARD & SOFT SKILLS ===================== -->
+<section id="skills" class="section-wrapper alt-bg">
+  <div class="section-inner">
+    <div class="section-label">
+      <span class="label-line"></span>
+      <span>Skills</span>
+      <span class="label-line"></span>
+    </div>
+    <h2 class="section-heading">
+      Hard <span class="accent">&</span> Soft Skills
+    </h2>
+
+    <div class="skills-grid">
+      <div class="skills-block">
+        <h3 class="skills-block-title">
+          <i class="fas fa-code"></i> Hard Skills
+        </h3>
+        <div class="skills-categories">
+          <div class="skill-category">
+            <span class="category-label">{{ lang() === 'pt' ? 'IA & Dados' : 'AI & Data' }}</span>
+            <div class="skill-pills">
+              <span class="pill pill-tech">ChatGPT / Copilot</span>
+              <span class="pill pill-tech">Databricks</span>
+              <span class="pill pill-tech">Apache Spark</span>
+              <span class="pill pill-tech">Datadog AI</span>
+              <span class="pill pill-tech">Power Automate</span>
+              <span class="pill pill-tech">Elasticsearch</span>
             </div>
           </div>
-          <h4>Project Hard & Soft Skills</h4>
-          <div class="tech-pills-container">
-            <span *ngFor="let skill of project.skills" class="btn btn_skill">{{ skill }}</span>
+          <div class="skill-category">
+            <span class="category-label">{{ lang() === 'pt' ? 'Desenvolvimento' : 'Development' }}</span>
+            <div class="skill-pills">
+              <span class="pill pill-tech">Angular</span>
+              <span class="pill pill-tech">Java / Spring</span>
+              <span class="pill pill-tech">.NET</span>
+              <span class="pill pill-tech">Python</span>
+              <span class="pill pill-tech">SQL / PostgreSQL</span>
+              <span class="pill pill-tech">REST APIs</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <span class="category-label">{{ lang() === 'pt' ? 'DevSecOps & Observabilidade' : 'DevSecOps & Observability' }}</span>
+            <div class="skill-pills">
+              <span class="pill pill-tech">Veracode</span>
+              <span class="pill pill-tech">Checkmarx</span>
+              <span class="pill pill-tech">Rapid7</span>
+              <span class="pill pill-tech">CI/CD Pipelines</span>
+              <span class="pill pill-tech">Datadog RUM</span>
+              <span class="pill pill-tech">Dynatrace</span>
+              <span class="pill pill-tech">PCI-DSS</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <span class="category-label">{{ lang() === 'pt' ? 'Ferramentas Ágeis' : 'Agile Tools' }}</span>
+            <div class="skill-pills">
+              <span class="pill pill-tech">Jira</span>
+              <span class="pill pill-tech">Azure Boards</span>
+              <span class="pill pill-tech">ServiceNow</span>
+              <span class="pill pill-tech">Figma</span>
+              <span class="pill pill-tech">Confluence</span>
+              <span class="pill pill-tech">Tableau / PowerBI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-block">
+        <h3 class="skills-block-title">
+          <i class="fas fa-users"></i> Soft Skills
+        </h3>
+        <div class="skills-categories">
+          <div class="skill-category">
+            <span class="category-label">{{ lang() === 'pt' ? 'Liderança' : 'Leadership' }}</span>
+            <div class="skill-pills">
+              <span class="pill pill-soft">{{ lang() === 'pt' ? 'Liderança Técnica' : 'Technical Leadership' }}</span>
+              <span class="pill pill-soft">{{ lang() === 'pt' ? 'Coaching Internacional' : 'International Coaching' }}</span>
+              <span class="pill pill-soft">{{ lang() === 'pt' ? 'Mentoring' : 'Mentoring' }}</span>
+              <span class="pill pill-soft">{{ lang() === 'pt' ? 'Gestão de Crise' : 'Crisis Management' }}</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <span class="category-label">{{ lang() === 'pt' ? 'Gestão Remota' : 'Remote Management' }}</span>
+            <div class="skill-pills">
+              <span class="pill pill-soft">{{ lang() === 'pt' ? 'Times Multiculturais' : 'Multicultural Teams' }}</span>
+              <span class="pill pill-soft">{{ lang() === 'pt' ? 'Comunicação Assíncrona' : 'Async Communication' }}</span>
+              <span class="pill pill-soft">{{ lang() === 'pt' ? 'Gestão por OKRs' : 'OKR Management' }}</span>
+              <span class="pill pill-soft">{{ lang() === 'pt' ? 'Stakeholder Mgmt' : 'Stakeholder Mgmt' }}</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <span class="category-label">{{ lang() === 'pt' ? 'Metodologias' : 'Methodologies' }}</span>
+            <div class="skill-pills">
+              <span class="pill pill-soft">Scrum / Kanban</span>
+              <span class="pill pill-soft">SAFe / Scrum of Scrums</span>
+              <span class="pill pill-soft">Six Sigma Yellow Belt</span>
+              <span class="pill pill-soft">DORA Metrics</span>
+              <span class="pill pill-soft">ITIL</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <span class="category-label">{{ lang() === 'pt' ? 'Inteligência Emocional' : 'Emotional Intelligence' }}</span>
+            <div class="skill-pills">
+              <span class="pill pill-soft">{{ lang() === 'pt' ? 'Empatia' : 'Empathy' }}</span>
+              <span class="pill pill-soft">{{ lang() === 'pt' ? 'Comunicação Eficaz' : 'Effective Communication' }}</span>
+              <span class="pill pill-soft">{{ lang() === 'pt' ? 'Resiliência' : 'Resilience' }}</span>
+              <span class="pill pill-soft">{{ lang() === 'pt' ? 'Pensamento Analítico' : 'Analytical Thinking' }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROJECTS ===================== -->
+<section id="projects" class="section-wrapper">
+  <div class="section-inner">
+    <div class="section-label">
+      <span class="label-line"></span>
+      <span>{{ lang() === 'pt' ? 'Projetos' : 'Projects' }}</span>
+      <span class="label-line"></span>
+    </div>
+    <h2 class="section-heading">
+      {{ lang() === 'pt' ? 'Selecionei 12 projetos que gerenciei' : 'I selected 12 projects I managed' }}
+    </h2>
+
+    <div class="projects-layout">
+      <!-- Carousel -->
+      <ng-container *ngFor="let project of projects; let i = index">
+        <div class="project-card" *ngIf="i === currentProjectIndex">
+          <h3 class="project-title">{{ project.title }}</h3>
+
+          <div class="project-meta-grid">
+            <div class="meta-item">
+              <i class="fas fa-bullseye"></i>
+              <div>
+                <strong>{{ lang() === 'pt' ? 'Escopo' : 'Scope' }}</strong>
+                <p>{{ project.scope }}</p>
+              </div>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-clock"></i>
+              <div>
+                <strong>{{ lang() === 'pt' ? 'Duração' : 'Duration' }}</strong>
+                <p>{{ project.duration }}</p>
+              </div>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-users"></i>
+              <div>
+                <strong>{{ lang() === 'pt' ? 'Time' : 'Team' }}</strong>
+                <p>{{ project.team }}</p>
+              </div>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-trophy"></i>
+              <div>
+                <strong>{{ lang() === 'pt' ? 'Resultados' : 'Achievements' }}</strong>
+                <p>{{ project.achievements }}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-highlights" *ngIf="project.highlights">
+            <i class="fas fa-lightbulb"></i>
+            <span>{{ project.highlights }}</span>
+          </div>
+
+          <div class="project-footer">
+            <div class="project-links">
+              <a *ngFor="let link of project.links" [href]="link.url" target="_blank" rel="noopener"
+                class="pill-link" [hidden]="!link.text">
+                <i class="fas fa-external-link-alt"></i> {{ link.text }}
+              </a>
+            </div>
+            <button class="like-btn" (click)="likeProject(project)" [class.liked]="project.liked">
+              <i class="fas fa-heart"></i> {{ project.likes }}
+            </button>
+          </div>
+
+          <div class="project-skills" *ngIf="project.skills?.length">
+            <h4>{{ lang() === 'pt' ? 'Skills do Projeto' : 'Project Skills' }}</h4>
+            <div class="skill-pills">
+              <span *ngFor="let skill of project.skills" class="pill pill-tech">{{ skill }}</span>
+            </div>
           </div>
         </div>
       </ng-container>
 
-      <!-- Navegação do Carrossel -->
-      <div class="carousel-navigation">
-        <button (click)="previousProject()" [disabled]="currentProjectIndex === 0" class="nav-button">
-          <i class="fas fa-chevron-left"></i> Previous
+      <!-- Navigation -->
+      <div class="carousel-nav">
+        <button (click)="previousProject()" [disabled]="currentProjectIndex === 0" class="nav-btn">
+          <i class="fas fa-chevron-left"></i> {{ lang() === 'pt' ? 'Anterior' : 'Previous' }}
         </button>
         <span class="project-counter">{{ currentProjectIndex + 1 }} / {{ projects.length }}</span>
-        <button (click)="nextProject()" [disabled]="currentProjectIndex === projects.length - 1" class="nav-button">
-          Next <i class="fas fa-chevron-right"></i>
+        <button (click)="nextProject()" [disabled]="currentProjectIndex === projects.length - 1" class="nav-btn">
+          {{ lang() === 'pt' ? 'Próximo' : 'Next' }} <i class="fas fa-chevron-right"></i>
         </button>
       </div>
     </div>
   </div>
-</div>
+</section>
+

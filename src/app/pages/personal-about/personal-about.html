@@ -1,0 +1,96 @@
+<section class="personal-page">
+  <div class="page-shell">
+    <div class="top-bar">
+      <a routerLink="/" class="back-link" aria-label="Back to professional page">
+        <i class="fas fa-arrow-left"></i>
+        {{ lang() === 'pt' ? 'Voltar ao perfil profissional' : 'Back to professional profile' }}
+      </a>
+      <span class="page-note">{{ lang() === 'pt' ? 'Página pessoal separada da versão para recrutadores' : 'Personal page separated from the recruiter-focused version' }}</span>
+    </div>
+
+    <header class="personal-hero">
+      <p class="eyebrow">Personal About</p>
+      <h1>{{ lang() === 'pt' ? 'Além do profissional, um pouco sobre mim' : 'Beyond the professional side, a bit about me' }}</h1>
+      <p class="hero-copy">
+        {{ lang() === 'pt'
+          ? 'Esta página foi separada para não misturar o contexto pessoal com a triagem profissional. Aqui estão momentos com times, família, interesses e um vídeo em inglês.'
+          : 'This page is intentionally separate so personal context does not mix with professional screening. Here you can see team moments, family, interests and an English presentation video.' }}
+      </p>
+      <div class="social-row">
+        <a href="https://www.instagram.com/wesley.zilva/" target="_blank" rel="noopener" class="social-link instagram">Instagram</a>
+        <a href="https://www.linkedin.com/in/wesleyzilva/" target="_blank" rel="noopener" class="social-link linkedin">LinkedIn</a>
+        <a href="https://github.com/wesleyzilva" target="_blank" rel="noopener" class="social-link github">GitHub</a>
+      </div>
+    </header>
+
+    <section class="personal-section video-section" aria-labelledby="video-title">
+      <div class="section-copy">
+        <p class="eyebrow">English Intro</p>
+        <h2 id="video-title">{{ lang() === 'pt' ? 'Vídeo de apresentação em inglês' : 'English introduction video' }}</h2>
+        <p>
+          {{ lang() === 'pt'
+            ? 'Substitua o VIDEO_ID abaixo pelo link do seu vídeo no YouTube para que recrutadores possam avaliar sua comunicação em inglês.'
+            : 'Replace the VIDEO_ID below with your YouTube link so recruiters can quickly assess your spoken English.' }}
+        </p>
+      </div>
+      <div class="video-frame">
+        <iframe
+          src="https://www.youtube.com/embed/VIDEO_ID"
+          title="Wesley Gomes introduction in English"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <section class="personal-section" aria-labelledby="teams-title">
+      <div class="section-copy">
+        <p class="eyebrow">Teams</p>
+        <h2 id="teams-title">{{ lang() === 'pt' ? 'Momentos com equipes' : 'Team moments' }}</h2>
+        <p>{{ lang() === 'pt' ? 'Experiências reais com pessoas, colaboração e construção de dinâmica de equipe.' : 'Real experiences around people, collaboration and team dynamics.' }}</p>
+      </div>
+      <div class="carousel-card">
+        <img [src]="currentImage('teams')" alt="Team moment photo" class="carousel-image" />
+        <div class="carousel-controls">
+          <button type="button" (click)="previous('teams')" aria-label="Previous team photo">‹</button>
+          <span aria-live="polite">{{ currentIndex.teams + 1 }} / {{ carousels.teams.length }}</span>
+          <button type="button" (click)="next('teams')" aria-label="Next team photo">›</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="personal-section" aria-labelledby="family-title">
+      <div class="section-copy">
+        <p class="eyebrow">Family</p>
+        <h2 id="family-title">{{ lang() === 'pt' ? 'Família e base pessoal' : 'Family and personal foundation' }}</h2>
+        <p>{{ lang() === 'pt' ? 'Uma visão humana e equilibrada, separada da apresentação profissional.' : 'A human and balanced view, kept separate from the professional presentation.' }}</p>
+      </div>
+      <div class="carousel-card">
+        <img [src]="currentImage('family')" alt="Family photo" class="carousel-image" />
+        <div class="carousel-controls">
+          <button type="button" (click)="previous('family')" aria-label="Previous family photo">‹</button>
+          <span aria-live="polite">{{ currentIndex.family + 1 }} / {{ carousels.family.length }}</span>
+          <button type="button" (click)="next('family')" aria-label="Next family photo">›</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="personal-section" aria-labelledby="aboutme-title">
+      <div class="section-copy">
+        <p class="eyebrow">About me</p>
+        <h2 id="aboutme-title">{{ lang() === 'pt' ? 'Interesses e identidade' : 'Interests and identity' }}</h2>
+        <p>{{ lang() === 'pt' ? 'Leitura, música e outros elementos que ajudam a contar quem eu sou além do trabalho.' : 'Reading, music and other elements that help tell who I am beyond work.' }}</p>
+      </div>
+      <div class="carousel-card">
+        <img [src]="currentImage('aboutMe')" alt="Personal interest photo" class="carousel-image" />
+        <div class="carousel-controls">
+          <button type="button" (click)="previous('aboutMe')" aria-label="Previous personal photo">‹</button>
+          <span aria-live="polite">{{ currentIndex.aboutMe + 1 }} / {{ carousels.aboutMe.length }}</span>
+          <button type="button" (click)="next('aboutMe')" aria-label="Next personal photo">›</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>

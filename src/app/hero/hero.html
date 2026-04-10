@@ -1,0 +1,55 @@
+<section class="hero-section" id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-photo-wrapper">
+      <img [src]="currentPhoto" alt="Wesley Gomes da Silva" class="hero-photo" [class.photo-fading]="!photoVisible" />
+    </div>
+    <div class="hero-text">
+      <span class="hero-badge">
+        {{ lang() === 'pt' ? 'Disponível para projetos nearshore' : 'Available for nearshore projects' }}
+      </span>
+      <h1 class="hero-name">Wesley <span class="highlight">Gomes</span> da Silva</h1>
+      <p class="hero-title">
+        {{ lang() === 'pt'
+          ? 'IT Manager · Agile Coach · Especialista em Gestão Remota com IA'
+          : 'IT Manager · Agile Coach · Remote Management with AI Specialist' }}
+      </p>
+      <p class="hero-tagline">
+        {{ lang() === 'pt'
+          ? 'Lídero times remotos nearshore em todo o mundo — com ferramentas de IA, metodologia ágil e mais de 14 anos entregando resultados em tecnologia.'
+          : 'I lead remote nearshore teams worldwide — leveraging AI tools, agile methodology, and 14+ years delivering technology results.' }}
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">14+</span>
+          <span class="stat-label">{{ lang() === 'pt' ? 'Anos de Experiência' : 'Years of Experience' }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">12+</span>
+          <span class="stat-label">{{ lang() === 'pt' ? 'Projetos Entregues' : 'Projects Delivered' }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">3</span>
+          <span class="stat-label">{{ lang() === 'pt' ? 'Continentes Atendidos' : 'Continents Served' }}</span>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">
+          <i class="fas fa-paper-plane"></i>
+          {{ lang() === 'pt' ? 'Fale Comigo' : 'Get in Touch' }}
+        </a>
+        <a href="assets/cv.pdf" download="WesleyGomes_CV.pdf" class="btn-secondary">
+          <i class="fas fa-file-pdf"></i>
+          {{ lang() === 'pt' ? 'Baixar CV' : 'Download CV' }}
+        </a>
+        <a href="https://www.linkedin.com/in/wesleyzilva/" target="_blank" rel="noopener noreferrer" class="btn-outline">
+          <i class="fab fa-linkedin"></i>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <i class="fas fa-chevron-down"></i>
+  </div>
+</section>

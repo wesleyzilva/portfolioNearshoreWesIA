@@ -1,1 +1,44 @@
-<p>location works!</p>
+<section id="location" class="location-section">
+  <div class="location-inner">
+    <div class="section-label">
+      <span class="label-line"></span>
+      <span>{{ lang() === 'pt' ? 'Localização' : 'Location' }}</span>
+      <span class="label-line"></span>
+    </div>
+
+    <h2 class="location-heading">
+      {{ lang() === 'pt' ? 'Baseado em São Carlos, a cidade da tecnologia' : 'Based in São Carlos, a technology-driven city' }}
+    </h2>
+
+    <div class="location-grid">
+      <div class="location-copy">
+        <p>
+          {{ lang() === 'pt'
+            ? 'São Carlos, no interior de São Paulo, é conhecida como um dos polos brasileiros de ciência, engenharia e desenvolvimento. A cidade reúne USP, UFSCar, ParqTec, Embrapa Instrumentação e um ecossistema forte de software, pesquisa aplicada e inovação.'
+            : 'São Carlos, in the state of São Paulo, is known as one of Brazil’s strongest hubs for science, engineering and software development. It brings together USP, UFSCar, ParqTec, Embrapa Instrumentation and a strong ecosystem of software, applied research and innovation.' }}
+        </p>
+
+        <ul class="location-points">
+          <li>{{ lang() === 'pt' ? 'Ambiente com alta densidade de talentos em tecnologia e engenharia' : 'High concentration of engineering and technology talent' }}</li>
+          <li>{{ lang() === 'pt' ? 'Universidades e centros de pesquisa que alimentam inovação contínua' : 'Universities and research centers that sustain continuous innovation' }}</li>
+          <li>{{ lang() === 'pt' ? 'Ecossistema favorável para software, automação, dados e produtos digitais' : 'Strong environment for software, automation, data and digital products' }}</li>
+          <li>{{ lang() === 'pt' ? 'Qualidade de vida e operação ideal para trabalho remoto e nearshore' : 'Quality of life and an ideal base for remote and nearshore work' }}</li>
+        </ul>
+
+        <a href="https://www.google.com/maps/place/S%C3%A3o+Carlos+-+SP/" target="_blank" rel="noopener" class="map-link">
+          <i class="fas fa-map-marker-alt"></i>
+          {{ lang() === 'pt' ? 'Abrir no Google Maps' : 'Open in Google Maps' }}
+        </a>
+      </div>
+
+      <div class="location-map-frame">
+        <iframe
+          title="Map showing São Carlos in Brazil"
+          src="https://www.google.com/maps?q=S%C3%A3o%20Carlos%20SP&z=12&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>

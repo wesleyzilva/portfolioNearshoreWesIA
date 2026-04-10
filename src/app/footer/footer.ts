@@ -1,5 +1,8 @@
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID, inject } from '@angular/core';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
+import { LanguageService } from '../services/language.service';
+
+declare function gtag(...args: any[]): void;
 
 @Component({
   selector: 'app-footer',
@@ -9,6 +12,9 @@ import { isPlatformBrowser, CommonModule } from '@angular/common';
   styleUrl: './footer.scss'
 })
 export class Footer implements OnInit {
+  readonly langService = inject(LanguageService);
+  lang = this.langService.lang;
+
   visitCount: number = 0;
   lastModifiedDate: string = '';
   isBrowser: boolean;
@@ -27,6 +33,16 @@ export class Footer implements OnInit {
       const lastModified = new Date(document.lastModified);
       const options: Intl.DateTimeFormatOptions = { day: '2-digit', month: '2-digit', year: 'numeric' };
       this.lastModifiedDate = lastModified.toLocaleDateString('en-GB', options);
+    }
+  }
+
+  trackConversion(channel: 'whatsapp' | 'email' | 'linkedin'): void {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'generate_lead', {
+        event_category: 'contact',
+        event_label: channel,
+        value: 1
+      });
     }
   }
 }

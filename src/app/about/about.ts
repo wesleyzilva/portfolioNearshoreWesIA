@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LanguageService } from '../services/language.service';
 
 @Component({
   selector: 'app-about',
@@ -9,6 +10,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './about.scss'
 })
 export class About implements OnInit {
+  readonly langService = inject(LanguageService);
+  lang = this.langService.lang;
+
   currentProjectIndex = 0;
   projects: any[] = [];
 
