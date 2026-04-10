@@ -29,9 +29,19 @@ export class PersonalAboutPage {
       'assets/family/20260125_084719.jpg'
     ],
     aboutMe: [
-      'assets/aboutMe/livro.jpg',
-      'assets/aboutMe/trade.jpg',
-      'assets/aboutMe/violin.jpg'
+      'assets/aboutMe/aboutMe%20(1).jpeg',
+      'assets/aboutMe/aboutMe%20(1).jpg',
+      'assets/aboutMe/aboutMe%20(3).jpg',
+      'assets/aboutMe/aboutMe%20(4).jpg',
+      'assets/aboutMe/aboutMe%20(5).jpg',
+      'assets/aboutMe/aboutMe%20(6).jpg',
+      'assets/aboutMe/aboutMe%20(7).jpg',
+      'assets/aboutMe/aboutMe%20(8).jpg',
+      'assets/aboutMe/aboutMe%20(9).jpg',
+      'assets/aboutMe/aboutMe%20(10).jpg',
+      'assets/aboutMe/aboutMe%20(11).jpg',
+      'assets/aboutMe/aboutMe%20(12).jpg',
+      'assets/aboutMe/aboutMe%20(13).jpg'
     ]
   };
 
