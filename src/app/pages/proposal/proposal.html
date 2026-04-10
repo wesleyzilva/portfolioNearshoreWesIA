@@ -159,37 +159,6 @@
       </div>
     </section>
 
-    <section class="contract-terms">
-      <h2 *ngIf="lang() === 'pt'">Termos Contratuais</h2>
-      <h2 *ngIf="lang() === 'en'">Contract Terms</h2>
-      
-      <div class="terms-card">
-        <div class="term-item">
-          <i class="fa-solid fa-calendar-days"></i>
-          <div>
-            <h3 *ngIf="lang() === 'pt'">Duração Mínima</h3>
-            <h3 *ngIf="lang() === 'en'">Minimum Duration</h3>
-            <p *ngIf="lang() === 'pt'">Contrato de no mínimo <strong>1 ano</strong></p>
-            <p *ngIf="lang() === 'en'">Contract of at least <strong>1 year</strong></p>
-          </div>
-        </div>
-        
-        <div class="term-item">
-          <i class="fa-solid fa-shield-halved"></i>
-          <div>
-            <h3 *ngIf="lang() === 'pt'">Garantia Mútua</h3>
-            <h3 *ngIf="lang() === 'en'">Mutual Guarantee</h3>
-            <p *ngIf="lang() === 'pt'">
-              Multa de quebra de contrato para <strong>garantia de ambas as partes</strong>
-            </p>
-            <p *ngIf="lang() === 'en'">
-              Contract breach penalty to <strong>guarantee both parties</strong>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="delivery-section">
       <h2 *ngIf="lang() === 'pt'">O Que Eu Entrego</h2>
       <h2 *ngIf="lang() === 'en'">What I Deliver</h2>
@@ -275,6 +244,37 @@
             </p>
             <p *ngIf="lang() === 'en'">
               Implementation of <strong>automated pipelines</strong> and continuous integration/delivery practices
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contract-terms">
+      <h2 *ngIf="lang() === 'pt'">Termos Contratuais</h2>
+      <h2 *ngIf="lang() === 'en'">Contract Terms</h2>
+      
+      <div class="terms-card">
+        <div class="term-item">
+          <i class="fa-solid fa-calendar-days"></i>
+          <div>
+            <h3 *ngIf="lang() === 'pt'">Duração Mínima</h3>
+            <h3 *ngIf="lang() === 'en'">Minimum Duration</h3>
+            <p *ngIf="lang() === 'pt'">Contrato de no mínimo <strong>1 ano</strong></p>
+            <p *ngIf="lang() === 'en'">Contract of at least <strong>1 year</strong></p>
+          </div>
+        </div>
+        
+        <div class="term-item">
+          <i class="fa-solid fa-shield-halved"></i>
+          <div>
+            <h3 *ngIf="lang() === 'pt'">Garantia Mútua</h3>
+            <h3 *ngIf="lang() === 'en'">Mutual Guarantee</h3>
+            <p *ngIf="lang() === 'pt'">
+              Multa de quebra de contrato para <strong>garantia de ambas as partes</strong>
+            </p>
+            <p *ngIf="lang() === 'en'">
+              Contract breach penalty to <strong>guarantee both parties</strong>
             </p>
           </div>
         </div>

@@ -17,8 +17,18 @@
       <p class="hero-tagline">
         {{ lang() === 'pt'
           ? 'Lídero times remotos nearshore em todo o mundo — com ferramentas de IA, metodologia ágil e mais de 14 anos entregando resultados em tecnologia.'
-          : 'I lead remote nearshore teams worldwide — leveraging AI tools, agile methodology, and 14+ years delivering technology results, any timezone, total availability for travel.' }}
+          : 'I lead remote nearshore teams worldwide — leveraging AI tools, agile methodology, and 14+ years delivering technology results in any timezone.' }}
       </p>
+      <div class="hero-tags">
+        <span class="tag-item">
+          <i class="fas fa-home"></i>
+          {{ lang() === 'pt' ? 'Remoto' : 'Remote' }}
+        </span>
+        <span class="tag-item">
+          <i class="fas fa-plane"></i>
+          {{ lang() === 'pt' ? 'Disponível para Viagens' : 'Travel Available' }}
+        </span>
+      </div>
       <div class="hero-stats">
         <div class="stat-item">
           <span class="stat-number">14+</span>
