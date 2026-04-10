@@ -65,7 +65,7 @@
           <li>{{ lang() === 'pt' ? 'Criação de times e dinâmica de equipe' : 'Team creation and dynamic' }}</li>
         </ul>
         <div class="about-cta-row">
-          <a href="assets/cv.pdf" download="WesleyGomes_CV.pdf" class="btn-recruiter-cv">
+          <a [href]="lang() === 'pt' ? 'assets/CV_WesleySilva_IT_espec_manager_PT.pdf' : 'assets/CV_WesleySilva_IT_espec_manager_EN_Brazil.pdf'" [download]="lang() === 'pt' ? 'CV_WesleySilva_IT_espec_manager_PT.pdf' : 'CV_WesleySilva_IT_espec_manager_EN_Brazil.pdf'" class="btn-recruiter-cv">
             <i class="fas fa-file-pdf"></i>
             {{ lang() === 'pt' ? 'Baixar CV' : 'Download CV' }}
           </a>
