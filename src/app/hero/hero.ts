@@ -13,7 +13,10 @@ export class Hero implements OnInit, OnDestroy {
   readonly langService = inject(LanguageService);
   lang = this.langService.lang;
 
-  readonly photos = ['assets/wesley.jpg', 'assets/wesley1.jpg'];
+  readonly photos = [
+    'assets/Wesley/wesley%20(1).jpg',
+    'assets/Wesley/wesley%20(4).jpg',
+  ];
   currentPhotoIndex = 0;
   photoVisible = true;
 
