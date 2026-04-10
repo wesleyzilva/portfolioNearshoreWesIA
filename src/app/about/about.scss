@@ -1,6 +1,7 @@
 /* ===== SHARED SECTION LAYOUT ===== */
 .section-wrapper {
   padding: 6rem 2rem;
+  background: linear-gradient(180deg, rgba(13, 27, 42, 0.3) 0%, rgba(19, 34, 56, 0.5) 100%);
 
   &.alt-bg {
     background: rgba(27, 38, 59, 0.5);

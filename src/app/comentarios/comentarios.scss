@@ -1,16 +1,14 @@
 // Usando as variáveis globais de styles.scss para manter a consistência do tema
 
 .comentarios-container {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  border: 1px solid var(--cor-borda);
-  border-radius: 8px;
-  // Usando o fundo com efeito de vidro do tema
-  background-color: var(--cor-glass-bg);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  font-family: var(--fonte-secundaria);
+  padding: 6rem 2rem;
+  background: linear-gradient(180deg, rgba(15, 25, 38, 0.8) 0%, rgba(13, 27, 42, 0.95) 100%);
+
+  > * {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   h3 {
     color: var(--cor-texto);
@@ -27,6 +25,10 @@
     align-items: center;
     border-bottom: 1px solid var(--cor-ui-sutil);
     margin-bottom: 1rem;
+    background: var(--cor-fundo-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    padding: 1.5rem;
 
     h2 {
       color: var(--cor-texto);
@@ -41,7 +43,10 @@
     margin-bottom: 2rem;
     max-height: 400px;
     overflow-y: auto;
-    padding-right: 10px;
+    padding: 1.5rem;
+    background: var(--cor-fundo-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
 
     // Scrollbar customizada para o tema
     &::-webkit-scrollbar {
@@ -198,6 +203,17 @@
   }
 
   .new-comment-form {
+    background: rgba(19, 34, 56, 0.4);
+    border: 1px solid rgba(76, 201, 240, 0.15);
+    border-radius: 8px;
+    padding: 1.5rem;
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: var(--cor-destaque-primaria);
+    }
+
     input[type="text"],
     textarea {
       width: 100%;

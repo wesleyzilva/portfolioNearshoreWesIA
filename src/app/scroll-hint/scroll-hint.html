@@ -1,0 +1,10 @@
+<div class="scroll-hint-wrapper">
+  <a 
+    [href]="'#' + targetSection" 
+    class="scroll-hint" 
+    (click)="scrollToSection(); $event.preventDefault()"
+    [attr.aria-label]="'Scroll to ' + targetSection"
+  >
+    <i class="fas fa-chevron-down"></i>
+  </a>
+</div>
