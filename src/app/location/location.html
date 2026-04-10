@@ -12,10 +12,11 @@
 
     <div class="location-grid">
       <div class="location-copy">
-        <p>
-          {{ lang() === 'pt'
-            ? 'São Carlos, no estado de São Paulo, é um dos principais polos tecnológicos e científicos do Brasil, com cerca de 250 mil habitantes. Localizada no centro geográfico do estado, facilita o acesso a Campinas, Ribeirão Preto e a capital paulista. A cidade combina qualidade de vida com um ecossistema robusto de ciência aplicada, engenharia e desenvolvimento de software.'
-            : 'São Carlos, in the state of São Paulo, is one of Brazil's leading technology and scientific hubs, with around 250,000 inhabitants. Located in the geographic center of the state, it provides easy access to Campinas, Ribeirão Preto and São Paulo capital. The city combines quality of life with a robust ecosystem of applied science, engineering and software development.' }}
+        <p *ngIf="lang() === 'pt'">
+          São Carlos, no estado de São Paulo, é um dos principais polos tecnológicos e científicos do Brasil, com cerca de 250 mil habitantes. Localizada no centro geográfico do estado, facilita o acesso a Campinas, Ribeirão Preto e a capital paulista. A cidade combina qualidade de vida com um ecossistema robusto de ciência aplicada, engenharia e desenvolvimento de software.
+        </p>
+        <p *ngIf="lang() === 'en'">
+          São Carlos, in the state of São Paulo, is one of Brazil's leading technology and scientific hubs, with around 250,000 inhabitants. Located in the geographic center of the state, it provides easy access to Campinas, Ribeirão Preto and São Paulo capital. The city combines quality of life with a robust ecosystem of applied science, engineering and software development.
         </p>
 
         <h3 class="location-subtitle">
