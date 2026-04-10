@@ -1,9 +1,5 @@
-import { bootstrapApplication, provideProtractorTestingSupport } from '@angular/platform-browser';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
 import { App } from './app/app';
 
-bootstrapApplication(App, {
-  ...appConfig,
-  providers: [provideProtractorTestingSupport(), provideHttpClient(withFetch())],
-}).catch(err => console.error(err));
+bootstrapApplication(App, appConfig).catch(err => console.error(err));
