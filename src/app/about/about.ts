@@ -1,11 +1,12 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../services/language.service';
+import { ScrollHint } from '../scroll-hint/scroll-hint';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ScrollHint],
   templateUrl: './about.html',
   styleUrl: './about.scss'
 })

@@ -36,6 +36,20 @@
   margin-bottom: 1rem;
 }
 
+.location-subtitle {
+  font-family: var(--fonte-primaria);
+  font-size: 1.25rem;
+  color: var(--cor-destaque-primaria);
+  margin: 1.5rem 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  i {
+    font-size: 1rem;
+  }
+}
+
 .location-points {
   margin: 0 0 1rem;
   padding-left: 1.1rem;
