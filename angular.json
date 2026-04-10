@@ -18,8 +18,8 @@
           "builder": "@angular/build:application",
           "options": {
             
-          "outputPath": "dist/paginaAngular/",
-          "baseHref": "/paginaAngular/",
+          "outputPath": "dist/portfolioNearshoreWesIA/",
+          "baseHref": "/portfolioNearshoreWesIA/",
 
             "browser": "src/main.ts",
             "polyfills": [
@@ -44,7 +44,7 @@
             ]
           },
           "configurations": {
-            "production": {    "baseHref": "/paginaAngular/",
+            "production": {    "baseHref": "/portfolioNearshoreWesIA/",
               "budgets": [
                 {
                   "type": "initial",
@@ -112,7 +112,7 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "baseHref": "/paginaAngular/"
+            "baseHref": "/portfolioNearshoreWesIA/"
           }
         }
       }
