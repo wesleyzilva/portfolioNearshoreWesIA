@@ -59,6 +59,24 @@
   gap: 0.6rem;
 }
 
+.location-companies {
+  margin: 0 0 1.5rem;
+  padding-left: 1.1rem;
+  color: rgba(224, 225, 221, 0.75);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  
+  li {
+    line-height: 1.5;
+    
+    strong {
+      color: var(--cor-destaque-primaria);
+      font-weight: 600;
+    }
+  }
+}
+
 .map-link {
   display: inline-flex;
   align-items: center;
