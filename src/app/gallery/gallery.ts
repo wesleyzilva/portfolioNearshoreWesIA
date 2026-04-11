@@ -70,5 +70,13 @@ export class Gallery {
       descEn: 'Acting as a technical Product Owner — backlog definition, user stories with acceptance criteria, product roadmap and bridging business stakeholders with nearshore development teams.',
       tags: ['Product Backlog', 'User Stories', 'Roadmap', 'API-First', 'Jira', 'Azure Boards'],
     },
+    {
+      icon: 'fas fa-comments',
+      titlePt: 'Hard Conversations & Desenvolvimento Pessoal',
+      titleEn: 'Hard Conversations & Personal Development',
+      descPt: 'Técnicas de 1:1, processos de contratação e distrato, desenvolvimento pessoal com foco em solução de problemas e feedback construtivo para crescimento do time.',
+      descEn: 'One-on-one techniques, hiring and offboarding processes, personal development focused on problem-solving and constructive feedback for team growth.',
+      tags: ['1:1', 'Feedback', 'Hiring', 'Offboarding', 'Problem Solving', 'Mentoring'],
+    },
   ];
 }
