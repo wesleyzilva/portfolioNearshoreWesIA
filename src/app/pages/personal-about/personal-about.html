@@ -53,7 +53,8 @@
         <p>{{ lang() === 'pt' ? 'Experiências reais com pessoas, colaboração e construção de dinâmica de equipe.' : 'Real experiences around people, collaboration and team dynamics.' }}</p>
       </div>
       <div class="carousel-card">
-        <img [src]="currentImage('teams')" alt="Team moment photo" class="carousel-image" />
+        <img [src]="currentItem('teams').url" alt="Team moment photo" class="carousel-image" />
+        <p class="photo-caption">{{ currentCaption('teams') }}</p>
         <div class="carousel-controls">
           <button type="button" (click)="previous('teams')" aria-label="Previous team photo">‹</button>
           <span aria-live="polite">{{ currentIndex.teams + 1 }} / {{ carousels.teams.length }}</span>
@@ -69,7 +70,8 @@
         <p>{{ lang() === 'pt' ? 'Uma visão humana e equilibrada, separada da apresentação profissional.' : 'A human and balanced view, kept separate from the professional presentation.' }}</p>
       </div>
       <div class="carousel-card">
-        <img [src]="currentImage('family')" alt="Family photo" class="carousel-image" />
+        <img [src]="currentItem('family').url" alt="Family photo" class="carousel-image" />
+        <p class="photo-caption">{{ currentCaption('family') }}</p>
         <div class="carousel-controls">
           <button type="button" (click)="previous('family')" aria-label="Previous family photo">‹</button>
           <span aria-live="polite">{{ currentIndex.family + 1 }} / {{ carousels.family.length }}</span>
@@ -85,7 +87,8 @@
         <p>{{ lang() === 'pt' ? 'Leitura, música e outros elementos que ajudam a contar quem eu sou além do trabalho.' : 'Reading, music and other elements that help tell who I am beyond work.' }}</p>
       </div>
       <div class="carousel-card">
-        <img [src]="currentImage('aboutMe')" alt="Personal interest photo" class="carousel-image" />
+        <img [src]="currentItem('aboutMe').url" alt="Personal interest photo" class="carousel-image" />
+        <p class="photo-caption">{{ currentCaption('aboutMe') }}</p>
         <div class="carousel-controls">
           <button type="button" (click)="previous('aboutMe')" aria-label="Previous personal photo">‹</button>
           <span aria-live="polite">{{ currentIndex.aboutMe + 1 }} / {{ carousels.aboutMe.length }}</span>

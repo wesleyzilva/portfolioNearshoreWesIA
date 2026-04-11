@@ -151,6 +151,16 @@
   font-weight: 600;
 }
 
+.photo-caption {
+  margin: 0.75rem 0 0.5rem 0;
+  padding: 0 0.25rem;
+  color: rgba(224, 225, 221, 0.85);
+  font-size: 0.93rem;
+  line-height: 1.5;
+  text-align: center;
+  font-style: italic;
+}
+
 @media (min-width: 768px) {
   .top-bar {
     flex-direction: row;
