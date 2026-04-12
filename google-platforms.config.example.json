@@ -1,0 +1,42 @@
+{
+  "siteUrl": "https://wesleyzilva.github.io/portfolioNearshoreWesIA/",
+  "googleSearchConsole": {
+    "propertyType": "URL_PREFIX",
+    "verificationMethod": "HTML_FILE_OR_DNS",
+    "verificationToken": "ivgXcC7udqfclrb_lJ99NjuBMzKgAPYvlKm4K2DvHIg",
+    "dnsTxtToken": "google-site-verification=hxzkTmPgxAMy6enULGlc33_JbBfjc4RwNl_LH760IsE"
+  },
+  "googleTagManager": {
+    "containerId": "GTM-XXXXXXXX",
+    "dataLayerName": "dataLayer"
+  },
+  "googleAnalytics4": {
+    "measurementId": "G-XXXXXXXXXX",
+    "streamName": "portfolioNearshoreWesIA",
+    "events": [
+      "cta_contact_click",
+      "cv_download_click",
+      "linkedin_click",
+      "whatsapp_click",
+      "project_link_click"
+    ]
+  },
+  "googleAds": {
+    "enabled": false,
+    "customerId": "XXX-XXX-XXXX",
+    "conversionActions": [
+      "lead_whatsapp",
+      "lead_form",
+      "cv_download"
+    ]
+  },
+  "googleBusinessProfile": {
+    "businessName": "Wesley Gomes da Silva - IT Manager",
+    "category": "Consultor de TI",
+    "serviceArea": [
+      "Sao Carlos",
+      "Sao Paulo",
+      "Remoto"
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+GOOGLE PLATFORMS SETUP - portfolioNearshoreWesIA
+
+1) GOOGLE SEARCH CONSOLE
+- Create property for: https://wesleyzilva.github.io/portfolioNearshoreWesIA/
+- Preferred verification: DNS TXT (domain-level)
+- Alternative verification:
+  - Download HTML verification file from Google
+  - Place it in /public and redeploy
+- After verification:
+  - Submit sitemap: https://wesleyzilva.github.io/portfolioNearshoreWesIA/sitemap.xml
+  - Request indexing for:
+    - /
+    - /personal-about
+    - /proposal
+
+2) GOOGLE TAG MANAGER
+- Create web container
+- Replace GTM-XXXXXXXX in src/index.html with your real container id
+- Publish GTM container
+
+3) GOOGLE ANALYTICS 4
+- Create GA4 property and web data stream
+- Replace G-XXXXXXXXXX in src/index.html with your real measurement id
+- Keep either:
+  - GA4 direct (gtag in index.html), OR
+  - GA4 through GTM
+- Avoid duplicate page_view tracking from both methods simultaneously
+
+4) EVENT TRACKING TO CONFIGURE IN GTM/GA4
+Recommended custom events:
+- cta_contact_click
+- cv_download_click
+- linkedin_click
+- whatsapp_click
+- project_link_click
+
+Recommended event parameters:
+- page_path
+- page_title
+- button_text
+- destination_url
+- language
+
+5) GOOGLE ADS (OPTIONAL)
+- Link Google Ads to GA4
+- Create conversion actions for:
+  - WhatsApp click
+  - Form lead
+  - CV download
+- Use UTM tags in campaign URLs
+
+6) GOOGLE BUSINESS PROFILE (LOCAL SEO)
+- Create/claim business profile
+- Add category and services
+- Add website URL and WhatsApp/phone
+- Publish at least 5 photos and request first reviews
+
+7) FILES CREATED FOR DEPLOY
+- public/robots.txt
+- public/sitemap.xml
+- public/google-site-verification-template.html
+- google-platforms.config.example.json
+
+8) FINAL CHECK AFTER DEPLOY
+- Test in browser:
+  - /robots.txt
+  - /sitemap.xml
+- In Search Console:
+  - Verify sitemap accepted
+  - Check pages indexed
+- In GA4 Realtime:
+  - Validate page views and click events
