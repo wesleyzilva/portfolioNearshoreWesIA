@@ -44,9 +44,13 @@
         </div>
       </div>
       <div class="hero-actions">
-        <a href="#contact" class="btn-primary">
-          <i class="fas fa-paper-plane"></i>
-          {{ lang() === 'pt' ? 'Fale Comigo' : 'Get in Touch' }}
+        <a href="tel:+5516997212966" class="btn-phone" data-gtm-event="hero_phone">
+          <i class="fas fa-phone"></i>
+          {{ lang() === 'pt' ? 'Ligar Agora' : 'Call Now' }}
+        </a>
+        <a href="mailto:wesley.zilva@gmail.com" class="btn-primary" data-gtm-event="hero_email">
+          <i class="fas fa-envelope"></i>
+          {{ lang() === 'pt' ? 'Enviar Email' : 'Send Email' }}
         </a>
         <a [href]="lang() === 'pt' ? 'assets/CV_WesleySilva_IT_espec_manager_PT.pdf' : 'assets/CV_WesleySilva_IT_espec_manager_EN_Brazil.pdf'" [download]="lang() === 'pt' ? 'CV_WesleySilva_IT_espec_manager_PT.pdf' : 'CV_WesleySilva_IT_espec_manager_EN_Brazil.pdf'" class="btn-secondary">
           <i class="fas fa-file-pdf"></i>

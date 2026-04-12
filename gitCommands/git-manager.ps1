@@ -612,12 +612,31 @@ function Show-RepoInfo {
 # ---------------------------------------------------------------------------
 function Invoke-DeployPages {
     Write-Header 'DEPLOY PARA GITHUB PAGES'
-    
+
     $packageFile = Join-Path $RepoPath 'package.json'
     if (-not (Test-Path $packageFile)) {
         Write-Err 'package.json nao encontrado. Este nao parece ser um projeto Node.js.'
         return
     }
+
+    # Escolher modalidade de deploy
+    Write-Host '  Modalidade de deploy:' -ForegroundColor White
+    Write-Host '    A) Rapido — GitHub Pages (sem dominio proprio)   [padrao]' -ForegroundColor Green
+    Write-Host '    B) Com dominio proprio (CNAME configurado)' -ForegroundColor Yellow
+    Write-Host ''
+    $deployMode = Read-Host '  Escolha (Enter = A)'
+    $deployMode = $deployMode.Trim().ToUpper()
+    if ($deployMode -eq '' -or $deployMode -eq 'A') {
+        $deployScript = 'deploy:pages'
+        Write-Info 'Modalidade: GitHub Pages (base-href /dradaianaferraz_gold/)'
+    } elseif ($deployMode -eq 'B') {
+        $deployScript = 'deploy:domain'
+        Write-Info 'Modalidade: Dominio proprio (base-href /)'
+    } else {
+        Write-Err 'Opcao invalida. Cancelado.'
+        return
+    }
+    Write-Host ''
 
     Write-Info 'Verificando se ha alteracoes nao commitadas...'
     $statusLines = @(git status --porcelain 2>&1 | Where-Object { $_ -ne '' })
@@ -632,22 +651,56 @@ function Invoke-DeployPages {
         }
     }
 
-    Write-Info 'Executando build de producao (npm run build)...'
+    Write-Info "Executando build e deploy ($deployScript)..."
     Set-Location $RepoPath
-    $buildOut = npm run build 2>&1
-    if ($LASTEXITCODE -ne 0) {
-        Write-Err 'Build falhou:'
-        $buildOut | ForEach-Object { Write-Host "  $_" -ForegroundColor Red }
-        return
-    }
-    Write-OK 'Build concluido com sucesso.'
-    Write-Host ''
-
-    Write-Info 'Executando deploy para GitHub Pages (npm run deploy)...'
-    $deployOut = npm run deploy 2>&1
+    $deployOut = npm run $deployScript 2>&1
     if ($LASTEXITCODE -eq 0) {
         Write-OK 'Deploy para GitHub Pages concluido com sucesso!'
         $deployOut | Select-Object -Last 10 | ForEach-Object { Write-Host "  $_" -ForegroundColor Gray }
+
+        # Detectar URL de producao dinamicamente a partir do package.json / CNAME
+        $siteUrl = $null
+
+        $cnameFile = Join-Path $RepoPath 'public\CNAME'
+        if (-not (Test-Path $cnameFile)) { $cnameFile = Join-Path $RepoPath 'CNAME' }
+        if (Test-Path $cnameFile) {
+            $cname = (Get-Content $cnameFile -Raw).Trim()
+            if ($cname) { $siteUrl = "https://$cname/" }
+        }
+
+        if (-not $siteUrl) {
+            $remote = (git remote get-url origin 2>&1) | Select-Object -First 1
+            if ($remote -match 'github\.com[:/](.+?)(?:\.git)?$') {
+                $slug  = $Matches[1]           # ex: wesleyzilva/dradaianaferraz_gold
+                $parts = $slug -split '/'
+                $siteUrl = "https://$($parts[0]).github.io/$($parts[1])/"
+            }
+        }
+
+        Write-Host ''
+        Write-Host '  ============================================' -ForegroundColor Cyan
+        Write-Host '  VALIDACOES POS-DEPLOY' -ForegroundColor Cyan
+        Write-Host '  ============================================' -ForegroundColor Cyan
+        if ($siteUrl) {
+            Write-Host "  Site publicado em: $siteUrl" -ForegroundColor White
+            Write-Host ''
+            Write-Host '  [1] Pagina principal (carregamento e visual)' -ForegroundColor Yellow
+            Write-Host "      $siteUrl" -ForegroundColor Gray
+            Write-Host ''
+            Write-Host '  [2] Rich Results Test (schema.org / SEO estruturado)' -ForegroundColor Yellow
+            Write-Host "      https://search.google.com/test/rich-results?url=$([Uri]::EscapeDataString($siteUrl))" -ForegroundColor Gray
+            Write-Host ''
+            Write-Host '  [3] PageSpeed / Core Web Vitals' -ForegroundColor Yellow
+            Write-Host "      https://pagespeed.web.dev/analysis?url=$([Uri]::EscapeDataString($siteUrl))" -ForegroundColor Gray
+            Write-Host ''
+            Write-Host '  [4] LinkedIn Post Inspector (preview OG)' -ForegroundColor Yellow
+            Write-Host "      https://www.linkedin.com/post-inspector/inspect/$([Uri]::EscapeDataString($siteUrl))" -ForegroundColor Gray
+            Write-Host ''
+            Write-Host '  [5] Google Search Console — Inspecionar URL' -ForegroundColor Yellow
+            Write-Host '      https://search.google.com/search-console' -ForegroundColor Gray
+        }
+        Write-Host '  ============================================' -ForegroundColor Cyan
+        Write-Host ''
     }
     else {
         Write-Err 'Deploy falhou:'
