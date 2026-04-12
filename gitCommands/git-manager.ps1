@@ -609,8 +609,10 @@ function Show-RepoInfo {
 
 # ---------------------------------------------------------------------------
 # OPCAO 8 - Deploy para GitHub Pages
+# OPCAO 11 - Force Redeploy (republica sem checagens)
 # ---------------------------------------------------------------------------
 function Invoke-DeployPages {
+    param([switch]$Force)
     Write-Header 'DEPLOY PARA GITHUB PAGES'
 
     $packageFile = Join-Path $RepoPath 'package.json'
@@ -666,16 +668,20 @@ function Invoke-DeployPages {
     }
     Write-Host ''
 
-    Write-Info 'Verificando se ha alteracoes nao commitadas...'
-    $statusLines = @(git status --porcelain 2>&1 | Where-Object { $_ -ne '' })
-    if ($statusLines.Count -gt 0) {
-        Write-Warn 'Ha alteracoes nao commitadas:'
-        $statusLines | ForEach-Object { Write-Host "  $_" -ForegroundColor DarkYellow }
-        Write-Host ''
-        $resp = Read-Host '  Deseja commitar antes do deploy? (s/N)'
-        if ($resp -match '^[sS]$') {
-            Invoke-RandomCommit
+    if ($Force) {
+        Write-Warn 'Modo FORCE: ignorando checagem de arquivos nao commitados.'
+    } else {
+        Write-Info 'Verificando se ha alteracoes nao commitadas...'
+        $statusLines = @(git status --porcelain 2>&1 | Where-Object { $_ -ne '' })
+        if ($statusLines.Count -gt 0) {
+            Write-Warn 'Ha alteracoes nao commitadas:'
+            $statusLines | ForEach-Object { Write-Host "  $_" -ForegroundColor DarkYellow }
             Write-Host ''
+            $resp = Read-Host '  Deseja commitar antes do deploy? (s/N)'
+            if ($resp -match '^[sS]$') {
+                Invoke-RandomCommit
+                Write-Host ''
+            }
         }
     }
 
@@ -786,6 +792,7 @@ function Show-Menu {
     Write-Host ''
     Write-Host '  === PUBLICACAO ===' -ForegroundColor Green
     Write-Host '  [8]  Deploy para GitHub Pages (build + deploy)'            -ForegroundColor Green
+    Write-Host '  [11] Force Redeploy (republica sem perguntas)'             -ForegroundColor Magenta
     Write-Host ''
     Write-Host '  === WORKSPACE ===' -ForegroundColor Cyan
     Write-Host '  [9]  Baixar repositorio e adicionar ao workspace'          -ForegroundColor White
@@ -817,11 +824,12 @@ while ($true) {
         '5' { Invoke-Pull         }
         '6' { Invoke-RandomCommit }
         '7' { Invoke-Push         }
-        '8' { Invoke-DeployPages  }
+        '8'  { Invoke-DeployPages        }
+        '11' { Invoke-DeployPages -Force  }
         '9' { Invoke-CloneAndAddToWorkspace }
         '10' { Invoke-RemoveFromWorkspace   }
         '0' { Write-Host "`n  Ate logo!`n" -ForegroundColor Cyan; exit 0 }
-        default { Write-Warn 'Opcao invalida. Digite um numero entre 0 e 10.' }
+        default { Write-Warn 'Opcao invalida. Digite um numero entre 0 e 11.' }
     }
 
     Write-Host ''
