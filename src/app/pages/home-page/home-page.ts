@@ -5,7 +5,6 @@ import { Hero } from '../../hero/hero';
 import { About } from '../../about/about';
 import { Gallery } from '../../gallery/gallery';
 import { Location } from '../../location/location';
-import { Contact } from '../../contact/contact';
 import { Footer } from '../../footer/footer';
 import { ScrollHint } from '../../scroll-hint/scroll-hint';
 import { Lang, LanguageService } from '../../services/language.service';
@@ -14,7 +13,7 @@ import { PageMetaService } from '../../services/page-meta.service';
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [Header, Hero, About, Gallery, Location, Contact, Footer, ScrollHint],
+  imports: [Header, Hero, About, Gallery, Location, Footer, ScrollHint],
   templateUrl: './home-page.html',
   styleUrl: './home-page.scss'
 })

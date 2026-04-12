@@ -8,9 +8,8 @@
             <a [routerLink]="basePath()" fragment="hero">{{ lang() === 'pt' ? 'Início' : 'Home' }}</a>
             <a [routerLink]="basePath()" fragment="about">{{ lang() === 'pt' ? 'Sobre' : 'About' }}</a>
             <a [routerLink]="basePath()" fragment="projects">{{ lang() === 'pt' ? 'Projetos' : 'Projects' }}</a>
-            <a [routerLink]="basePath()" fragment="skills">Skills</a>
+            <a [routerLink]="basePath()" fragment="services">{{ lang() === 'pt' ? 'Serviços' : 'Services' }}</a>
             <a [routerLink]="basePath()" fragment="location">{{ lang() === 'pt' ? 'Localização' : 'Location' }}</a>
-            <a [routerLink]="basePath()" fragment="contact">{{ lang() === 'pt' ? 'Contato' : 'Contact' }}</a>
         </nav>
         <div class="header-actions">
             <button class="lang-toggle" (click)="switchLanguage()" [attr.aria-label]="'Switch language'">
