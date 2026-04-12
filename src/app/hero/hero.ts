@@ -15,7 +15,7 @@ export class Hero implements OnInit, OnDestroy {
 
   readonly photos = [
     'assets/Wesley/wesley%20(1).jpg',
-    'assets/Wesley/wesley%20(4).jpg',
+    'assets/Wesley/wesley%20(2).jpg',
   ];
   currentPhotoIndex = 0;
   photoVisible = true;
