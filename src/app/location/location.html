@@ -47,6 +47,15 @@
       </div>
 
       <div class="location-map-frame">
+        <div class="here-carousel">
+          <img [src]="herePhotos[hereIndex()].src" [alt]="herePhotos[hereIndex()].alt" class="here-photo" />
+          <div class="here-controls">
+            <button type="button" (click)="herePrev()" aria-label="Previous photo">‹</button>
+            <span>{{ hereIndex() + 1 }} / {{ herePhotos.length }}</span>
+            <button type="button" (click)="hereNext()" aria-label="Next photo">›</button>
+          </div>
+        </div>
+
         <iframe
           title="Map showing São Carlos in Brazil"
           src="https://www.google.com/maps?q=S%C3%A3o%20Carlos%20SP&z=12&output=embed"
