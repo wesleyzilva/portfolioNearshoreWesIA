@@ -2,7 +2,10 @@
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-photo-wrapper">
-      <img [src]="currentPhoto" alt="Wesley Gomes da Silva" class="hero-photo" [class.photo-fading]="!photoVisible" />
+      <img [src]="currentPhoto" alt="Wesley Gomes da Silva" class="hero-photo"
+           [class.photo-fading]="!photoVisible"
+           width="260" height="320"
+           loading="eager" fetchpriority="high" />
     </div>
     <div class="hero-text">
       <span class="hero-badge">
