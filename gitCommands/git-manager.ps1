@@ -619,22 +619,50 @@ function Invoke-DeployPages {
         return
     }
 
-    # Escolher modalidade de deploy
-    Write-Host '  Modalidade de deploy:' -ForegroundColor White
-    Write-Host '    A) Rapido — GitHub Pages (sem dominio proprio)   [padrao]' -ForegroundColor Green
-    Write-Host '    B) Com dominio proprio (CNAME configurado)' -ForegroundColor Yellow
-    Write-Host ''
-    $deployMode = Read-Host '  Escolha (Enter = A)'
-    $deployMode = $deployMode.Trim().ToUpper()
-    if ($deployMode -eq '' -or $deployMode -eq 'A') {
-        $deployScript = 'deploy:pages'
-        Write-Info 'Modalidade: GitHub Pages (base-href /dradaianaferraz_gold/)'
-    } elseif ($deployMode -eq 'B') {
-        $deployScript = 'deploy:domain'
-        Write-Info 'Modalidade: Dominio proprio (base-href /)'
-    } else {
-        Write-Err 'Opcao invalida. Cancelado.'
+    # Descobrir scripts de deploy disponiveis no package.json
+    $pkgJson    = Get-Content $packageFile -Raw | ConvertFrom-Json
+    $allScripts = $pkgJson.scripts.PSObject.Properties.Name
+
+    $deployOptions = [System.Collections.Generic.List[PSCustomObject]]::new()
+    if ($allScripts -contains 'deploy:pages') {
+        $deployOptions.Add([PSCustomObject]@{ Label = 'GitHub Pages (sem dominio proprio)'; Script = 'deploy:pages'; Color = 'Green' })
+    }
+    if ($allScripts -contains 'deploy:domain') {
+        $deployOptions.Add([PSCustomObject]@{ Label = 'Dominio proprio (CNAME configurado)'; Script = 'deploy:domain'; Color = 'Yellow' })
+    }
+    # fallback: qualquer script que comece com 'deploy' e nao seja alias dos dois acima
+    foreach ($s in ($allScripts | Where-Object { $_ -like 'deploy*' -and $_ -notin @('deploy:pages','deploy:domain') })) {
+        $deployOptions.Add([PSCustomObject]@{ Label = $s; Script = $s; Color = 'Cyan' })
+    }
+
+    if ($deployOptions.Count -eq 0) {
+        Write-Err 'Nenhum script de deploy encontrado no package.json.'
         return
+    }
+
+    $deployScript = $null
+    if ($deployOptions.Count -eq 1) {
+        $deployScript = $deployOptions[0].Script
+        Write-Info "Usando: $deployScript"
+    } else {
+        $letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        Write-Host '  Modalidade de deploy:' -ForegroundColor White
+        for ($i = 0; $i -lt $deployOptions.Count; $i++) {
+            $opt = $deployOptions[$i]
+            $letter = $letters[$i]
+            $default = if ($i -eq 0) { '   [padrao]' } else { '' }
+            Write-Host "    $letter) $($opt.Label)$default" -ForegroundColor $opt.Color
+        }
+        Write-Host ''
+        $deployMode = (Read-Host '  Escolha (Enter = A)').Trim().ToUpper()
+        if ($deployMode -eq '') { $deployMode = 'A' }
+        $idx = $letters.IndexOf($deployMode[0])
+        if ($idx -lt 0 -or $idx -ge $deployOptions.Count) {
+            Write-Err 'Opcao invalida. Cancelado.'
+            return
+        }
+        $deployScript = $deployOptions[$idx].Script
+        Write-Info "Modalidade: $($deployOptions[$idx].Label)"
     }
     Write-Host ''
 
