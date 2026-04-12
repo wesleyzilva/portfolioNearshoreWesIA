@@ -1,5 +1,5 @@
 # Wesley Gomes da Silva
-**IT Coordinator | Project Manager | Development & Data Leader**
+**IT Coordinator | Project Manager | Development & Data Leader | IA Workspace creator**
 
 São Carlos, São Paulo, Brazil  
 📞 +55 16 99721-2966 | ✉️ wesley.zilva@gmail.com | 🔗 [linkedin.com/in/wesleyzilva](https://www.linkedin.com/in/wesleyzilva)
