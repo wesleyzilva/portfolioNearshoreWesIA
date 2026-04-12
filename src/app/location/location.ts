@@ -14,9 +14,8 @@ export class Location {
   lang = this.langService.lang;
 
   readonly herePhotos = [
-    { src: 'assets/Wesley/here.jpeg', alt: 'Wesley in São Carlos' },
-    { src: 'assets/base/here%20(1)%20.jpeg', alt: 'Wesley in São Carlos 2' },
-    { src: 'assets/base/here%20(2).jpeg', alt: 'Wesley in São Carlos 3' }
+    { src: 'assets/base/here%20(1)%20.jpeg', alt: 'Wesley in São Carlos' },
+    { src: 'assets/base/here%20(2).jpeg', alt: 'Wesley in São Carlos 2' }
   ];
   readonly hereIndex = signal(0);
 
