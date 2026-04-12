@@ -1,33 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Home -->
   <url>
     <loc>https://wesleyzilva.github.io/portfolioNearshoreWesIA/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/pt"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://wesleyzilva.github.io/portfolioNearshoreWesIA/en</loc>
+    <loc>https://wesleyzilva.github.io/portfolioNearshoreWesIA/pt</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/pt"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/"/>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
+
+  <!-- Personal About -->
   <url>
     <loc>https://wesleyzilva.github.io/portfolioNearshoreWesIA/personal-about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/personal-about"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/pt/personal-about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/personal-about"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wesleyzilva.github.io/portfolioNearshoreWesIA/en/personal-about</loc>
+    <loc>https://wesleyzilva.github.io/portfolioNearshoreWesIA/pt/personal-about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/personal-about"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/pt/personal-about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/personal-about"/>
     <changefreq>monthly</changefreq>
     <priority>0.68</priority>
   </url>
+
+  <!-- Proposal -->
   <url>
     <loc>https://wesleyzilva.github.io/portfolioNearshoreWesIA/proposal</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/proposal"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/pt/proposal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/proposal"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://wesleyzilva.github.io/portfolioNearshoreWesIA/en/proposal</loc>
+    <loc>https://wesleyzilva.github.io/portfolioNearshoreWesIA/pt/proposal</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/proposal"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/pt/proposal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/proposal"/>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
+
+  <!-- Business Profile -->
+  <url>
+    <loc>https://wesleyzilva.github.io/portfolioNearshoreWesIA/business-profile</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/business-profile"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/pt/business-profile"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/business-profile"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://wesleyzilva.github.io/portfolioNearshoreWesIA/pt/business-profile</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/business-profile"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/pt/business-profile"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/business-profile"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.58</priority>
+  </url>
+
+  <!-- Hot Search -->
+  <url>
+    <loc>https://wesleyzilva.github.io/portfolioNearshoreWesIA/hot-search</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/hot-search"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/pt/hot-search"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/hot-search"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://wesleyzilva.github.io/portfolioNearshoreWesIA/pt/hot-search</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/hot-search"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/pt/hot-search"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/hot-search"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.48</priority>
+  </url>
+
 </urlset>
