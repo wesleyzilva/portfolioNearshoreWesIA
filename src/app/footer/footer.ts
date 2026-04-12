@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit, PLATFORM_ID, inject } from '@angular/core';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { LanguageService } from '../services/language.service';
+import { BUILD_VERSION, BUILD_TIME } from '../../environments/version';
 
 @Component({
   selector: 'app-footer',
@@ -14,7 +15,8 @@ export class Footer implements OnInit {
   lang = this.langService.lang;
 
   visitCount: number = 0;
-  lastModifiedDate: string = '';
+  readonly buildVersion = BUILD_VERSION;
+  readonly buildTime = BUILD_TIME;
   isBrowser: boolean;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
@@ -28,9 +30,6 @@ export class Footer implements OnInit {
       this.visitCount = count ? parseInt(count, 10) + 1 : 1;
       localStorage.setItem(storageKey, this.visitCount.toString());
 
-      const lastModified = new Date(document.lastModified);
-      const options: Intl.DateTimeFormatOptions = { day: '2-digit', month: '2-digit', year: 'numeric' };
-      this.lastModifiedDate = lastModified.toLocaleDateString('en-GB', options);
     }
   }
 }
