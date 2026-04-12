@@ -8,9 +8,13 @@
     "start": "ng serve",
     "prebuild": "npm run generate-version",
     "build": "ng build",
+    "build:pages": "ng build --base-href /portfolioNearshoreWesIA/",
+    "build:domain": "ng build --base-href /",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng deploy"
+    "deploy": "ng deploy",
+    "deploy:pages": "npm run build:pages && npx angular-cli-ghpages --dir=dist/portfolioNearshoreWesIA/browser",
+    "deploy:domain": "npm run build:domain && npx angular-cli-ghpages --dir=dist/portfolioNearshoreWesIA/browser"
   },
   "prettier": {
     "printWidth": 100,
