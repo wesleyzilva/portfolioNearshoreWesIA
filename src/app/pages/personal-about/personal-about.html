@@ -62,7 +62,8 @@
         </div>
       </div>
       <div class="carousel-card">
-        <img [src]="currentItem('githubPocs').url" alt="GitHub POC photo" class="carousel-image" />
+        <img [src]="currentItem('githubPocs').url" alt="GitHub POC photo" class="carousel-image"
+             width="640" height="480" loading="lazy" />
         <p class="photo-caption">{{ currentCaption('githubPocs') }}</p>
         <div class="carousel-controls">
           <button type="button" (click)="previous('githubPocs')" aria-label="Previous GitHub POC photo">‹</button>
@@ -79,7 +80,8 @@
         <p>A human and balanced view, kept separate from the professional presentation.</p>
       </div>
       <div class="carousel-card">
-        <img [src]="currentItem('family').url" alt="Family photo" class="carousel-image" />
+        <img [src]="currentItem('family').url" alt="Family photo" class="carousel-image"
+             width="640" height="480" loading="lazy" />
         <p class="photo-caption">{{ currentCaption('family') }}</p>
         <div class="carousel-controls">
           <button type="button" (click)="previous('family')" aria-label="Previous family photo">‹</button>
@@ -96,7 +98,8 @@
         <p>Reading, music and other elements that help tell who I am beyond work.</p>
       </div>
       <div class="carousel-card">
-        <img [src]="currentItem('aboutMe').url" alt="Personal interest photo" class="carousel-image" />
+        <img [src]="currentItem('aboutMe').url" alt="Personal interest photo" class="carousel-image"
+             width="640" height="480" loading="lazy" />
         <p class="photo-caption">{{ currentCaption('aboutMe') }}</p>
         <div class="carousel-controls">
           <button type="button" (click)="previous('aboutMe')" aria-label="Previous personal photo">‹</button>

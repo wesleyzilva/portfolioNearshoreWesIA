@@ -5,7 +5,13 @@
 .personal-page {
   min-height: 100vh;
   background: linear-gradient(180deg, #0d1b2a 0%, #132238 100%);
-  padding: 5.5rem 1rem 3rem;
+  padding: 4rem 1rem 3rem;
+}
+
+@media (min-width: 768px) {
+  .personal-page {
+    padding: 5.5rem 1rem 3rem;
+  }
 }
 
 .page-shell {
@@ -39,7 +45,7 @@
   background: var(--cor-fundo-card);
   border: 1px solid var(--cor-borda);
   border-radius: 16px;
-  padding: 1.25rem;
+  padding: 1.25rem 1rem;
   margin-bottom: 1rem;
 }
 
@@ -64,10 +70,16 @@
   margin-bottom: 0.8rem;
 }
 
+.section-copy h2 {
+  font-size: clamp(1.25rem, 3.5vw, 1.9rem);
+  margin-bottom: 0.6rem;
+}
+
 .hero-copy,
 .section-copy p {
-  color: rgba(224, 225, 221, 0.78);
+  color: rgba(224, 225, 221, 0.88);
   line-height: 1.7;
+  font-size: clamp(0.95rem, 2.2vw, 1rem);
 }
 
 .social-row {
@@ -82,13 +94,14 @@
   align-items: center;
   justify-content: center;
   min-height: 44px;
-  padding: 0.55rem 0.95rem;
+  padding: 0.55rem 1rem;
   border-radius: 999px;
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;
   border: 1px solid var(--cor-borda);
   color: var(--cor-texto);
+  background: rgba(255,255,255,0.04);
 }
 
 .social-link.instagram { color: #f472b6; }
@@ -135,15 +148,16 @@
 }
 
 .carousel-controls button {
-  min-width: 44px;
-  min-height: 44px;
+  min-width: 48px;
+  min-height: 48px;
   border: none;
   border-radius: 999px;
   background: var(--cor-destaque-primaria);
   color: #0d1b2a;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 700;
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 .carousel-controls span {
@@ -154,9 +168,9 @@
 .photo-caption {
   margin: 0.75rem 0 0.5rem 0;
   padding: 0 0.25rem;
-  color: rgba(224, 225, 221, 0.85);
-  font-size: 0.93rem;
-  line-height: 1.5;
+  color: rgba(224, 225, 221, 0.92);
+  font-size: 0.95rem;
+  line-height: 1.55;
   text-align: center;
   font-style: italic;
 }
