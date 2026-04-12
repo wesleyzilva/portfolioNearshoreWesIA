@@ -91,6 +91,44 @@
   color: rgba(224, 225, 221, 0.78);
 }
 
+.impact-highlights {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.75rem;
+  margin: 0 auto 1.6rem;
+
+  @media (max-width: 1100px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.impact-item {
+  background: rgba(65, 90, 119, 0.28);
+  border: 1px solid var(--cor-borda);
+  border-radius: 10px;
+  padding: 0.85rem 0.75rem;
+  text-align: center;
+
+  strong {
+    display: block;
+    color: var(--cor-destaque-primaria);
+    font-family: var(--fonte-primaria);
+    font-size: 1.05rem;
+    margin-bottom: 0.2rem;
+  }
+
+  span {
+    display: block;
+    color: rgba(224, 225, 221, 0.76);
+    font-size: 0.76rem;
+    line-height: 1.35;
+  }
+}
+
 .about-overview-grid {
   display: grid;
   grid-template-columns: 1.3fr 1fr 1fr;
@@ -150,6 +188,34 @@
   color: rgba(224, 225, 221, 0.8);
   line-height: 1.7;
   margin-bottom: 1rem;
+}
+
+.projects-impact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0.58rem 1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.84rem;
+  letter-spacing: 0.02em;
+  color: #0d1b2a;
+  background: linear-gradient(135deg, #4cc9f0 0%, #90e0ef 100%);
+  border: 1px solid rgba(76, 201, 240, 0.55);
+  box-shadow: 0 6px 16px rgba(76, 201, 240, 0.28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+
+  i {
+    font-size: 0.85rem;
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px rgba(76, 201, 240, 0.32);
+    filter: brightness(1.03);
+  }
 }
 
 .about-chips {
@@ -376,7 +442,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 760px;
+  height: 800px;
   overflow-y: auto;
   scrollbar-width: thin;
 
@@ -389,6 +455,43 @@
   @media (max-width: 480px) {
     padding: 1.25rem;
     border-radius: 8px;
+  }
+}
+
+.project-category-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.project-category,
+.project-evidence {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.32rem 0.62rem;
+  border-radius: 999px;
+  border: 1px solid;
+}
+
+.project-category {
+  color: var(--cor-destaque-primaria);
+  border-color: rgba(76, 201, 240, 0.35);
+  background: rgba(76, 201, 240, 0.12);
+}
+
+.project-evidence {
+  color: #9be7b0;
+  border-color: rgba(155, 231, 176, 0.35);
+  background: rgba(155, 231, 176, 0.1);
+
+  &.qualitative {
+    color: #ffd166;
+    border-color: rgba(255, 209, 102, 0.35);
+    background: rgba(255, 209, 102, 0.1);
   }
 }
 
@@ -417,6 +520,52 @@
   }
 }
 
+.project-meta-grid.compact {
+  margin-top: 0.25rem;
+  margin-bottom: 1.2rem;
+}
+
+.project-detail-section {
+  background: rgba(65, 90, 119, 0.2);
+  border: 1px solid var(--cor-borda);
+  border-radius: 10px;
+  padding: 0.95rem 1rem;
+  margin-bottom: 1rem;
+
+  h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 0.65rem;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(224, 225, 221, 0.74);
+  }
+
+  i {
+    color: var(--cor-destaque-primaria);
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  li {
+    font-size: 0.88rem;
+    line-height: 1.45;
+    color: rgba(224, 225, 221, 0.84);
+  }
+}
+
+.result-section {
+  border-left: 3px solid rgba(76, 201, 240, 0.75);
+}
+
 .meta-item {
   display: flex;
   gap: 0.75rem;
@@ -443,21 +592,6 @@
     color: rgba(224, 225, 221, 0.8);
     margin: 0;
   }
-}
-
-.project-highlights {
-  display: flex;
-  gap: 0.75rem;
-  align-items: flex-start;
-  background: rgba(247, 37, 133, 0.07);
-  border-left: 3px solid var(--cor-destaque-secundaria);
-  border-radius: 0 6px 6px 0;
-  padding: 0.75rem 1rem;
-  margin-bottom: 1.5rem;
-  font-size: 0.88rem;
-  color: rgba(224, 225, 221, 0.75);
-
-  i { color: var(--cor-destaque-secundaria); margin-top: 2px; flex-shrink: 0; }
 }
 
 .project-footer {

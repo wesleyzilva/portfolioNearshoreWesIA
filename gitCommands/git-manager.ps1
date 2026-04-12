@@ -1,21 +1,35 @@
 #Requires -Version 5.1
 <#
 .SYNOPSIS
-    Gerenciador Git interativo para o repositorio dradaianaferraz_gold.
+    Gerenciador Git interativo para o repositorio imprimaMais.
 
 .DESCRIPTION
-    Menu completo:
+    Menu completo organizado por fluxo de trabalho:
+    
+    VERIFICACAO:
       1. Comparar local vs remoto (qual esta mais atualizado)
-      2. Baixar do remoto (pull)
-      3. Subir para o remoto (push)
-      4. Listar branches
-      5. Trocar de branch
+      2. Informacoes completas do repositorio
+      3. Listar branches
+    
+    SINCRONIZACAO:
+      4. Trocar de branch
+      5. Baixar do remoto (pull)
+    
+    ENVIAR ALTERACOES:
       6. Commitar com mensagem aleatoria
-      7. Informacoes do repositorio
+      7. Subir para o remoto (push)
+    
+    PUBLICACAO:
+      8. Deploy para GitHub Pages (build + deploy)
+
+        WORKSPACE:
+            9. Baixar repositorio e adicionar ao workspace
+            10. Remover repositorio do workspace
+      
       0. Sair
 
 .USAGE
-    cd C:\repositorio\dradaianaferraz_gold\gitCommands
+    cd C:\repositorio\imprimaMais\gitCommands
     .\git-manager.ps1
 
     Ou informando outro caminho de repositorio:
@@ -28,6 +42,9 @@ param(
 
 Set-StrictMode -Off
 $ErrorActionPreference = 'Continue'
+
+$WorkspaceRoot = Split-Path $RepoPath -Parent
+$WorkspaceFile = Join-Path $WorkspaceRoot 'repositorios.code-workspace'
 
 # ---------------------------------------------------------------------------
 # Mensagens aleatorias de commit
@@ -70,6 +87,195 @@ function Write-Warn { param([string]$M); Write-Host "  [!!] $M" -ForegroundColor
 function Write-Err  { param([string]$M); Write-Host "  [XX] $M" -ForegroundColor Red    }
 function Write-Info { param([string]$M); Write-Host "  [..] $M" -ForegroundColor Cyan   }
 function Write-Bold { param([string]$M); Write-Host "  $M"       -ForegroundColor White  }
+
+# ---------------------------------------------------------------------------
+# Workspace do VS Code
+# ---------------------------------------------------------------------------
+function Get-WorkspaceData {
+    if (-not (Test-Path $WorkspaceFile)) {
+        return [PSCustomObject]@{
+            folders  = @()
+            settings = [PSCustomObject]@{}
+        }
+    }
+
+    $raw = Get-Content -Path $WorkspaceFile -Raw -Encoding UTF8
+    if ([string]::IsNullOrWhiteSpace($raw)) {
+        return [PSCustomObject]@{
+            folders  = @()
+            settings = [PSCustomObject]@{}
+        }
+    }
+
+    return $raw | ConvertFrom-Json
+}
+
+function Save-WorkspaceData {
+    param([psobject]$WorkspaceData)
+
+    $json = $WorkspaceData | ConvertTo-Json -Depth 10
+    Set-Content -Path $WorkspaceFile -Value $json -Encoding UTF8
+}
+
+function Convert-ToWorkspaceRelativePath {
+    param([string]$TargetPath)
+
+    $workspaceRootResolved = [System.IO.Path]::GetFullPath($WorkspaceRoot)
+    $targetResolved        = [System.IO.Path]::GetFullPath($TargetPath)
+
+    if ($targetResolved.StartsWith($workspaceRootResolved, [System.StringComparison]::OrdinalIgnoreCase)) {
+        $relative = $targetResolved.Substring($workspaceRootResolved.Length).TrimStart('\')
+        if (-not [string]::IsNullOrWhiteSpace($relative)) {
+            return $relative -replace '\\', '/'
+        }
+    }
+
+    return $targetResolved
+}
+
+function Add-WorkspaceFolder {
+    param(
+        [string]$FolderPath,
+        [string]$FolderName
+    )
+
+    $workspaceData = Get-WorkspaceData
+    $relativePath  = Convert-ToWorkspaceRelativePath -TargetPath $FolderPath
+
+    if (-not $FolderName) {
+        $FolderName = Split-Path $FolderPath -Leaf
+    }
+
+    $alreadyExists = @($workspaceData.folders | Where-Object {
+        $_.path -eq $relativePath -or $_.name -eq $FolderName
+    }).Count -gt 0
+
+    if ($alreadyExists) {
+        Write-Warn "O repositorio '$FolderName' ja esta no workspace."
+        return $false
+    }
+
+    $newFolders = @($workspaceData.folders)
+    $newFolders += [PSCustomObject]@{
+        name = $FolderName
+        path = $relativePath
+    }
+    $workspaceData.folders = $newFolders
+    Save-WorkspaceData -WorkspaceData $workspaceData
+    Write-OK "Repositorio '$FolderName' adicionado ao workspace."
+    return $true
+}
+
+function Remove-WorkspaceFolder {
+    param([string]$FolderName)
+
+    $workspaceData = Get-WorkspaceData
+    $targetFolder  = @($workspaceData.folders | Where-Object {
+        $_.name -eq $FolderName -or $_.path -eq $FolderName
+    } | Select-Object -First 1)
+
+    if ($targetFolder.Count -eq 0) {
+        Write-Warn "Repositorio '$FolderName' nao foi encontrado no workspace."
+        return $false
+    }
+
+    $workspaceData.folders = @($workspaceData.folders | Where-Object {
+        $_.name -ne $targetFolder[0].name -and $_.path -ne $targetFolder[0].path
+    })
+    Save-WorkspaceData -WorkspaceData $workspaceData
+    Write-OK "Repositorio '$($targetFolder[0].name)' removido do workspace."
+    return $true
+}
+
+function Invoke-CloneAndAddToWorkspace {
+    Write-Header 'BAIXAR REPOSITORIO E ADICIONAR AO WORKSPACE'
+    Write-Bold "Workspace: $WorkspaceFile"
+    Write-Bold "Pasta base: $WorkspaceRoot"
+    Write-Host ''
+
+    $repoUrl = Read-Host '  URL do repositorio Git (Enter = cancelar)'
+    if ([string]::IsNullOrWhiteSpace($repoUrl)) {
+        Write-Host '  Cancelado.'
+        return
+    }
+
+    $defaultFolderName = [System.IO.Path]::GetFileNameWithoutExtension(($repoUrl.TrimEnd('/') -split '/')[-1])
+    $folderNameInput   = Read-Host "  Nome da pasta local (Enter = $defaultFolderName)"
+    $folderName        = if ([string]::IsNullOrWhiteSpace($folderNameInput)) { $defaultFolderName } else { $folderNameInput.Trim() }
+    $targetPath        = Join-Path $WorkspaceRoot $folderName
+
+    if (Test-Path $targetPath) {
+        Write-Warn "A pasta '$targetPath' ja existe."
+        if (Test-Path (Join-Path $targetPath '.git')) {
+            $resp = Read-Host '  Deseja apenas adicionar ao workspace? (s/N)'
+            if ($resp -match '^[sS]$') {
+                Add-WorkspaceFolder -FolderPath $targetPath -FolderName $folderName | Out-Null
+            }
+        }
+        else {
+            Write-Err 'A pasta existe, mas nao parece ser um repositorio Git.'
+        }
+        return
+    }
+
+    Write-Info "Executando clone para '$targetPath'..."
+    Push-Location $WorkspaceRoot
+    try {
+        $out = git clone $repoUrl $folderName 2>&1
+    }
+    finally {
+        Pop-Location
+    }
+
+    if ($LASTEXITCODE -ne 0) {
+        Write-Err 'Clone falhou:'
+        $out | ForEach-Object { Write-Host "  $_" -ForegroundColor Red }
+        return
+    }
+
+    Write-OK 'Clone concluido com sucesso.'
+    Add-WorkspaceFolder -FolderPath $targetPath -FolderName $folderName | Out-Null
+}
+
+function Invoke-RemoveFromWorkspace {
+    Write-Header 'REMOVER REPOSITORIO DO WORKSPACE'
+
+    $workspaceData = Get-WorkspaceData
+    $folders       = @($workspaceData.folders)
+
+    if ($folders.Count -eq 0) {
+        Write-Warn 'Nenhum repositorio encontrado no workspace.'
+        return
+    }
+
+    Write-Bold 'Repositorios no workspace:'
+    for ($i = 0; $i -lt $folders.Count; $i++) {
+        Write-Host ("  [{0}] {1}  ->  {2}" -f ($i + 1), $folders[$i].name, $folders[$i].path) -ForegroundColor White
+    }
+
+    Write-Host ''
+    $choice = Read-Host '  Numero do repositorio para remover (Enter = cancelar)'
+    if ([string]::IsNullOrWhiteSpace($choice)) {
+        Write-Host '  Cancelado.'
+        return
+    }
+
+    $index = [int]$choice - 1
+    if ($index -lt 0 -or $index -ge $folders.Count) {
+        Write-Err 'Opcao invalida.'
+        return
+    }
+
+    $selected = $folders[$index]
+    $resp = Read-Host "  Confirmar remocao de '$($selected.name)' do workspace? (s/N)"
+    if ($resp -notmatch '^[sS]$') {
+        Write-Host '  Cancelado.'
+        return
+    }
+
+    Remove-WorkspaceFolder -FolderName $selected.name | Out-Null
+    Write-Info 'Os arquivos locais foram mantidos. Apenas o workspace foi atualizado.'
+}
 
 # ---------------------------------------------------------------------------
 # Validar que estamos em um repositorio Git
@@ -131,11 +337,11 @@ function Show-CompareStatus {
     }
     elseif ($info.CommitsAhead -gt 0) {
         Write-Warn "LOCAL esta $($info.CommitsAhead) commit(s) A FRENTE do remoto."
-        Write-Info '-> O LOCAL esta mais atualizado. Use opcao 3 (push) para subir.'
+        Write-Info '-> O LOCAL esta mais atualizado. Use opcao 7 (push) para subir.'
     }
     elseif ($info.CommitsBehind -gt 0) {
         Write-Warn "LOCAL esta $($info.CommitsBehind) commit(s) ATRAS do remoto."
-        Write-Info '-> O REMOTO esta mais atualizado. Use opcao 2 (pull) para baixar.'
+        Write-Info '-> O REMOTO esta mais atualizado. Use opcao 5 (pull) para baixar.'
     }
     else {
         Write-Warn "DIVERGENCIA: local +$($info.CommitsAhead) / remoto +$($info.CommitsBehind) commits."
@@ -460,11 +666,11 @@ function Show-Menu {
         $syncColor  = 'Green'
     }
     elseif ($info.CommitsAhead -gt 0) {
-        $syncStatus = "[!] Local +$($info.CommitsAhead) a frente -> PUSH recomendado (opcao 3)"
+        $syncStatus = "[!] Local +$($info.CommitsAhead) a frente -> PUSH recomendado (opcao 7)"
         $syncColor  = 'Yellow'
     }
     else {
-        $syncStatus = "[!] Remoto +$($info.CommitsBehind) a frente -> PULL recomendado (opcao 2)"
+        $syncStatus = "[!] Remoto +$($info.CommitsBehind) a frente -> PULL recomendado (opcao 5)"
         $syncColor  = 'Yellow'
     }
 
@@ -484,14 +690,26 @@ function Show-Menu {
     }
 
     Write-Host ''
+    Write-Host '  === VERIFICACAO ===' -ForegroundColor Yellow
     Write-Host '  [1]  Comparar local vs remoto (qual esta mais atualizado)' -ForegroundColor White
-    Write-Host '  [2]  Baixar do remoto (pull)'                              -ForegroundColor White
-    Write-Host '  [3]  Subir para o remoto (push)'                           -ForegroundColor White
-    Write-Host '  [4]  Listar branches'                                      -ForegroundColor White
-    Write-Host '  [5]  Trocar de branch'                                     -ForegroundColor White
+    Write-Host '  [2]  Informacoes completas do repositorio'                 -ForegroundColor White
+    Write-Host '  [3]  Listar branches'                                      -ForegroundColor White
+    Write-Host ''
+    Write-Host '  === SINCRONIZACAO ===' -ForegroundColor Yellow
+    Write-Host '  [4]  Trocar de branch'                                     -ForegroundColor White
+    Write-Host '  [5]  Baixar do remoto (pull)'                              -ForegroundColor White
+    Write-Host ''
+    Write-Host '  === ENVIAR ALTERACOES ===' -ForegroundColor Yellow
     Write-Host '  [6]  Commitar (mensagem aleatoria)'                        -ForegroundColor White
-    Write-Host '  [7]  Informacoes completas do repositorio'                 -ForegroundColor White
-    Write-Host '  [8]  Deploy para GitHub Pages (build + deploy)'            -ForegroundColor Magenta
+    Write-Host '  [7]  Subir para o remoto (push)'                           -ForegroundColor White
+    Write-Host ''
+    Write-Host '  === PUBLICACAO ===' -ForegroundColor Green
+    Write-Host '  [8]  Deploy para GitHub Pages (build + deploy)'            -ForegroundColor Green
+    Write-Host ''
+    Write-Host '  === WORKSPACE ===' -ForegroundColor Cyan
+    Write-Host '  [9]  Baixar repositorio e adicionar ao workspace'          -ForegroundColor White
+    Write-Host '  [10] Remover repositorio do workspace'                     -ForegroundColor White
+    Write-Host ''
     Write-Host '  [0]  Sair'                                                 -ForegroundColor DarkGray
     Write-Host ''
 }
@@ -512,15 +730,17 @@ while ($true) {
 
     switch ($opcao.Trim()) {
         '1' { Show-CompareStatus  }
-        '2' { Invoke-Pull         }
-        '3' { Invoke-Push         }
-        '4' { Show-Branches       }
-        '5' { Switch-Branch       }
+        '2' { Show-RepoInfo       }
+        '3' { Show-Branches       }
+        '4' { Switch-Branch       }
+        '5' { Invoke-Pull         }
         '6' { Invoke-RandomCommit }
-        '7' { Show-RepoInfo       }
+        '7' { Invoke-Push         }
         '8' { Invoke-DeployPages  }
+        '9' { Invoke-CloneAndAddToWorkspace }
+        '10' { Invoke-RemoveFromWorkspace   }
         '0' { Write-Host "`n  Ate logo!`n" -ForegroundColor Cyan; exit 0 }
-        default { Write-Warn 'Opcao invalida. Digite um numero entre 0 e 8.' }
+        default { Write-Warn 'Opcao invalida. Digite um numero entre 0 e 10.' }
     }
 
     Write-Host ''

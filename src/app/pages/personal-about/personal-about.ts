@@ -1,9 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { LanguageService } from '../../services/language.service';
 
-type CarouselKey = 'teams' | 'family' | 'aboutMe';
+type CarouselKey = 'teams' | 'family' | 'aboutMe' | 'githubPocs';
 
 interface PhotoItem {
   url: string;
@@ -21,9 +20,6 @@ interface PhotoItem {
   styleUrl: './personal-about.scss'
 })
 export class PersonalAboutPage {
-  readonly langService = inject(LanguageService);
-  lang = this.langService.lang;
-
   readonly carousels: Record<CarouselKey, PhotoItem[]> = {
     teams: [
       {
@@ -163,13 +159,51 @@ export class PersonalAboutPage {
           en: 'Changing changing changing'
         }
       }
+    ],
+    githubPocs: [
+      {
+        url: 'assets/aboutMe/aboutMe%20(9).jpg',
+        caption: {
+          pt: 'Tax/Legal Tech: aproveitando a janela de oportunidade no Brasil para recuperacao comissionada de impostos em clientes PME e cadeias produtivas interestaduais (energia, transporte e outros setores). Repositorio: https://github.com/wesleyzilva/restituicaoICMS_ISS_porIBS_front',
+          en: 'Tax/Legal Tech: using the Brazil market opportunity to drive commission-based tax recovery for SMB clients and interstate value chains (energy, transportation, and other sectors). Repository: https://github.com/wesleyzilva/restituicaoICMS_ISS_porIBS_front'
+        }
+      },
+      {
+        url: 'assets/aboutMe/aboutMe%20(10).jpg',
+        caption: {
+          pt: 'Sistema de fidelizacao digital para pequenos comercios de servicos (barbearias, clinicas odontologicas e petshops), sem papel e sem esquecimento, com jornada simples para recorrencia de clientes. Repositorio: https://github.com/wesleyzilva/VIPpocket_adm',
+          en: 'Digital loyalty system for small service businesses (barbershops, dental clinics, and pet shops), paperless and reminder-friendly, designed to increase repeat customers through a simple user journey. Repository: https://github.com/wesleyzilva/VIPpocket_adm'
+        }
+      },
+      {
+        url: 'assets/aboutMe/aboutMe%20(11).jpg',
+        caption: {
+          pt: 'Projeto IA First para deixar um cartao digital na avenida da internet para pequenos comercios locais, combinando UX e analytics para validar hipoteses rapidamente. Repositorio: https://github.com/wesleyzilva/dradaianaferraz_gold',
+          en: 'AI-first project built to place a digital business card on the internet avenue for local small businesses, combining UX and analytics for fast hypothesis validation. Repository: https://github.com/wesleyzilva/dradaianaferraz_gold'
+        }
+      },
+      {
+        url: 'assets/aboutMe/aboutMe%20(12).jpg',
+        caption: {
+          pt: 'Sistema CRM POC para resolver administracao interna do negocio em abordagem AI-first, aumentando produtividade em equipes distribuidas. Repositorio: https://github.com/wesleyzilva/partners.crm.com',
+          en: 'CRM POC system to solve internal business administration in an AI-first approach, improving productivity in distributed teams. Repository: https://github.com/wesleyzilva/partners.crm.com'
+        }
+      },
+      {
+        url: 'assets/aboutMe/aboutMe%20(13).jpg',
+        caption: {
+          pt: 'POC de aprendizado guiado para Price Action em Trade e Forex, estruturando conceitos praticos e teoricos com foco em evolucao consistente. Repositorio: https://github.com/wesleyzilva/PriceAction_Fisica',
+          en: 'Guided learning POC for Price Action in Trade and Forex, structuring practical and theoretical concepts to support consistent progression. Repository: https://github.com/wesleyzilva/PriceAction_Fisica'
+        }
+      }
     ]
   };
 
   readonly currentIndex: Record<CarouselKey, number> = {
     teams: 0,
     family: 0,
-    aboutMe: 0
+    aboutMe: 0,
+    githubPocs: 0
   };
 
   previous(key: CarouselKey): void {
@@ -188,6 +222,6 @@ export class PersonalAboutPage {
 
   currentCaption(key: CarouselKey): string {
     const item = this.currentItem(key);
-    return this.lang() === 'pt' ? item.caption.pt : item.caption.en;
+    return item.caption.en;
   }
 }

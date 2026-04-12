@@ -27,6 +27,33 @@
         : 'In 3 to 5 minutes you can assess my seniority, international context, operating stack and fit for leadership, product and delivery roles.' }}
     </p>
 
+    <div class="impact-highlights">
+      <article class="impact-item">
+        <strong>14+ anos</strong>
+        <span>{{ lang() === 'pt' ? 'liderando tecnologia' : 'leading technology teams' }}</span>
+      </article>
+      <article class="impact-item">
+        <strong>80M+</strong>
+        <span>{{ lang() === 'pt' ? 'transações/dia' : 'transactions/day' }}</span>
+      </article>
+      <article class="impact-item">
+        <strong>R$500M+</strong>
+        <span>{{ lang() === 'pt' ? 'reconciliação mensal' : 'monthly reconciliation' }}</span>
+      </article>
+      <article class="impact-item">
+        <strong>90%</strong>
+        <span>{{ lang() === 'pt' ? 'redução de vulnerabilidades' : 'vulnerability reduction' }}</span>
+      </article>
+      <article class="impact-item">
+        <strong>45%</strong>
+        <span>{{ lang() === 'pt' ? 'redução de MTTR' : 'MTTR reduction' }}</span>
+      </article>
+      <article class="impact-item">
+        <strong>99.95%</strong>
+        <span>uptime {{ lang() === 'pt' ? 'em sistemas críticos' : 'in critical systems' }}</span>
+      </article>
+    </div>
+
     <div class="about-overview-grid">
       <article class="about-spotlight">
         <span class="spotlight-badge">{{ lang() === 'pt' ? 'Perfil' : 'Profile' }}</span>
@@ -37,8 +64,12 @@
             ? 'Combino conhecimento técnico com processos ágeis e qualidade como código para criar, fortalecer e entregar projetos de produtos digitais, garantindo requisitos sustentáveis em um workspace de interação remota orientado a dados em um ambiente guiado por IA First.'
             : 'I combine technical knowledge with agile processes and quality as code to create, strengthen and deliver digital product projects, ensuring sustainable requirements in a data-driven remote interaction workspace within an AI First-driven environment.' }}
         </p>
+        <a href="#projects" class="projects-impact-btn">
+          <i class="fas fa-chart-line"></i>
+          Projects and impacts
+        </a>
         <div class="about-chips">
-          <span class="summary-chip">14+ Years</span>
+          <span class="summary-chip">{{ lang() === 'pt' ? '14+ anos' : '14+ years' }}</span>
           <span class="summary-chip">Nearshore</span>
           <span class="summary-chip">English C1</span>
           <span class="summary-chip">PO Tech</span>
@@ -248,49 +279,66 @@
       <!-- Carousel -->
       <ng-container *ngFor="let project of projects; let i = index">
         <div class="project-card" *ngIf="i === currentProjectIndex">
-          <h3 class="project-title">{{ project.title }}</h3>
+          <h3 class="project-title">{{ tr(project.title) }}</h3>
+
+          <div class="project-category-row">
+            <span class="project-category">{{ tr(project.category) }}</span>
+            <span class="project-evidence" [class.qualitative]="project.evidence !== 'measured'">{{ evidenceLabel(project.evidence) }}</span>
+          </div>
 
           <div class="project-meta-grid">
             <div class="meta-item">
               <i class="fas fa-bullseye"></i>
               <div>
-                <strong>{{ lang() === 'pt' ? 'Escopo' : 'Scope' }}</strong>
-                <p>{{ project.scope }}</p>
+                <strong>{{ lang() === 'pt' ? 'Contexto' : 'Context' }}</strong>
+                <p>{{ tr(project.context) }}</p>
               </div>
             </div>
+            <div class="meta-item">
+              <i class="fas fa-user-tie"></i>
+              <div>
+                <strong>{{ lang() === 'pt' ? 'Papel' : 'Role' }}</strong>
+                <p>{{ tr(project.role) }}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-detail-section">
+            <h4><i class="fas fa-cogs"></i> {{ lang() === 'pt' ? 'Ações executadas' : 'Actions delivered' }}</h4>
+            <ul>
+              <li *ngFor="let action of trList(project.actions)">{{ action }}</li>
+            </ul>
+          </div>
+
+          <div class="project-detail-section result-section">
+            <h4><i class="fas fa-chart-line"></i> {{ lang() === 'pt' ? 'Resultados alcançados' : 'Measured outcomes' }}</h4>
+            <ul>
+              <li *ngFor="let result of trList(project.results)">{{ result }}</li>
+            </ul>
+          </div>
+
+          <div class="project-meta-grid compact">
             <div class="meta-item">
               <i class="fas fa-clock"></i>
               <div>
                 <strong>{{ lang() === 'pt' ? 'Duração' : 'Duration' }}</strong>
-                <p>{{ project.duration }}</p>
+                <p>{{ tr(project.duration) }}</p>
               </div>
             </div>
             <div class="meta-item">
               <i class="fas fa-users"></i>
               <div>
                 <strong>{{ lang() === 'pt' ? 'Time' : 'Team' }}</strong>
-                <p>{{ project.team }}</p>
+                <p>{{ tr(project.team) }}</p>
               </div>
             </div>
-            <div class="meta-item">
-              <i class="fas fa-trophy"></i>
-              <div>
-                <strong>{{ lang() === 'pt' ? 'Resultados' : 'Achievements' }}</strong>
-                <p>{{ project.achievements }}</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-highlights" *ngIf="project.highlights">
-            <i class="fas fa-lightbulb"></i>
-            <span>{{ project.highlights }}</span>
           </div>
 
           <div class="project-footer">
             <div class="project-links">
               <a *ngFor="let link of project.links" [href]="link.url" target="_blank" rel="noopener"
-                class="pill-link" [hidden]="!link.text">
-                <i class="fas fa-external-link-alt"></i> {{ link.text }}
+                class="pill-link" [hidden]="!tr(link.text)">
+                <i class="fas fa-external-link-alt"></i> {{ tr(link.text) }}
               </a>
             </div>
             <button class="like-btn" (click)="likeProject(project)" [class.liked]="project.liked">
@@ -298,7 +346,7 @@
             </button>
           </div>
 
-          <div class="project-skills" *ngIf="project.skills?.length">
+          <div class="project-skills" *ngIf="project.skills.length">
             <h4>{{ lang() === 'pt' ? 'Skills do Projeto' : 'Project Skills' }}</h4>
             <div class="skill-pills">
               <span *ngFor="let skill of project.skills" class="pill pill-tech">{{ skill }}</span>
