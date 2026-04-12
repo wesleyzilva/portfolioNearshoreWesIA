@@ -12,7 +12,7 @@
       <p class="eyebrow">Personal About</p>
       <h1>Beyond the professional side, a bit about me</h1>
       <p class="hero-copy">
-        This page is intentionally separate so personal context does not mix with professional screening. Here you can see team moments, family, interests, an English presentation video, and a GitHub POC showcase.
+        This page is intentionally separate so personal context does not mix with professional screening. Here you can see family, interests, an English presentation video, and a GitHub POC showcase.
       </p>
       <div class="social-row">
         <a href="https://www.instagram.com/wesley.zilva/" target="_blank" rel="noopener" class="social-link instagram">Instagram</a>
@@ -68,23 +68,6 @@
           <button type="button" (click)="previous('githubPocs')" aria-label="Previous GitHub POC photo">‹</button>
           <span aria-live="polite">{{ currentIndex.githubPocs + 1 }} / {{ carousels.githubPocs.length }}</span>
           <button type="button" (click)="next('githubPocs')" aria-label="Next GitHub POC photo">›</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="personal-section" aria-labelledby="teams-title">
-      <div class="section-copy">
-        <p class="eyebrow">Teams</p>
-        <h2 id="teams-title">Team moments</h2>
-        <p>Real experiences around people, collaboration and team dynamics.</p>
-      </div>
-      <div class="carousel-card">
-        <img [src]="currentItem('teams').url" alt="Team moment photo" class="carousel-image" />
-        <p class="photo-caption">{{ currentCaption('teams') }}</p>
-        <div class="carousel-controls">
-          <button type="button" (click)="previous('teams')" aria-label="Previous team photo">‹</button>
-          <span aria-live="polite">{{ currentIndex.teams + 1 }} / {{ carousels.teams.length }}</span>
-          <button type="button" (click)="next('teams')" aria-label="Next team photo">›</button>
         </div>
       </div>
     </section>

@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-type CarouselKey = 'teams' | 'family' | 'aboutMe' | 'githubPocs';
+type CarouselKey = 'family' | 'aboutMe' | 'githubPocs';
 
 interface PhotoItem {
   url: string;
@@ -21,36 +21,6 @@ interface PhotoItem {
 })
 export class PersonalAboutPage {
   readonly carousels: Record<CarouselKey, PhotoItem[]> = {
-    teams: [
-      {
-        url: 'assets/teams/times%20(1).jpg',
-        caption: {
-          pt: 'Reunião da equipe de desenvolvimento - planejamento de sprint',
-          en: 'Development team meeting - sprint planning'
-        }
-      },
-      {
-        url: 'assets/teams/times%20(2).jpg',
-        caption: {
-          pt: 'Sessão de retrospectiva com o time ágil',
-          en: 'Retrospective session with agile team'
-        }
-      },
-      {
-        url: 'assets/teams/times%20(3).jpg',
-        caption: {
-          pt: 'Workshop de integração com equipe nearshore',
-          en: 'Integration workshop with nearshore team'
-        }
-      },
-      {
-        url: 'assets/teams/times%20(4).jpg',
-        caption: {
-          pt: 'Celebração de entrega de projeto com a squad',
-          en: 'Project delivery celebration with the squad'
-        }
-      }
-    ],
     family: [
       {
         url: 'assets/family/20210728_173811.jpg',
@@ -80,13 +50,6 @@ export class PersonalAboutPage {
         caption: {
           pt: 'Reconhecimento pelo trabalho.',
           en: 'Work recognition.'
-        }
-      },
-      {
-        url: 'assets/aboutMe/aboutMe%20(1).jpg',
-        caption: {
-          pt: 'Desde novo.',
-          en: 'Since young.'
         }
       },
       {
@@ -125,31 +88,17 @@ export class PersonalAboutPage {
         }
       },
       {
-        url: 'assets/aboutMe/aboutMe%20(9).jpg',
-        caption: {
-          pt: 'Compartilhando conhecimento e experiências',
-          en: 'Sharing knowledge and experiences'
-        }
-      },
-      {
         url: 'assets/aboutMe/aboutMe%20(10).jpg',
         caption: {
-          pt: 'Inspiração em diferentes contextos',
-          en: 'Inspiration in different contexts'
+          pt: 'Aprendendo chines como parte de curiosidade intelectual e expansao cultural.',
+          en: 'Learning Chinese as part of intellectual curiosity and cultural expansion.'
         }
       },
       {
         url: 'assets/aboutMe/aboutMe%20(11).jpg',
         caption: {
-          pt: 'Construindo conexões significativas',
-          en: 'Building meaningful connections'
-        }
-      },
-      {
-        url: 'assets/aboutMe/aboutMe%20(12).jpg',
-        caption: {
-          pt: 'Evolução constante e adaptação',
-          en: 'Constant evolution and adaptation'
+          pt: 'Vestindo a camisa.',
+          en: 'Wearing the jersey.'
         }
       },
       {
@@ -162,35 +111,35 @@ export class PersonalAboutPage {
     ],
     githubPocs: [
       {
-        url: 'assets/aboutMe/aboutMe%20(9).jpg',
+        url: 'assets/aboutMe/taxTech.webp',
         caption: {
           pt: 'Tax/Legal Tech: aproveitando a janela de oportunidade no Brasil para recuperacao comissionada de impostos em clientes PME e cadeias produtivas interestaduais (energia, transporte e outros setores). Repositorio: https://github.com/wesleyzilva/restituicaoICMS_ISS_porIBS_front',
           en: 'Tax/Legal Tech: using the Brazil market opportunity to drive commission-based tax recovery for SMB clients and interstate value chains (energy, transportation, and other sectors). Repository: https://github.com/wesleyzilva/restituicaoICMS_ISS_porIBS_front'
         }
       },
       {
-        url: 'assets/aboutMe/aboutMe%20(10).jpg',
+        url: 'assets/aboutMe/smallBusiness.webp',
         caption: {
           pt: 'Sistema de fidelizacao digital para pequenos comercios de servicos (barbearias, clinicas odontologicas e petshops), sem papel e sem esquecimento, com jornada simples para recorrencia de clientes. Repositorio: https://github.com/wesleyzilva/VIPpocket_adm',
           en: 'Digital loyalty system for small service businesses (barbershops, dental clinics, and pet shops), paperless and reminder-friendly, designed to increase repeat customers through a simple user journey. Repository: https://github.com/wesleyzilva/VIPpocket_adm'
         }
       },
       {
-        url: 'assets/aboutMe/aboutMe%20(11).jpg',
+        url: 'assets/aboutMe/www.jpg',
         caption: {
           pt: 'Projeto IA First para deixar um cartao digital na avenida da internet para pequenos comercios locais, combinando UX e analytics para validar hipoteses rapidamente. Repositorio: https://github.com/wesleyzilva/dradaianaferraz_gold',
           en: 'AI-first project built to place a digital business card on the internet avenue for local small businesses, combining UX and analytics for fast hypothesis validation. Repository: https://github.com/wesleyzilva/dradaianaferraz_gold'
         }
       },
       {
-        url: 'assets/aboutMe/aboutMe%20(12).jpg',
+        url: 'assets/aboutMe/reinventing.jpeg',
         caption: {
           pt: 'Sistema CRM POC para resolver administracao interna do negocio em abordagem AI-first, aumentando produtividade em equipes distribuidas. Repositorio: https://github.com/wesleyzilva/partners.crm.com',
           en: 'CRM POC system to solve internal business administration in an AI-first approach, improving productivity in distributed teams. Repository: https://github.com/wesleyzilva/partners.crm.com'
         }
       },
       {
-        url: 'assets/aboutMe/aboutMe%20(13).jpg',
+        url: 'assets/aboutMe/trade.png',
         caption: {
           pt: 'POC de aprendizado guiado para Price Action em Trade e Forex, estruturando conceitos praticos e teoricos com foco em evolucao consistente. Repositorio: https://github.com/wesleyzilva/PriceAction_Fisica',
           en: 'Guided learning POC for Price Action in Trade and Forex, structuring practical and theoretical concepts to support consistent progression. Repository: https://github.com/wesleyzilva/PriceAction_Fisica'
@@ -200,7 +149,6 @@ export class PersonalAboutPage {
   };
 
   readonly currentIndex: Record<CarouselKey, number> = {
-    teams: 0,
     family: 0,
     aboutMe: 0,
     githubPocs: 0
