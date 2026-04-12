@@ -1,0 +1,114 @@
+:host {
+  display: block;
+}
+
+.hot-search-page {
+  min-height: 100vh;
+  padding: 6rem 1.25rem 3rem;
+  background:
+    radial-gradient(circle at top, rgba(247, 37, 133, 0.12), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(76, 201, 240, 0.16), transparent 30%),
+    linear-gradient(180deg, #0d1b2a 0%, #111f33 100%);
+}
+
+.intro-panel,
+.faq-panel,
+.closing-panel {
+  max-width: 1180px;
+  margin: 0 auto 1.4rem;
+  padding: 1.5rem;
+  border-radius: 24px;
+  border: 1px solid rgba(247, 37, 133, 0.14);
+  background: rgba(27, 38, 59, 0.78);
+  backdrop-filter: blur(14px);
+}
+
+.eyebrow {
+  color: var(--cor-destaque-secundaria);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.74rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.intro-panel h1,
+.section-heading h2,
+.closing-panel h2,
+.faq-item h3,
+.topic-query {
+  font-family: var(--fonte-primaria);
+}
+
+.intro-panel h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  margin-bottom: 0.9rem;
+}
+
+.intro-copy,
+.topic-answer,
+.faq-item p,
+.closing-panel p {
+  color: rgba(224, 225, 221, 0.82);
+  line-height: 1.75;
+}
+
+.topics-grid,
+.faq-list {
+  max-width: 1180px;
+  margin: 0 auto 1.4rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.topic-card,
+.faq-item {
+  padding: 1.2rem;
+  border-radius: 20px;
+  background: rgba(13, 27, 42, 0.6);
+  border: 1px solid rgba(76, 201, 240, 0.14);
+}
+
+.topic-query,
+.faq-item h3 {
+  color: #ffffff;
+  font-size: 1.18rem;
+  margin-bottom: 0.7rem;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 1.15rem;
+}
+
+.primary-cta,
+.secondary-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0.75rem 1.2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.primary-cta {
+  background: linear-gradient(90deg, #f72585, #ff7d00);
+  color: #ffffff;
+}
+
+.secondary-cta {
+  border: 1px solid rgba(247, 37, 133, 0.35);
+  color: var(--cor-texto);
+}
+
+@media (min-width: 860px) {
+  .topics-grid,
+  .faq-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

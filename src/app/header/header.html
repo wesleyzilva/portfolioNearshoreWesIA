@@ -1,19 +1,19 @@
 <header class="header">
     <div class="header-content">
-        <div class="header-brand">
+        <a class="header-brand" routerLink="/">
             <span class="brand-name">Wesley<span class="brand-accent">Wes</span></span>
             <span class="brand-tag">Nearshore · Agile · Team Dynamic · IA Powered</span>
-        </div>
+        </a>
         <nav class="header-nav">
-            <a href="#hero">{{ lang() === 'pt' ? 'Início' : 'Home' }}</a>
-            <a href="#about">{{ lang() === 'pt' ? 'Sobre' : 'About' }}</a>
-            <a href="#projects">{{ lang() === 'pt' ? 'Projetos' : 'Projects' }}</a>
-            <a href="#skills">{{ lang() === 'pt' ? 'Skills' : 'Skills' }}</a>
-            <a href="#location">{{ lang() === 'pt' ? 'Localização' : 'Location' }}</a>
-            <a href="#contact">{{ lang() === 'pt' ? 'Contato' : 'Contact' }}</a>
+            <a [routerLink]="basePath()" fragment="hero">{{ lang() === 'pt' ? 'Início' : 'Home' }}</a>
+            <a [routerLink]="basePath()" fragment="about">{{ lang() === 'pt' ? 'Sobre' : 'About' }}</a>
+            <a [routerLink]="basePath()" fragment="projects">{{ lang() === 'pt' ? 'Projetos' : 'Projects' }}</a>
+            <a [routerLink]="basePath()" fragment="skills">Skills</a>
+            <a [routerLink]="basePath()" fragment="location">{{ lang() === 'pt' ? 'Localização' : 'Location' }}</a>
+            <a [routerLink]="basePath()" fragment="contact">{{ lang() === 'pt' ? 'Contato' : 'Contact' }}</a>
         </nav>
         <div class="header-actions">
-            <button class="lang-toggle" (click)="langService.toggle()" [attr.aria-label]="'Switch language'">
+            <button class="lang-toggle" (click)="switchLanguage()" [attr.aria-label]="'Switch language'">
                 <i class="fas fa-globe"></i>
                 {{ lang() === 'pt' ? 'EN' : 'PT' }}
             </button>

@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, inject, OnInit } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { Lang, LanguageService } from '../../services/language.service';
+import { PageMetaService } from '../../services/page-meta.service';
 
 type CarouselKey = 'family' | 'aboutMe' | 'githubPocs';
 
@@ -19,7 +21,12 @@ interface PhotoItem {
   templateUrl: './personal-about.html',
   styleUrl: './personal-about.scss'
 })
-export class PersonalAboutPage {
+export class PersonalAboutPage implements OnInit {
+  readonly route = inject(ActivatedRoute);
+  readonly langService = inject(LanguageService);
+  readonly pageMeta = inject(PageMetaService);
+  routeLang: Lang = 'en';
+
   readonly carousels: Record<CarouselKey, PhotoItem[]> = {
     family: [
       {
@@ -171,5 +178,21 @@ export class PersonalAboutPage {
   currentCaption(key: CarouselKey): string {
     const item = this.currentItem(key);
     return item.caption.en;
+  }
+
+  ngOnInit(): void {
+    const routeLang = this.route.snapshot.data['lang'] as Lang | undefined;
+    this.routeLang = routeLang ?? this.langService.lang();
+    const path = this.routeLang === 'en' ? 'personal-about' : 'pt/personal-about';
+
+    this.langService.setLang(this.routeLang);
+    this.pageMeta.update({
+      lang: this.routeLang,
+      path,
+      title: 'Personal About · Wesley Gomes da Silva',
+      description: 'Family, interests, English introduction, and product POCs kept separate from the recruiter-focused profile.',
+      keywords: 'personal about, Wesley Gomes, GitHub POCs, English introduction, family',
+      alternatePath: 'personal-about'
+    });
   }
 }

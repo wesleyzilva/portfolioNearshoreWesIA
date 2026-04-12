@@ -1,0 +1,47 @@
+<app-header></app-header>
+
+<main class="hot-search-page">
+  <section class="intro-panel">
+    <p class="eyebrow">{{ copy().eyebrow }}</p>
+    <h1>{{ copy().title }}</h1>
+    <p class="intro-copy">{{ copy().intro }}</p>
+  </section>
+
+  <section class="topics-grid">
+    @for (topic of copy().topics; track topic.query) {
+      <article class="topic-card">
+        <p class="topic-query">{{ topic.query }}</p>
+        <p class="topic-answer">{{ topic.answer }}</p>
+      </article>
+    }
+  </section>
+
+  <section class="faq-panel">
+    <div class="section-heading">
+      <p class="eyebrow">FAQ</p>
+      <h2>{{ copy().faqTitle }}</h2>
+    </div>
+
+    <div class="faq-list">
+      @for (faq of copy().faqs; track faq.question) {
+        <article class="faq-item">
+          <h3>{{ faq.question }}</h3>
+          <p>{{ faq.answer }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="closing-panel">
+    <p class="eyebrow">Conversion</p>
+    <h2>{{ copy().footerTitle }}</h2>
+    <p>{{ copy().footerCopy }}</p>
+
+    <div class="cta-row">
+      <a [routerLink]="['/', lang(), 'business-profile']" class="primary-cta">{{ copy().primaryCta }}</a>
+      <a [routerLink]="['/', lang(), 'proposal']" class="secondary-cta">{{ copy().secondaryCta }}</a>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>
