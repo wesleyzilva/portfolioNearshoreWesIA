@@ -751,6 +751,13 @@ function Invoke-DeployPages {
         Write-Host '  ============================================' -ForegroundColor Cyan
         Write-Host '  VALIDACOES POS-DEPLOY' -ForegroundColor Cyan
         Write-Host '  ============================================' -ForegroundColor Cyan
+        # Coleta dados do commit e repo remoto para exibir nas validacoes
+        $lastCommit  = (git log --oneline -1 2>&1) | Select-Object -First 1
+        $remote      = (git remote get-url origin 2>&1) | Select-Object -First 1
+        $repoSlug    = if ($remote -match 'github\.com[:/](.+?)(?:\.git)?$') { $Matches[1] } else { $null }
+        $actionsUrl  = if ($repoSlug) { "https://github.com/$repoSlug/actions" } else { $null }
+        $commitUrl   = if ($repoSlug -and $lastCommit -match '^([0-9a-f]+)') { "https://github.com/$repoSlug/commit/$($Matches[1])" } else { $null }
+
         if ($siteUrl) {
             Write-Host "  Site publicado em: $siteUrl" -ForegroundColor White
             Write-Host ''
@@ -768,6 +775,17 @@ function Invoke-DeployPages {
             Write-Host ''
             Write-Host '  [5] Google Search Console — Inspecionar URL' -ForegroundColor Yellow
             Write-Host '      https://search.google.com/search-console' -ForegroundColor Gray
+        }
+        if ($actionsUrl) {
+            Write-Host ''
+            Write-Host '  [6] GitHub Actions — status do workflow de deploy' -ForegroundColor Yellow
+            Write-Host "      $actionsUrl" -ForegroundColor Gray
+        }
+        if ($commitUrl) {
+            Write-Host ''
+            Write-Host '  [7] Ultimo commit no remoto' -ForegroundColor Yellow
+            Write-Host "      $lastCommit" -ForegroundColor DarkGray
+            Write-Host "      $commitUrl" -ForegroundColor Gray
         }
         Write-Host '  ============================================' -ForegroundColor Cyan
         Write-Host ''
