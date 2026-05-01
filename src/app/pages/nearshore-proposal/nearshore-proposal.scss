@@ -1,0 +1,354 @@
+.nearshore-proposal-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, rgba(13, 27, 42, 0.95) 0%, rgba(27, 38, 59, 0.98) 100%);
+  padding: 100px 20px 60px;
+
+  @media (max-width: 768px) {
+    padding: 80px 15px 40px;
+  }
+}
+
+.np-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+// ── Shared utilities ───────────────────────────────────────────
+.eyebrow {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #00d4ff;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.cta-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.primary-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  background: linear-gradient(135deg, #25d366, #1da851);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  }
+
+  i { font-size: 1.1rem; }
+}
+
+.secondary-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  background: transparent;
+  border: 1px solid rgba(0, 212, 255, 0.5);
+  color: #00d4ff;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: #00d4ff;
+  }
+
+  i { font-size: 1.1rem; }
+}
+
+// ── Hero ───────────────────────────────────────────────────────
+.np-hero {
+  text-align: center;
+  padding: 3rem 0 1rem;
+
+  h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    background: linear-gradient(90deg, #00d4ff, #00ffaa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0.5rem 0;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-copy {
+    max-width: 720px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.75;
+    font-size: 1.05rem;
+  }
+
+  .cta-row {
+    justify-content: center;
+  }
+}
+
+// ── Section shared layout ──────────────────────────────────────
+.np-section {
+  .np-section-heading {
+    text-align: center;
+    margin-bottom: 2.5rem;
+
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: #ffffff;
+      font-weight: 700;
+      margin: 0.5rem 0 1rem;
+    }
+
+    .section-intro {
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+  }
+}
+
+// ── Cards grid ────────────────────────────────────────────────
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 12px;
+  padding: 1.75rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 212, 255, 0.5);
+    box-shadow: 0 8px 24px rgba(0, 212, 255, 0.12);
+  }
+
+  .card-icon {
+    font-size: 1.75rem;
+    color: #00d4ff;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  &.accent-card {
+    border-color: rgba(0, 255, 170, 0.2);
+
+    &:hover {
+      border-color: rgba(0, 255, 170, 0.5);
+      box-shadow: 0 8px 24px rgba(0, 255, 170, 0.12);
+    }
+
+    .card-icon { color: #00ffaa; }
+  }
+}
+
+// ── Accent section (why-wesley) ───────────────────────────────
+.accent-section {
+  background: rgba(0, 255, 170, 0.03);
+  border: 1px solid rgba(0, 255, 170, 0.15);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+
+  .np-section-heading h2 { color: #00ffaa; }
+  .eyebrow { color: #00ffaa; }
+}
+
+// ── Metrics row ───────────────────────────────────────────────
+.metrics-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.metric-card {
+  background: rgba(0, 255, 170, 0.08);
+  border: 1px solid rgba(0, 255, 170, 0.25);
+  border-radius: 10px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+
+  strong {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #00ffaa;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  span {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.4;
+  }
+}
+
+// ── Benefits list ─────────────────────────────────────────────
+.benefits-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.benefit-item {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: 10px;
+  transition: all 0.25s ease;
+
+  &:hover {
+    background: rgba(0, 212, 255, 0.07);
+    border-color: rgba(0, 212, 255, 0.35);
+  }
+
+  > i {
+    font-size: 1.4rem;
+    color: #00ffaa;
+    margin-top: 0.1rem;
+    flex-shrink: 0;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.65;
+  }
+}
+
+// ── Engagement terms ──────────────────────────────────────────
+.terms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.term-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 12px;
+  padding: 1.75rem;
+  transition: all 0.25s ease;
+
+  &:hover {
+    border-color: rgba(0, 212, 255, 0.45);
+    background: rgba(0, 212, 255, 0.06);
+  }
+
+  > i {
+    font-size: 1.75rem;
+    color: #00d4ff;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.65;
+  }
+}
+
+// ── Close / CTA section ───────────────────────────────────────
+.np-close {
+  text-align: center;
+  padding: 2rem 0 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  h2 {
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    color: #ffffff;
+    font-weight: 700;
+    margin: 0.5rem 0 1.25rem;
+  }
+
+  > p {
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.75;
+    font-size: 1rem;
+  }
+
+  .cta-row {
+    justify-content: center;
+  }
+
+  .back-link-row {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+
+    a {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover { color: #00d4ff; }
+    }
+  }
+}

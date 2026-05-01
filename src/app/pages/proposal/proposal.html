@@ -1,266 +1,289 @@
-﻿<app-header></app-header>
+<app-header></app-header>
 
 <main class="proposal-page">
   <div class="proposal-container">
-
-    <section class="proposal-hero">
-      <p class="eyebrow">Nearshore Engagement Proposal Â· Wesley Gomes da Silva</p>
-      <h1>USD&nbsp;6,000&nbsp;/ month</h1>
-      <p class="hero-sub">Senior Tech Lead â€” Nearshore from Brazil Â· UTC-3 Â· C2 English Â· AI-First</p>
-      <p class="hero-copy">
-        Full US-day overlap. Enterprise-depth engineering. An AI-first operating model that
-        multiplies your team's throughput without multiplying your management overhead.
-        Everything in writing. Every decision documented.
+    <section class="proposal-header">
+      <h1 *ngIf="lang() === 'pt'">Proposta de Trabalho</h1>
+      <h1 *ngIf="lang() === 'en'">Work Proposal</h1>
+       
+      <p class="subtitle" *ngIf="lang() === 'pt'">
+        Comparativo de Remuneração
       </p>
-      <div class="cta-row">
-        <a href="https://wa.me/5516997212966?text=Global%20project%20%E2%80%94%20I%20found%20your%20proposal%20and%20want%20to%20discuss%20a%20nearshore%20engagement"
-           target="_blank" rel="noopener noreferrer" class="primary-cta">
-          <i class="fab fa-whatsapp"></i>
-          Start the conversation on WhatsApp
-        </a>
-      </div>
-    </section>
-
-    <section class="proposal-section why-brazil">
-      <div class="section-heading">
-        <p class="eyebrow">The Structural Case</p>
-        <h2>Why Brazil wins the nearshore argument</h2>
-        <p class="section-intro">
-          Four factors that together cannot be replicated by any other nearshore region at this price point.
-        </p>
-      </div>
-      <div class="cards-grid">
-        <article class="info-card">
-          <div class="card-icon"><i class="fas fa-clock"></i></div>
-          <h3>UTC-3: full US overlap</h3>
-          <p>
-            Brazil operates at UTC-3 year-round, covering the entire US business day in real time.
-            No 24-hour ticket cycles. No async-only standup. Live decisions, live unblocking.
-            For EU clients: a 9 AM CET standup is 6 AM SÃ£o Paulo â€” full working-hour overlap
-            until 6 PM CET.
-          </p>
-        </article>
-        <article class="info-card">
-          <div class="card-icon"><i class="fas fa-dollar-sign"></i></div>
-          <h3>40â€“60% below European rates</h3>
-          <p>
-            A senior Brazilian engineer with equivalent depth to a Central European contractor
-            costs 40â€“60% less annually. At USD 6,000/month, you get leadership-range coverage â€”
-            architecture, delivery, security, and executive communication â€” without hiring four
-            specialists to cover the same surface.
-          </p>
-        </article>
-        <article class="info-card">
-          <div class="card-icon"><i class="fas fa-shield-halved"></i></div>
-          <h3>Enterprise-grade talent pool</h3>
-          <p>
-            Brazil's financial services and telecoms ecosystems are among the most demanding in the
-            world by volume and regulatory density. Senior engineers trained there have the same
-            enterprise exposure as their Central European equivalents â€” without the communication
-            overhead typical of Eastern European or Asian offshore models.
-          </p>
-        </article>
-        <article class="info-card">
-          <div class="card-icon"><i class="fas fa-file-contract"></i></div>
-          <h3>GDPR-compatible legal frameworks</h3>
-          <p>
-            Brazilian contract law and LGPD (Brazil's data protection regulation) are structurally
-            compatible with US contract norms and EU GDPR. Standard NDA, SOW, and IP assignment
-            clauses apply without bespoke negotiation.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="proposal-section why-wesley accent-section">
-      <div class="section-heading">
-        <p class="eyebrow">The Individual Case</p>
-        <h2>Why Wesley â€” the gap that makes the difference</h2>
-        <p class="section-intro">
-          Most nearshore leads are strong in one dimension. The record below is across all three simultaneously.
-        </p>
-      </div>
-      <div class="metrics-row">
-        <div class="metric-card"><strong>14+</strong><span>years leading technology delivery</span></div>
-        <div class="metric-card"><strong>80M+</strong><span>daily transactions managed</span></div>
-        <div class="metric-card"><strong>90%</strong><span>vulnerability reduction achieved</span></div>
-        <div class="metric-card"><strong>R$500M+</strong><span>monthly reconciliation systems led</span></div>
-        <div class="metric-card"><strong>3</strong><span>continents coordinated</span></div>
-        <div class="metric-card"><strong>C2</strong><span>English â€” verified by CEFR standard</span></div>
-      </div>
-      <div class="cards-grid">
-        <article class="info-card accent-card">
-          <div class="card-icon"><i class="fas fa-brain"></i></div>
-          <h3>AI-first operating model</h3>
-          <p>
-            AI-assisted backlog refinement, architecture review, and documentation workflows that
-            multiply the effective throughput of a distributed team without proportionally
-            increasing the coordination surface. The result: faster discovery cycles, lower rework
-            rates, and a documented engineering process that survives squad rotation.
-          </p>
-        </article>
-        <article class="info-card accent-card">
-          <div class="card-icon"><i class="fas fa-database"></i></div>
-          <h3>Data platform depth</h3>
-          <p>
-            Pipeline architecture, governance, data quality, lineage, and reliability at 80M+
-            daily transactions â€” direct financial and regulatory impact. Not ticket management.
-            System design that makes the tickets stop recurring.
-          </p>
-        </article>
-        <article class="info-card accent-card">
-          <div class="card-icon"><i class="fas fa-user-tie"></i></div>
-          <h3>Executive communication range</h3>
-          <p>
-            Architecture decisions, budget defense, compliance argumentation, and delivery
-            timelines â€” in a single conversation with a European or US CTO. No separate PM.
-            No translation layer between technical and business.
-          </p>
-        </article>
-        <article class="info-card accent-card">
-          <div class="card-icon"><i class="fas fa-lock"></i></div>
-          <h3>DevSecOps without delivery freeze</h3>
-          <p>
-            Risk-based vulnerability prioritization, scanner integration into the SDLC, and 90%
-            reduction verified in production â€” not in a compliance report. Security treated as a
-            delivery accelerator, not a gate.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="proposal-section nearshore-benefits">
-      <div class="section-heading">
-        <p class="eyebrow">Commercial Model</p>
-        <h2>Benefits of contracting nearshore vs. hiring locally</h2>
-        <p class="section-intro">
-          What you gain operationally, commercially, and organizationally by choosing nearshore
-          over a local hire or a traditional offshore model.
-        </p>
-      </div>
-      <div class="benefits-list">
-        <div class="benefit-item">
-          <i class="fas fa-check-circle"></i>
-          <div>
-            <h3>No local employment overhead</h3>
-            <p>
-              No CLT (Brazilian labor law) costs, no local payroll taxes, no mandatory benefits
-              beyond the contracted rate. The engagement fee is the total cost. No HR complexity
-              on your side.
-            </p>
-          </div>
-        </div>
-        <div class="benefit-item">
-          <i class="fas fa-check-circle"></i>
-          <div>
-            <h3>Flexible scope, fixed overhead</h3>
-            <p>
-              SOW-based engagements allow scope adjustment without a redundancy process. Scale up
-              a sprint's focus, restructure the backlog priority, add a security track â€” without
-              renegotiating a permanent contract.
-            </p>
-          </div>
-        </div>
-        <div class="benefit-item">
-          <i class="fas fa-check-circle"></i>
-          <div>
-            <h3>Immediate productivity</h3>
-            <p>
-              No 3â€“6 month onboarding curve typical of senior permanent hires. Context absorption
-              happens in days using AI-assisted discovery workflows. Day-one contribution, not
-              month-three contribution.
-            </p>
-          </div>
-        </div>
-        <div class="benefit-item">
-          <i class="fas fa-check-circle"></i>
-          <div>
-            <h3>Time-zone coverage without penalty</h3>
-            <p>
-              UTC-3 means your team in New York, London, or Frankfurt does not need to adjust their
-              working hours. The nearshore lead adjusts. That asymmetry is built into the model â€” not
-              billed as a timezone supplement.
-            </p>
-          </div>
-        </div>
-        <div class="benefit-item">
-          <i class="fas fa-check-circle"></i>
-          <div>
-            <h3>Documented context that survives rotation</h3>
-            <p>
-              Every architectural decision, every tradeoff, every sprint retrospective is written.
-              When team composition changes â€” as it always does â€” the institutional knowledge does
-              not leave with a person.
-            </p>
-          </div>
-        </div>
-        <div class="benefit-item">
-          <i class="fas fa-check-circle"></i>
-          <div>
-            <h3>Senior range without senior overhead</h3>
-            <p>
-              At USD 6,000/month you access the leadership range that normally requires a Tech Lead
-              + PM + Security Architect combination. The AI-first operating model makes the
-              bandwidth available without multiplying the headcount.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="proposal-section engagement-terms">
-      <div class="section-heading">
-        <p class="eyebrow">Engagement Terms</p>
-        <h2>How the engagement works</h2>
-      </div>
-      <div class="terms-grid">
-        <div class="term-card">
-          <i class="fas fa-calendar-days"></i>
-          <h3>Contract duration</h3>
-          <p>Minimum 12 months. Preferred 24 months. Ideal 36 months for strategic initiatives with multi-cycle delivery.</p>
-        </div>
-        <div class="term-card">
-          <i class="fas fa-shield-halved"></i>
-          <h3>Mutual guarantee</h3>
-          <p>Contract breach penalty clause protecting both sides. No unilateral exit without a transition plan and notice period.</p>
-        </div>
-        <div class="term-card">
-          <i class="fas fa-handshake"></i>
-          <h3>Engagement model</h3>
-          <p>SOW-based, milestone-oriented. Senior Tech Lead with full communication in English. All decisions documented and auditable.</p>
-        </div>
-        <div class="term-card">
-          <i class="fas fa-globe"></i>
-          <h3>Working model</h3>
-          <p>Remote-first. UTC-3 synchronous for US and EU morning. Asynchronous for EU afternoon with documented context so the next session starts aligned, not catching up.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="proposal-close">
-      <p class="eyebrow">Next Step</p>
-      <h2>One conversation. No pitch deck required.</h2>
-      <p>
-        If the profile and the terms are the right fit, the fastest way forward is a direct message.
-        Describe the context â€” team size, domain, challenge, timeline â€” and I will respond with a
-        structured engagement outline within 24 hours.
+      <p class="subtitle" *ngIf="lang() === 'en'">
+        Compensation Comparison
       </p>
-      <div class="cta-row">
-        <a href="https://wa.me/5516997212966?text=Global%20project%20%E2%80%94%20I%20found%20your%20proposal%20and%20want%20to%20discuss%20a%20nearshore%20engagement"
-           target="_blank" rel="noopener noreferrer" class="primary-cta">
-          <i class="fab fa-whatsapp"></i>
-          Message on WhatsApp
-        </a>
-        <a href="mailto:wesley.zilva@gmail.com" class="secondary-cta">
-          <i class="fas fa-envelope"></i>
-          Send an email
-        </a>
-      </div>
-      <p class="back-link-row">
-        <a [routerLink]="['/', lang(), 'business-profile']">â† Back to Business Profile</a>
+      
+      <p class="base-value" *ngIf="lang() === 'pt'">
+        Floor: R$ 25.835,94
+      </p>
+      <p class="base-value" *ngIf="lang() === 'en'">
+        Floor: R$ 25,835.94
       </p>
     </section>
 
+    <section class="compensation-table">
+      <div class="table-card">
+        <h2 *ngIf="lang() === 'pt'">Atual</h2>
+        <h2 *ngIf="lang() === 'en'">Current total compensation benefits</h2>
+        
+        <div class="rate-grid">
+          <div class="rate-item">
+            <span class="rate-label" *ngIf="lang() === 'pt'">Por hora</span>
+            <span class="rate-label" *ngIf="lang() === 'en'">Hourly</span>
+            <div class="rate-values">
+              <span class="brl">R$ 161,47</span>
+              <span class="usd">US$ 32,29</span>
+            </div>
+          </div>
+          
+          <div class="rate-item">
+            <span class="rate-label" *ngIf="lang() === 'pt'">Mensal</span>
+            <span class="rate-label" *ngIf="lang() === 'en'">Monthly</span>
+            <div class="rate-values">
+              <span class="brl">R$ 25.835,94</span>
+              <span class="usd">US$ 5.167</span>
+            </div>
+          </div>
+          
+          <div class="rate-item">
+            <span class="rate-label" *ngIf="lang() === 'pt'">Anual</span>
+            <span class="rate-label" *ngIf="lang() === 'en'">Yearly</span>
+            <div class="rate-values">
+              <span class="brl">R$ 310.031,28</span>
+              <span class="usd">US$ 62.006</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-card highlight">
+        <h2 *ngIf="lang() === 'pt'">Risco aceitável</h2>
+        <h2 *ngIf="lang() === 'en'">Risk acceptable</h2>
+        
+        <div class="rate-grid">
+          <div class="rate-item">
+            <span class="rate-label" *ngIf="lang() === 'pt'">Por hora</span>
+            <span class="rate-label" *ngIf="lang() === 'en'">Hourly</span>
+            <div class="rate-values">
+              <span class="brl">R$ 169,39</span>
+              <span class="usd">US$ 33,88</span>
+            </div>
+          </div>
+          
+          <div class="rate-item">
+            <span class="rate-label" *ngIf="lang() === 'pt'">Mensal</span>
+            <span class="rate-label" *ngIf="lang() === 'en'">Monthly</span>
+            <div class="rate-values">
+              <span class="brl">R$ 27.101,90</span>
+              <span class="usd">US$ 5.420</span>
+            </div>
+          </div>
+          
+          <div class="rate-item">
+            <span class="rate-label" *ngIf="lang() === 'pt'">Anual</span>
+            <span class="rate-label" *ngIf="lang() === 'en'">Yearly</span>
+            <div class="rate-values">
+              <span class="brl">R$ 325.222,80</span>
+              <span class="usd">US$ 65.045</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-card highlight">
+        <h2 *ngIf="lang() === 'pt'">+7% (aceitável)</h2>
+        <h2 *ngIf="lang() === 'en'">+7% (acceptable)</h2>
+        
+        <div class="rate-grid">
+          <div class="rate-item">
+            <span class="rate-label" *ngIf="lang() === 'pt'">Por hora</span>
+            <span class="rate-label" *ngIf="lang() === 'en'">Hourly</span>
+            <div class="rate-values">
+              <span class="brl">R$ 172,78</span>
+              <span class="usd">US$ 34,56</span>
+            </div>
+          </div>
+          
+          <div class="rate-item">
+            <span class="rate-label" *ngIf="lang() === 'pt'">Mensal</span>
+            <span class="rate-label" *ngIf="lang() === 'en'">Monthly</span>
+            <div class="rate-values">
+              <span class="brl">R$ 27.644,46</span>
+              <span class="usd">US$ 5.529</span>
+            </div>
+          </div>
+          
+          <div class="rate-item">
+            <span class="rate-label" *ngIf="lang() === 'pt'">Anual</span>
+            <span class="rate-label" *ngIf="lang() === 'en'">Yearly</span>
+            <div class="rate-values">
+              <span class="brl">R$ 331.733,52</span>
+              <span class="usd">US$ 66.347</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-card best">
+        <h2 *ngIf="lang() === 'pt'">+10% (ideal)</h2>
+        <h2 *ngIf="lang() === 'en'">+10% (ideal)</h2>
+        
+        <div class="rate-grid">
+          <div class="rate-item">
+            <span class="rate-label" *ngIf="lang() === 'pt'">Por hora</span>
+            <span class="rate-label" *ngIf="lang() === 'en'">Hourly</span>
+            <div class="rate-values">
+              <span class="brl">R$ 177,62</span>
+              <span class="usd">US$ 35,52</span>
+            </div>
+          </div>
+          
+          <div class="rate-item">
+            <span class="rate-label" *ngIf="lang() === 'pt'">Mensal</span>
+            <span class="rate-label" *ngIf="lang() === 'en'">Monthly</span>
+            <div class="rate-values">
+              <span class="brl">R$ 28.419,53</span>
+              <span class="usd">US$ 5.684</span>
+            </div>
+          </div>
+          
+          <div class="rate-item">
+            <span class="rate-label" *ngIf="lang() === 'pt'">Anual</span>
+            <span class="rate-label" *ngIf="lang() === 'en'">Yearly</span>
+            <div class="rate-values">
+              <span class="brl">R$ 341.034,36</span>
+              <span class="usd">US$ 68.207</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="delivery-section">
+      <h2 *ngIf="lang() === 'pt'">O Que Eu Entrego</h2>
+      <h2 *ngIf="lang() === 'en'">What I Deliver</h2>
+      
+      <div class="delivery-grid">
+        <div class="delivery-item">
+          <i class="fa-solid fa-clock"></i>
+          <div>
+            <h3 *ngIf="lang() === 'pt'">Disponibilidade de Fuso Horário</h3>
+            <h3 *ngIf="lang() === 'en'">Timezone Availability</h3>
+            <p *ngIf="lang() === 'pt'">
+              Flexibilidade para trabalhar em <strong>diferentes fusos horários</strong>, garantindo alinhamento com equipes globais
+            </p>
+            <p *ngIf="lang() === 'en'">
+              Flexibility to work across <strong>different timezones</strong>, ensuring alignment with global teams
+            </p>
+          </div>
+        </div>
+
+        <div class="delivery-item">
+          <i class="fa-solid fa-language"></i>
+          <div>
+            <h3 *ngIf="lang() === 'pt'">Comunicação 100% em Inglês</h3>
+            <h3 *ngIf="lang() === 'en'">100% English Communication</h3>
+            <p *ngIf="lang() === 'pt'">
+              <strong>Fluência completa</strong> em inglês para toda comunicação técnica e de negócios
+            </p>
+            <p *ngIf="lang() === 'en'">
+              <strong>Full fluency</strong> in English for all technical and business communication
+            </p>
+          </div>
+        </div>
+
+        <div class="delivery-item">
+          <i class="fa-solid fa-brain"></i>
+          <div>
+            <h3 *ngIf="lang() === 'pt'">Workspace com IA</h3>
+            <h3 *ngIf="lang() === 'en'">AI-Powered Workspace</h3>
+            <p *ngIf="lang() === 'pt'">
+              Utilização de <strong>tecnologias de IA</strong> disponíveis pela empresa para otimizar entregas e produtividade
+            </p>
+            <p *ngIf="lang() === 'en'">
+              Leveraging company-available <strong>AI technologies</strong> to optimize deliveries and productivity
+            </p>
+          </div>
+        </div>
+
+        <div class="delivery-item">
+          <i class="fa-solid fa-rocket"></i>
+          <div>
+            <h3 *ngIf="lang() === 'pt'">Metodologias Ágeis</h3>
+            <h3 *ngIf="lang() === 'en'">Agile Methodologies</h3>
+            <p *ngIf="lang() === 'pt'">
+              Expertise em <strong>Scrum, Kanban e DevOps</strong> para entregas iterativas e contínuas
+            </p>
+            <p *ngIf="lang() === 'en'">
+              Expertise in <strong>Scrum, Kanban, and DevOps</strong> for iterative and continuous delivery
+            </p>
+          </div>
+        </div>
+
+        <div class="delivery-item">
+          <i class="fa-solid fa-users"></i>
+          <div>
+            <h3 *ngIf="lang() === 'pt'">Colaboração Direta</h3>
+            <h3 *ngIf="lang() === 'en'">Direct Collaboration</h3>
+            <p *ngIf="lang() === 'pt'">
+              Trabalho direto com <strong>Product Owners, Developers, Infra Cloud, DevSecOps e ITIL</strong> para entregas alinhadas
+            </p>
+            <p *ngIf="lang() === 'en'">
+              Direct work with <strong>Product Owners, Developers, Cloud Infra, DevSecOps, and ITIL</strong> for aligned deliveries
+            </p>
+          </div>
+        </div>
+
+        <div class="delivery-item">
+          <i class="fa-solid fa-code-branch"></i>
+          <div>
+            <h3 *ngIf="lang() === 'pt'">Conhecimento Tecnológico para o Time</h3>
+            <h3 *ngIf="lang() === 'en'">Technological Knowledge for Team</h3>
+            <p *ngIf="lang() === 'pt'">
+              <strong>Conhecimento tecnológico</strong> para ajudar o time a ter boas sessões de brainstorming e focar no problema
+            </p>
+            <p *ngIf="lang() === 'en'">
+              <strong>Technological knowledge</strong> to help team have good brainstorms and focus on the problem
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contract-terms">
+      <h2 *ngIf="lang() === 'pt'">Termos Contratuais</h2>
+      <h2 *ngIf="lang() === 'en'">Contract Terms</h2>
+      
+      <div class="terms-card">
+        <div class="term-item">
+          <i class="fa-solid fa-calendar-days"></i>
+          <div>
+            <h3 *ngIf="lang() === 'pt'">Duração Mínima</h3>
+            <h3 *ngIf="lang() === 'en'">Minimum Duration</h3>
+            <p *ngIf="lang() === 'pt'">
+              Contrato de no mínimo <strong>1 ano</strong>, desejável <strong>2 anos</strong>, ideal <strong>3 anos</strong>
+            </p>
+            <p *ngIf="lang() === 'en'">
+              Contract of at least <strong>1 year</strong>, desirable <strong>2 years</strong>, ideal <strong>3 years</strong>
+            </p>
+          </div>
+        </div>
+        
+        <div class="term-item">
+          <i class="fa-solid fa-shield-halved"></i>
+          <div>
+            <h3 *ngIf="lang() === 'pt'">Garantia Mútua</h3>
+            <h3 *ngIf="lang() === 'en'">Mutual Guarantee</h3>
+            <p *ngIf="lang() === 'pt'">
+              Multa de quebra de contrato para <strong>garantia de ambas as partes</strong>
+            </p>
+            <p *ngIf="lang() === 'en'">
+              Contract breach penalty to <strong>guarantee both parties</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </main>
 
