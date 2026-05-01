@@ -91,49 +91,73 @@ export class HotSearchPage implements OnInit {
     },
     en: {
       eyebrow: 'Hot Search',
-      title: 'Indexable content for real searches about nearshore leadership and technology delivery',
-      intro: 'This page is organized to answer real search intent. Instead of generic positioning lines, it concentrates the questions recruiters, clients, and partners usually ask when looking for an IT leader with strong technical depth.',
+      title: 'Why Brazilian nearshore outperforms — and why Wesley delivers where others stall',
+      intro: 'This page answers the questions that actually surface in searches: the cost-quality case for Brazil, the time-zone arithmetic, the cultural proximity argument, and what specifically makes one nearshore leader materially better than another. No generic lines. Evidence-based answers only.',
       topics: [
         {
+          query: 'Why is Brazilian nearshore better than Eastern European or Asian offshore for US and EU companies?',
+          answer: 'Brazil operates at UTC-3, which overlaps the entire US business day and the EU morning — meaning Brazilian engineers participate in live standups, unblock decisions in real time, and eliminate the 24-hour ticket-cycle that makes offshore relationships expensive to manage. Beyond time zones: English-proficiency at senior level, legal frameworks compatible with GDPR and US contract structures, and a cultural orientation toward direct communication and ownership that reduces the translation overhead typical of offshore models. The cost advantage over European hiring is 40–60%. The quality advantage over low-cost offshore is the senior engineer who is actually present when the architecture decision happens.'
+        },
+        {
+          query: 'What is the real cost-quality argument for hiring a senior Brazilian engineer instead of a contractor in India or Ukraine?',
+          answer: 'The comparison that matters is not hourly rate — it is total engagement cost including coordination overhead, rework cycles, timezone delays, and leadership gap. A senior Brazilian engineer running at UTC-3 costs 40–60% less than a European equivalent, operates in the same time window as a US team, communicates without interpretation latency, and owns decisions rather than waiting for sign-off. The engineering depth at senior level is equivalent to Western Europe. The combination of that depth at Brazil's cost structure is the structural advantage that nearshore models from Eastern Europe or India cannot simultaneously replicate.'
+        },
+        {
+          query: 'Why is Brazil a better nearshore partner than Mexico or Colombia for European companies?',
+          answer: 'For European clients, Brazil's UTC-3 is closer in overlap to CET (UTC+1) than Mexico (UTC-6) or the US West Coast. A 9 AM CET standup is 5 AM in Mexico City — unusable. The same standup is 6 AM in São Paulo, with full working-hour overlap from 9 AM CET to 6 PM CET. Brazil also has a larger senior talent pool in enterprise Java, Angular, data engineering, and DevSecOps — accumulated through large financial services and telecoms ecosystems that do not exist at scale in smaller Latin American markets.'
+        },
+        {
           query: 'Who can lead a nearshore team from Brazil with a strong data and compliance focus?',
-          answer: 'My profile combines operational leadership, data platform experience, stakeholder management, and regulatory context. That matters when a company needs someone to accelerate delivery without losing control, governance, or quality.'
+          answer: 'A profile that combines operational leadership, data platform experience, stakeholder management, and regulatory context — not just technical execution. The gap most companies encounter is a nearshore resource who can code but cannot run a conversation with a European CTO, defend an architecture decision to a compliance officer, or restructure a backlog that has been accumulating for two years. The value is in the range: from data pipeline architecture to executive communication, without switching between a technical lead and a project manager.'
         },
         {
           query: 'How do you scale pipelines and data operations above 80M transactions per day?',
-          answer: 'The answer depends on reliability, observability, bottleneck prioritization, and sound flow design. I have worked in environments where the challenge was not only throughput, but also consistency, traceability, and controlled financial impact.'
+          answer: 'The answer depends on reliability, observability, bottleneck prioritization, and sound flow design. Environments above 80M daily transactions fail not because of compute — they fail because of inconsistent data contracts, unobserved pipeline branches, and decisions made without production signal. The practice is: instrument everything, triage by financial impact, and treat data quality as a first-class engineering concern rather than a post-delivery audit.'
         },
         {
           query: 'How do you reduce vulnerabilities without freezing the SDLC?',
-          answer: 'The practical answer is risk-based prioritization, scanner-enabled pipelines, alignment with partner areas, and objective routines. The goal is not security theater; it is to reduce exposure while keeping delivery moving.'
+          answer: 'Risk-based prioritization, scanner integration into the pipeline, and stakeholder alignment before enforcement — not after. Security becomes a blocker when it is imposed as an audit rather than embedded as a workflow. The practical model: classify vulnerabilities by exploitability and blast radius, automate detection in CI, negotiate remediation SLAs with engineering leads, and measure reduction velocity rather than point-in-time counts. Ninety percent reduction is achievable without a single sprint freeze.'
         },
         {
           query: 'How can AI be applied in the workspace without losing governance and technical judgment?',
-          answer: 'I use AI as an accelerator for discovery, writing, analysis, and refinement, but always inside context, checkpoints, and review. The real gain happens when the team learns to use AI to think better, not only to produce more text.'
+          answer: 'AI accelerates discovery, writing, analysis, and code scaffolding — but the judgment layer must remain human. The model I use: AI inside context, with explicit checkpoints and documented rationale for every non-trivial decision. The real organizational gain is not productivity volume — it is the quality of thinking when an engineer uses AI to challenge their own assumptions before committing an architectural choice that costs six months to reverse.'
         },
         {
-          query: 'What kind of leader can connect enterprise operations and POCs with a product mindset?',
-          answer: 'My track record mixes critical operations, continuous improvement, and opportunity-driven proofs of concept. That applies to both enterprise ecosystems and smaller initiatives that need to validate value quickly.'
+          query: 'What makes Wesley Gomes da Silva a better choice than other nearshore leads?',
+          answer: 'Most nearshore leads are strong in one dimension: technical depth or stakeholder management or delivery coordination. Wesley operates across all three simultaneously — and that is not a claim, it is a verifiable record. Fourteen years of evidence: 80M+ daily transactions managed, 90% vulnerability reduction achieved, R$500M+ monthly reconciliation systems led, teams across three continents coordinated. The differentiation is not seniority on paper — it is the AI-first operating model that multiplies the capacity of a distributed team without proportionally increasing the management overhead, and the ability to walk into a European client call and defend architecture, budget, and delivery timeline in the same conversation.'
+        },
+        {
+          query: 'What is the difference between a standard nearshore IT manager and an AI-first operating model?',
+          answer: 'A standard nearshore IT manager coordinates work. An AI-first operating model accelerates the capacity of the team structurally: AI-assisted backlog refinement cuts estimation noise, AI-reviewed architecture proposals surface tradeoffs before they become incidents, and documented AI workflows are reproducible across squad rotations. The practical result is a smaller coordination surface area, faster discovery cycles, and engineering decisions that are auditable because the reasoning is captured — not reconstructed from memory in a post-mortem.'
         }
       ],
-      faqTitle: 'Direct questions',
+      faqTitle: 'Direct questions — answered without hedge',
       faqs: [
         {
+          question: 'Why would a European or US company choose Brazilian nearshore over nearshore in Poland, Romania, or Ukraine?',
+          answer: 'Time zone is the primary operational argument: full overlap with US hours, strong overlap with EU morning. Cost is the secondary argument: 40–60% below Western European contract rates. The tertiary argument is cultural operating model: Brazilian senior engineers trained in large financial services ecosystems have the same enterprise exposure as their Central European equivalents, without the cultural communication patterns that make Eastern European engagements feel offshore in practice even when they are nearshore on the map.'
+        },
+        {
           question: 'What type of engagement is the best fit?',
-          answer: 'Medium- and long-term engagements, especially when there is a complex backlog, distributed teams, and the need for operational structure.'
+          answer: 'Medium- to long-term engagements where the complexity is organizational, not just technical — distributed teams, accumulated backlog, competing stakeholder priorities, and the need for a leader who can hold the architecture and the relationship simultaneously. Short-term code delivery is a commodity. Sustained delivery with strategic context is not.'
         },
         {
-          question: 'Which areas benefit the most?',
-          answer: 'Data engineering, sustain, observability, DevSecOps, workflow modernization, and nearshore squad leadership.'
+          question: 'Which domains generate the strongest results?',
+          answer: 'Data engineering and platform observability, DevSecOps without delivery friction, nearshore squad leadership with AI-augmented workflows, and legacy modernization where the risk is business continuity rather than greenfield design.'
         },
         {
-          question: 'Can the work be global?',
-          answer: 'Yes. I have worked with teams and stakeholders across multiple regions while keeping communication in English and the delivery cadence driven by priorities.'
+          question: 'How does the AI workflow translate into value for the client?',
+          answer: 'Faster discovery cycles, lower rework rates on architecture decisions, and a documented engineering process that survives team rotation. The client does not pay for AI tooling — they pay for the compound effect: a senior lead whose effective throughput is materially higher than the hours billed, because the AI layer handles the scaffolding, leaving human judgment for the decisions that actually move the outcome.'
+        },
+        {
+          question: 'Can the engagement be fully global and asynchronous?',
+          answer: 'Yes. UTC-3 covers the full US working day and the EU morning synchronously. For remaining EU afternoon hours, asynchronous communication with documented context is the standard — not a workaround. Every decision is written, every tradeoff is recorded, and the next working session begins with shared context rather than a status catch-up call.'
         }
       ],
-      footerTitle: 'From search intent to the right conversation',
-      footerCopy: 'If the search has reached this page, the objective is already clearer: find someone able to organize technology, people, risk, and delivery. The Business Profile summarizes that positioning; the proposal page details how I usually work.',
-      primaryCta: 'Back to Business Profile',
-      secondaryCta: 'See proposal'
+      footerTitle: 'The search ends here. The engagement starts with a single conversation.',
+      footerCopy: 'If you reached this page looking for a nearshore leader who can run distributed teams, close attribution gaps, and defend architectural decisions in a C-level meeting — that is exactly what this profile describes. The Business Profile gives you the executive summary. The proposal page gives you the engagement model.',
+      primaryCta: 'Read the Business Profile',
+      secondaryCta: 'Open proposal'
     }
   };
 

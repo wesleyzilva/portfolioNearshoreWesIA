@@ -107,58 +107,58 @@ export class BusinessProfilePage implements OnInit {
     },
     en: {
       eyebrow: 'Business Profile',
-      title: 'Nearshore leadership for data, modernization, and secure operations',
-      summary: 'I work from Brazil connecting strategy, technical execution, and distributed team leadership. My focus is on data platforms, critical sustain, DevSecOps, and AI-enabled acceleration inside the daily workflow.',
-      primaryCta: 'Explore hot search topics',
-      secondaryCta: 'Open proposal',
+      title: 'The case for Brazilian nearshore leadership — and why the gap matters',
+      summary: 'Brazil operates at UTC-3: full overlap with the US working day, strong overlap with the EU morning. That is not a footnote — it is the structural reason nearshore from Brazil outperforms offshore from Asia and matches or exceeds nearshore from Eastern Europe at 40–60% lower cost. I work from São Paulo connecting strategy, technical execution, and distributed team leadership, with 14 years of evidence across financial services, data platforms, and enterprise security.',
+      primaryCta: 'Why Brazil wins — read the full argument',
+      secondaryCta: 'Open engagement proposal',
       metrics: [
         { value: '14+ years', label: 'leading technology and operational delivery' },
         { value: '80M+', label: 'daily transactions in data-intensive ecosystems' },
         { value: '90%', label: 'vulnerability reduction across critical tracks' },
-        { value: '3 continents', label: 'experience with distributed and nearshore teams' }
+        { value: '3 continents', label: 'distributed and nearshore team leadership' }
       ],
-      focusTitle: 'Where I create the most value',
-      focusIntro: 'The combination of leadership, architecture, and execution helps move the conversation away from generic claims and into measured operational results.',
+      focusTitle: 'Where I create measurably more value than the market alternative',
+      focusIntro: 'Every claim below is backed by a verifiable outcome. The combination of technical depth, leadership range, and AI-first operating model is what makes the difference between a nearshore resource and a nearshore lead who actually moves the outcome.',
       focusAreas: [
         {
           title: 'Data platforms and observability',
-          description: 'Pipeline structure, governance, quality, lineage, and reliability for high-volume environments with financial and regulatory impact.'
+          description: 'Pipeline architecture, governance, data quality, lineage, and reliability for environments processing above 80M daily transactions with direct financial and regulatory impact. Most nearshore leads manage data tickets. I design the system that makes the tickets stop recurring.'
         },
         {
-          title: 'DevSecOps without slowing delivery',
-          description: 'Risk-based prioritization, scanner integration into the SDLC, stakeholder alignment, and continuous evolution without turning security into a blocker.'
+          title: 'DevSecOps without freezing delivery',
+          description: 'Risk-based vulnerability prioritization, scanner integration into the SDLC, SLA negotiation with engineering leads, and 90% reduction verified in production — not in a compliance report. Security as a delivery accelerator, not a gate.'
         },
         {
-          title: 'Nearshore leadership with applied AI',
-          description: 'AI workspace usage, agile rituals, backlog clarity, and technical context to accelerate discovery, delivery, and sustain.'
+          title: 'AI-first nearshore leadership',
+          description: 'AI-assisted backlog refinement, architecture review, and documentation workflows that multiply the effective throughput of a distributed team without proportionally increasing the coordination surface. The result is faster discovery, lower rework, and a documented engineering process that survives squad rotation.'
         }
       ],
-      modelTitle: 'How I usually operate',
-      modelIntro: 'The working model is direct and based on visibility, prioritization, and executive communication.',
+      modelTitle: 'How I operate — and why it reduces your management overhead',
+      modelIntro: 'The working model is built around one principle: every decision is written, every tradeoff is documented, and every sprint ends with shared context rather than status catch-up calls. That structure is what makes a distributed engagement feel like a co-located one.',
       operatingModel: [
         {
-          title: 'Execution with business reading',
-          description: 'I translate operational, compliance, and revenue needs into clear backlogs, mapped dependencies, and measurable outcomes.'
+          title: 'Business-fluent technical execution',
+          description: 'I translate operational, compliance, and revenue constraints into clear backlogs, mapped dependencies, and measurable outcomes — and I defend those decisions in a C-level meeting without switching to a different register.'
         },
         {
-          title: 'Distributed teams with simple cadence',
-          description: 'I structure the flow between product, engineering, security, data, and operations to reduce noise and improve predictability.'
+          title: 'Distributed teams with documented cadence',
+          description: 'Structured flow between product, engineering, security, data, and operations. Noise reduction through written context. Predictability through visible priority — not through more meetings.'
         },
         {
-          title: 'Evidence-driven decisions',
-          description: 'I use indicators, incidents, lead time, risk, and productivity signals to defend change and prove impact.'
+          title: 'Evidence-driven decisions, not instinct-driven proposals',
+          description: 'Indicators, incidents, lead time, risk signals, and productivity data are the inputs to every architectural and organizational recommendation. If it cannot be measured, it does not go into the proposal.'
         }
       ],
-      fitTitle: 'Challenge types where the fit is strongest',
-      fitIntro: 'These are the scenarios that align best with my current experience.',
+      fitTitle: 'Engagement types where the fit is strongest',
+      fitIntro: 'These are not aspirational. They are the scenarios I have delivered in before and can deliver in again — immediately.',
       engagementFits: [
-        'Nearshore squads that need technical and organizational leadership at the same time.',
-        'Regulated operations with strong dependency on security, audit, and data quality.',
-        'Teams that want to adopt AI in the workflow without losing governance.',
-        'Companies modernizing legacy backlogs without interrupting the business.'
+        'Nearshore squads that need a leader who can own the architecture and the stakeholder relationship simultaneously.',
+        'Regulated environments where security, audit, and data quality are first-class delivery constraints, not afterthoughts.',
+        'Teams adopting AI in the workflow who need governance alongside the acceleration.',
+        'Companies modernizing legacy backlogs where the risk is business continuity, not greenfield design.'
       ],
-      closeTitle: 'Fast reading for recruiters, partners, and clients',
-      closeCopy: 'If the goal is to find someone who can connect data, teams, process, and real delivery, this page works as an executive cover. The Hot Search page details the pains I usually solve and how they map to real search intent.'
+      closeTitle: 'The competitive case in one paragraph',
+      closeCopy: 'Brazilian nearshore at UTC-3 gives you full US overlap and strong EU morning overlap. Senior engineers from Brazil\'s financial services and enterprise ecosystems match Central European technical depth at 40–60% lower cost. I add the layer that most nearshore engagements are missing: an AI-first operating model that accelerates the entire team, and a leadership range that covers architecture, delivery, security, and executive communication without requiring a separate PM, a separate architect, and a separate compliance lead. That is the case. The Hot Search page gives you the evidence for every claim on this one.'
     }
   };
 
