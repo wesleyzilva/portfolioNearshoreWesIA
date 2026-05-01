@@ -1,10 +1,75 @@
+// ── Print bar ─────────────────────────────────────────────────
+.np-print-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 2rem;
+  background: rgba(0, 0, 0, 0.6);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+  backdrop-filter: blur(10px);
+  flex-wrap: wrap;
+
+  .np-print-label {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.55);
+    letter-spacing: 0.5px;
+  }
+
+  .np-print-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+}
+
+.np-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: none;
+
+  i { font-size: 0.9rem; }
+}
+
+.np-btn-download {
+  background: rgba(0, 212, 255, 0.12);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  color: #00d4ff;
+
+  &:hover {
+    background: rgba(0, 212, 255, 0.22);
+    border-color: #00d4ff;
+  }
+}
+
+.np-btn-print {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.45);
+    color: #fff;
+  }
+}
+
+// ── Page ──────────────────────────────────────────────────────
 .nearshore-proposal-page {
   min-height: 100vh;
   background: linear-gradient(135deg, rgba(13, 27, 42, 0.95) 0%, rgba(27, 38, 59, 0.98) 100%);
-  padding: 100px 20px 60px;
+  padding: 60px 20px 60px;
 
   @media (max-width: 768px) {
-    padding: 80px 15px 40px;
+    padding: 40px 15px 40px;
   }
 }
 
@@ -350,5 +415,122 @@
 
       &:hover { color: #00d4ff; }
     }
+  }
+}
+
+// ── Print styles ──────────────────────────────────────────────
+@media print {
+  .no-print,
+  app-header,
+  app-footer {
+    display: none !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+
+  .nearshore-proposal-page {
+    background: #ffffff !important;
+    padding: 0 !important;
+    min-height: unset !important;
+  }
+
+  .np-container {
+    max-width: 100% !important;
+    gap: 2rem !important;
+  }
+
+  .eyebrow {
+    color: #006690 !important;
+  }
+
+  .np-hero {
+    padding: 1rem 0 !important;
+
+    h1 {
+      font-size: 2.25rem !important;
+      background: none !important;
+      -webkit-text-fill-color: #006690 !important;
+      color: #006690 !important;
+    }
+
+    .hero-sub { color: #444 !important; }
+    .hero-copy { color: #333 !important; }
+  }
+
+  .cta-row { display: none !important; }
+  .back-link-row { display: none !important; }
+
+  .np-section .np-section-heading {
+    h2 { color: #111 !important; }
+    .section-intro { color: #444 !important; }
+  }
+
+  .accent-section {
+    background: #f4faf7 !important;
+    border-color: #aaa !important;
+    .np-section-heading h2 { color: #006048 !important; }
+    .eyebrow { color: #006048 !important; }
+  }
+
+  .info-card {
+    background: #f9f9f9 !important;
+    border-color: #ccc !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+
+    .card-icon { color: #006690 !important; }
+    h3 { color: #111 !important; }
+    p { color: #444 !important; }
+
+    &.accent-card {
+      background: #f4faf7 !important;
+      border-color: #aaa !important;
+      .card-icon { color: #006048 !important; }
+    }
+  }
+
+  .metric-card {
+    background: #f4faf7 !important;
+    border-color: #aaa !important;
+    strong { color: #006048 !important; }
+    span { color: #555 !important; }
+  }
+
+  .benefit-item {
+    background: #f9f9f9 !important;
+    border-color: #ddd !important;
+    break-inside: avoid;
+
+    > i { color: #006048 !important; }
+    h3 { color: #111 !important; }
+    p { color: #444 !important; }
+  }
+
+  .term-card {
+    background: #f9f9f9 !important;
+    border-color: #ddd !important;
+    break-inside: avoid;
+
+    > i { color: #006690 !important; }
+    h3 { color: #111 !important; }
+    p { color: #444 !important; }
+  }
+
+  .np-close {
+    border-top-color: #ddd !important;
+    h2 { color: #111 !important; }
+    > p { color: #444 !important; }
+  }
+
+  .np-section {
+    break-inside: avoid;
   }
 }
