@@ -1,6 +1,5 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+﻿import { Component, inject, OnInit } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { LanguageService } from '../../services/language.service';
 import { Lang } from '../../services/language.service';
 import { PageMetaService } from '../../services/page-meta.service';
@@ -10,7 +9,7 @@ import { Footer } from '../../footer/footer';
 @Component({
   selector: 'app-proposal',
   standalone: true,
-  imports: [CommonModule, Header, Footer],
+  imports: [RouterLink, Header, Footer],
   templateUrl: './proposal.html',
   styleUrl: './proposal.scss'
 })
@@ -29,15 +28,9 @@ export class ProposalPage implements OnInit {
     this.pageMeta.update({
       lang,
       path,
-      title: lang === 'pt'
-        ? 'Proposta de Trabalho · Wesley Gomes da Silva'
-        : 'Work Proposal · Wesley Gomes da Silva',
-      description: lang === 'pt'
-        ? 'Comparativo de remuneracao, modelo de entrega, colaboracao global e termos contratuais para atuacao nearshore.'
-        : 'Compensation comparison, delivery model, global collaboration, and contract terms for nearshore leadership engagements.',
-      keywords: lang === 'pt'
-        ? 'proposta de trabalho, nearshore, gestor de TI, agile, Wesley Gomes'
-        : 'work proposal, nearshore, IT manager, agile, Wesley Gomes',
+      title: 'Nearshore Engagement Proposal · Wesley Gomes da Silva',
+      description: 'USD 6,000/month nearshore Tech Lead from Brazil. Full US-day overlap at UTC-3. Why Brazil wins, why Wesley delivers, and how the engagement works.',
+      keywords: 'nearshore proposal, Brazil tech lead, USD 6000, nearshore engagement, Wesley Gomes',
       alternatePath: 'proposal'
     });
   }

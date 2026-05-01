@@ -154,10 +154,10 @@ export class HotSearchPage implements OnInit {
           answer: 'Yes. UTC-3 covers the full US working day and the EU morning synchronously. For remaining EU afternoon hours, asynchronous communication with documented context is the standard — not a workaround. Every decision is written, every tradeoff is recorded, and the next working session begins with shared context rather than a status catch-up call.'
         }
       ],
-      footerTitle: 'The search ends here. The engagement starts with a single conversation.',
-      footerCopy: 'If you reached this page looking for a nearshore leader who can run distributed teams, close attribution gaps, and defend architectural decisions in a C-level meeting — that is exactly what this profile describes. The Business Profile gives you the executive summary. The GitHub profile gives you the project evidence base.',
-      primaryCta: 'Read the Business Profile',
-      secondaryCta: 'Open proposal'
+      footerTitle: 'From search intent to the right conversation',
+      footerCopy: 'If the search has reached this page, the objective is already clearer: find someone able to organize technology, people, risk, and delivery. The Business Profile summarizes that positioning; the proposal page details how I usually work.',
+      primaryCta: 'Back to Business Profile',
+      secondaryCta: 'See proposal'
     }
   };
 
