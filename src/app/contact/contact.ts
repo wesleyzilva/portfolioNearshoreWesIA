@@ -15,7 +15,7 @@ export class Contact {
   readonly langService = inject(LanguageService);
   lang = this.langService.lang;
 
-  trackConversion(channel: 'whatsapp' | 'email' | 'linkedin' | 'phone'): void {
+  trackConversion(channel: 'whatsapp' | 'email' | 'linkedin' | 'phone' | 'github'): void {
     if (typeof gtag !== 'undefined') {
       gtag('event', 'generate_lead', {
         event_category: 'contact',

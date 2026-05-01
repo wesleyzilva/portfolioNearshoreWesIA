@@ -155,7 +155,7 @@ export class HotSearchPage implements OnInit {
         }
       ],
       footerTitle: 'The search ends here. The engagement starts with a single conversation.',
-      footerCopy: 'If you reached this page looking for a nearshore leader who can run distributed teams, close attribution gaps, and defend architectural decisions in a C-level meeting — that is exactly what this profile describes. The Business Profile gives you the executive summary. The proposal page gives you the engagement model.',
+      footerCopy: 'If you reached this page looking for a nearshore leader who can run distributed teams, close attribution gaps, and defend architectural decisions in a C-level meeting — that is exactly what this profile describes. The Business Profile gives you the executive summary. The GitHub profile gives you the project evidence base.',
       primaryCta: 'Read the Business Profile',
       secondaryCta: 'Open proposal'
     }
