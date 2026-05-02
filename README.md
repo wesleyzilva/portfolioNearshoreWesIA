@@ -1,7 +1,7 @@
 <h1 align="center">Wesley Gomes · IT FullStack Specialist</h1>
 
 <p align="center">
-  <em>Agile IT Delivery Projects | Data &amp; Development | All Tech Business | Latam to Global</em>
+  <em>Agile IT Delivery Projects | Data &amp; Development | Global Tech Business | Latam remote</em>
 </p>
 
 <p align="center">
@@ -132,7 +132,7 @@ ng build
 
 When sharing `https://wesleyzilva.github.io/portfolioNearshoreWesIA/` on LinkedIn:
 
-- **Title:** Wesley Gomes · Agile IT Delivery Projects | Data & Development | All Tech Business | Latam to Global
+- **Title:** Wesley Gomes · Agile IT Delivery Projects | Data & Development | Global Tech Business | Latam remote
 - **Description:** IT FullStack Specialist with 14+ years spearheading nearshore engineering teams across Brazil, India, South Africa, the United States, Costa Rica and London — 80M+ transactions/day, 90% vulnerability reduction...
 
 > To force LinkedIn to refresh a cached preview, use the [Post Inspector](https://www.linkedin.com/post-inspector/).
