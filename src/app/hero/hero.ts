@@ -7,15 +7,13 @@ import { LanguageService } from '../services/language.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './hero.html',
-  styleUrl: './hero.scss'
+  styleUrl: './hero.scss',
 })
 export class Hero implements OnInit, OnDestroy {
   readonly langService = inject(LanguageService);
   lang = this.langService.lang;
 
-  readonly photos = [
-    'assets/Wesley/wesley%20(1).jpg',
-  ];
+  readonly photos = ['assets/Wesley/wesley%20(1).jpg'];
   currentPhotoIndex = 0;
   photoVisible = true;
 
