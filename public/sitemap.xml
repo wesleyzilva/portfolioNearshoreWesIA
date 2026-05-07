@@ -38,24 +38,6 @@
     <priority>0.68</priority>
   </url>
 
-  <!-- Proposal -->
-  <url>
-    <loc>https://wesleyzilva.github.io/portfolioNearshoreWesIA/proposal</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/proposal"/>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/pt/proposal"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/proposal"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://wesleyzilva.github.io/portfolioNearshoreWesIA/pt/proposal</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/proposal"/>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/pt/proposal"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/proposal"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-
   <!-- Business Profile -->
   <url>
     <loc>https://wesleyzilva.github.io/portfolioNearshoreWesIA/business-profile</loc>
@@ -90,6 +72,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/hot-search"/>
     <changefreq>monthly</changefreq>
     <priority>0.48</priority>
+  </url>
+
+  <!-- Newsletter -->
+  <url>
+    <loc>https://wesleyzilva.github.io/portfolioNearshoreWesIA/newsletter</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/newsletter"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/pt/newsletter"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/newsletter"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wesleyzilva.github.io/portfolioNearshoreWesIA/pt/newsletter</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/newsletter"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/pt/newsletter"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wesleyzilva.github.io/portfolioNearshoreWesIA/newsletter"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.68</priority>
   </url>
 
 </urlset>

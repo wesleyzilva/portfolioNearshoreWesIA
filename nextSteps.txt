@@ -105,3 +105,18 @@ https://github.com/wesleyzilva/facadeComentario
 Languages
 Java
 100.0%
+
+codigo latex e overlif
+--- NOTA: CV para Download (PDF) ---
+- Criar CV profissional no Overleaf (overleaf.com) usando template moderncv ou AltaCV
+- Exportar como PDF
+- Hospedar o PDF em: /assets/cv/wesley-silva-cv.pdf  (dentro do projeto Angular, pasta public/)
+- Adicionar botão "Download CV" no hero ou na seção personal-about
+  → <a href="assets/cv/wesley-silva-cv.pdf" download>Download CV</a>
+- Conteúdo do CV:
+  * Nome: Wesley Silva
+  * Stack: Angular · TypeScript · Python · Node.js · AI-Guided Delivery
+  * Projetos: dradaianaferraz_gold, VIPpocket, imprimaMais, restituicaoICMS, globalProspection, link_ssi
+  * Idiomas: PT-BR nativo | EN C2
+  * Metodologia: Agile · STAR · Data-Driven · Nearshore delivery
+------------------------------------
