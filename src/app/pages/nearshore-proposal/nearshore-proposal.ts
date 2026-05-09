@@ -29,8 +29,9 @@ export class NearshoreProposalPage implements OnInit {
       lang,
       path,
       title: 'Nearshore Engagement Proposal · Wesley Gomes da Silva — Digital Product Lead',
-      description: 'USD 6,000/month Digital Product Lead from Brazil. Engineering depth in service of product delivery. Full US-day overlap at UTC-3. Why Brazil wins, why Wesley delivers.',
-      keywords: 'nearshore proposal, Brazil tech lead, USD 6000, nearshore engagement, Wesley Gomes',
+      description: 'Flexible nearshore engagement — monthly retainer or per hour. Digital Product Lead from Brazil. Engineering depth in service of product delivery. Full US-day overlap at UTC-3.',
+
+      keywords: 'nearshore proposal, Brazil tech lead, flexible engagement, per hour, retainer, nearshore, Wesley Gomes',
       alternatePath: 'nearshore-proposal'
     });
   }
