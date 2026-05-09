@@ -11,6 +11,7 @@ interface Article {
   summary: string;
   readTime: string;
   slug: string;
+  edition?: string;
 }
 
 interface NewsletterContent {
@@ -46,54 +47,101 @@ export class NewsletterPage implements OnInit {
   readonly content: Record<Lang, NewsletterContent> = {
     en: {
       eyebrow: 'Newsletter · Brazil × Global Talent',
-      title: 'Brazil is the world\'s next Agile talent hub — and most companies haven\'t noticed yet',
-      intro: 'A curated collection of evidence-based articles on why Brazilian senior professionals — bilingual, Agile-certified, enterprise-hardened — represent the most underpriced talent arbitrage in the global labour market. Each piece is written for international decision-makers: CTOs, VPs of Engineering, and Talent Acquisition leaders evaluating nearshore delivery for EU and US markets.',
+      title: 'Brazil is the world\'s next Agile talent hub — and most startups are still hiring wrong',
+      intro: 'Two editions. Six articles each. Audience: CTOs, VPs of Engineering, and founders evaluating nearshore delivery for EU and US markets. Edition 1 makes the talent arbitrage argument — cost, quality, C2 English, and Agile maturity. Edition 2 is written for funded startups: why your PM search is failing, how LATAM nearshore compresses your funding-to-MVP cycle, and what AI-augmented remote delivery looks like when it actually works.',
       subscribeTitle: 'Get new articles directly',
       subscribeCopy: 'Each edition covers one argument — built with data, no filler. Brazilian talent market, nearshore delivery patterns, C2 English advantage, Agile maturity in Latin America, and what the best nearshore contracts actually look like.',
       subscribeCta: 'Subscribe via WhatsApp',
-      articlesTitle: 'Published articles',
+      articlesTitle: 'All editions',
       articles: [
         {
           tag: 'Talent Market',
           title: 'Brazil produces more C2-level English speakers in tech than the entire Eastern European nearshore market combined',
           summary: 'A comparison of English-proficiency data, university output, and senior engineering supply across Brazil, Poland, Romania, and Ukraine. The conclusion challenges the default assumption that Eastern Europe owns the nearshore quality argument.',
           readTime: '7 min read',
-          slug: 'brazil-c2-english-tech-talent'
+          slug: 'brazil-c2-english-tech-talent',
+          edition: 'Edition 1'
         },
         {
           tag: 'Agile Delivery',
           title: 'Why Brazilian Agile PMs close sprint cycles faster than their EU counterparts — and what the data says',
           summary: 'An analysis of sprint velocity, stakeholder communication patterns, and retrospective adoption rates across nearshore teams. UTC-3 synchrony, cultural directness, and enterprise exposure explain outcomes that surprise first-time nearshore buyers.',
           readTime: '9 min read',
-          slug: 'brazilian-agile-pm-sprint-velocity'
+          slug: 'brazilian-agile-pm-sprint-velocity',
+          edition: 'Edition 1'
         },
         {
           tag: 'Cost Structure',
           title: 'The real cost of a senior Brazilian Agile PM vs. a contractor in Poland, Germany, or the US',
           summary: 'Total engagement cost modelling: day rate, coordination overhead, rework cycles, timezone delays, and onboarding drag. At equivalent seniority, the Brazilian profile lands 40–60% below Western Europe with zero loss of delivery quality when the hire is made correctly.',
           readTime: '11 min read',
-          slug: 'cost-brazil-agile-pm-vs-europe'
+          slug: 'cost-brazil-agile-pm-vs-europe',
+          edition: 'Edition 1'
         },
         {
           tag: 'C2 English',
           title: 'C2 English is not a credential — it is an operational multiplier for nearshore teams',
           summary: 'How language proficiency above B2 eliminates the hidden costs of nearshore delivery: interpretation latency, requirement ambiguity, stakeholder mistrust, and the 48-hour async loop that makes offshore engagements feel expensive even when the day rate is low.',
           readTime: '8 min read',
-          slug: 'c2-english-nearshore-operational-multiplier'
+          slug: 'c2-english-nearshore-operational-multiplier',
+          edition: 'Edition 1'
         },
         {
           tag: 'Market Signal',
           title: 'EU and US companies are undervaluing Brazilian nearshore — here is the window before it closes',
           summary: 'Demand signals from LinkedIn, Stack Overflow, and Glassdoor indicate Brazilian senior engineers are still priced below market parity. Historical patterns from Poland (2010–2018) and India (2000–2012) suggest a 3–5 year correction window before arbitrage normalises.',
           readTime: '10 min read',
-          slug: 'brazil-nearshore-arbitrage-window'
+          slug: 'brazil-nearshore-arbitrage-window',
+          edition: 'Edition 1'
         },
         {
           tag: 'Hiring Guide',
           title: 'How to hire a Brazilian Agile PM for a European or US team — the contract structure that actually works',
           summary: 'A practical guide to engagement formats, time-zone coverage agreements, performance metrics, and the contractual clauses that protect both sides. Covers PJ (Pessoa Jurídica) vs. CLT, VAT considerations for EU buyers, and what a fair SLA looks like.',
           readTime: '13 min read',
-          slug: 'hire-brazilian-agile-pm-eu-us-guide'
+          slug: 'hire-brazilian-agile-pm-eu-us-guide',
+          edition: 'Edition 1'
+        },
+        // ── Edition 2: Startups · Funded products · AI-remote ─────────────────
+        {
+          tag: 'Startup Hiring',
+          title: 'Why funded startups are replacing local PM contractors with LATAM talent — and not going back',
+          summary: 'Series A and B companies in the US and EU routinely burn $180–280k/year on a domestic PM whose calendar is split across three internal priorities. LATAM nearshore delivers a dedicated senior profile at 45–55% of that cost, in the same timezone band, with enterprise Agile discipline. This article maps the decision pattern that is driving the shift.',
+          readTime: '10 min read',
+          slug: 'startups-latam-pm-over-local-contractors',
+          edition: 'Edition 2'
+        },
+        {
+          tag: 'AI + Remote Teams',
+          title: 'AI-augmented remote delivery: how LATAM PMs are using AI to run international startup teams at 2× speed',
+          summary: 'Brazilian PMs working across US and EU startup clients are embedding AI tooling — context-aware sprint planning, async stand-up synthesis, AI-generated requirement drafts — directly into their delivery cadence. The result: 40% less coordination overhead, 30% faster decision loops, and sprint reviews that actually influence the backlog. This is what AI for remote work looks like in practice.',
+          readTime: '9 min read',
+          slug: 'ai-augmented-remote-delivery-latam-pm',
+          edition: 'Edition 2'
+        },
+        {
+          tag: 'Digital Product',
+          title: 'From aporte to MVP: how LATAM nearshore delivery compresses the funding-to-product timeline for startups',
+          summary: 'Most funded startups lose 6–9 months between closing a round and shipping a functional product. The bottleneck is rarely technical — it is discovery, prioritisation, and stakeholder alignment. A LATAM nearshore PM embedded from day one of the aporte cycle cuts that lag in half. This article documents the delivery pattern with three anonymised case studies.',
+          readTime: '12 min read',
+          slug: 'latam-nearshore-funding-to-mvp-startup',
+          edition: 'Edition 2'
+        },
+        {
+          tag: 'Stakeholder Mapping',
+          title: 'Startup teams do not fail on technology — they fail on stakeholder alignment. Here is how to fix it remotely.',
+          summary: 'Remote startup teams with distributed investors, fractional executives, and cross-timezone engineers are a stakeholder-mapping problem dressed as a product problem. This article presents the stakeholder matrix framework used in three LATAM nearshore engagements, the async communication contracts that replaced recurring meetings, and the OKR cadence that kept remote investors confident without weekly calls.',
+          readTime: '11 min read',
+          slug: 'startup-remote-stakeholder-mapping-latam',
+          edition: 'Edition 2'
+        },
+        {
+          tag: 'PM Search',
+          title: 'The $50k PM search problem: why startups cannot find a PM who understands both product and Agile delivery',
+          summary: 'Most PM job posts attract candidates who are strong on product sense but weak on execution, or strong on Agile ceremonies but weak on business context. The profile that combines both — bilingual, enterprise-tested, Agile-certified, product-aware — is rare in Western markets and abundant in LATAM. This article explains why, and what a calibrated LATAM PM search looks like in 2025.',
+          readTime: '8 min read',
+          slug: 'startup-pm-search-latam-product-agile',
+          edition: 'Edition 2'
         }
       ],
       whyTitle: 'Why this newsletter exists',
@@ -111,54 +159,101 @@ export class NewsletterPage implements OnInit {
     },
     pt: {
       eyebrow: 'Newsletter · Brasil × Talento Global',
-      title: 'O Brasil é o próximo grande hub de talento Agile do mundo — e a maioria das empresas ainda não percebeu',
-      intro: 'Uma coleção de artigos com base em dados sobre por que profissionais seniores brasileiros — bilíngues, certificados em Agile, com experiência enterprise — representam a maior arbitragem de talento subprecificada do mercado global. Cada artigo é escrito para tomadores de decisão internacionais: CTOs, VPs de Engenharia e líderes de Talent Acquisition que avaliam entrega nearshore para mercados da UE e dos EUA.',
+      title: 'O Brasil é o próximo grande hub de talento Agile do mundo — e a maioria das startups ainda está contratando errado',
+      intro: 'Duas edições. Seis artigos cada. Público: CTOs, VPs de Engenharia e fundadores avaliando entrega nearshore para mercados da UE e dos EUA. A Edição 1 defende a arbitragem de talento — custo, qualidade, inglês C2 e maturidade Agile. A Edição 2 foi escrita para startups com aporte: por que sua busca por PM está falhando, como o nearshore LATAM comprime seu ciclo de funding-para-MVP e como é a entrega remota com IA quando funciona de verdade.',
       subscribeTitle: 'Receba novos artigos diretamente',
       subscribeCopy: 'Cada edição cobre um argumento — construído com dados, sem enrolação. Mercado de talento brasileiro, padrões de entrega nearshore, vantagem do inglês C2, maturidade Agile na América Latina e como os melhores contratos nearshore funcionam na prática.',
       subscribeCta: 'Assinar via WhatsApp',
-      articlesTitle: 'Artigos publicados',
+      articlesTitle: 'Todas as edições',
       articles: [
         {
           tag: 'Mercado de Talento',
           title: 'O Brasil forma mais falantes de inglês C2 em tech do que todo o mercado nearshore do Leste Europeu combinado',
           summary: 'Uma comparação de dados de proficiência em inglês, produção universitária e oferta de engenheiros seniores no Brasil, Polônia, Romênia e Ucrânia. A conclusão desafia a suposição padrão de que o Leste Europeu detém o argumento de qualidade nearshore.',
           readTime: '7 min de leitura',
-          slug: 'brazil-c2-english-tech-talent'
+          slug: 'brazil-c2-english-tech-talent',
+          edition: 'Edição 1'
         },
         {
           tag: 'Entrega Agile',
           title: 'Por que os Agile PMs brasileiros fecham ciclos de sprint mais rápido do que seus equivalentes europeus — e o que os dados dizem',
           summary: 'Uma análise de velocidade de sprint, padrões de comunicação com stakeholders e adoção de retrospectivas em times nearshore. Sincronia UTC-3, comunicação direta e exposição enterprise explicam resultados que surpreendem quem compra nearshore pela primeira vez.',
           readTime: '9 min de leitura',
-          slug: 'brazilian-agile-pm-sprint-velocity'
+          slug: 'brazilian-agile-pm-sprint-velocity',
+          edition: 'Edição 1'
         },
         {
           tag: 'Estrutura de Custo',
           title: 'O custo real de um Agile PM sênior brasileiro vs. um contratado na Polônia, Alemanha ou EUA',
           summary: 'Modelagem de custo total de engajamento: day rate, overhead de coordenação, ciclos de retrabalho, atrasos por fuso horário e arrasto de onboarding. Com senioridade equivalente, o perfil brasileiro fica 40–60% abaixo da Europa Ocidental sem perda de qualidade de entrega quando a contratação é feita corretamente.',
           readTime: '11 min de leitura',
-          slug: 'cost-brazil-agile-pm-vs-europe'
+          slug: 'cost-brazil-agile-pm-vs-europe',
+          edition: 'Edição 1'
         },
         {
           tag: 'Inglês C2',
           title: 'Inglês C2 não é uma credencial — é um multiplicador operacional para times nearshore',
           summary: 'Como a proficiência acima de B2 elimina os custos ocultos da entrega nearshore: latência de interpretação, ambiguidade de requisitos, desconfiança de stakeholders e o loop async de 48 horas que torna os engajamentos offshore caros mesmo quando o day rate é baixo.',
           readTime: '8 min de leitura',
-          slug: 'c2-english-nearshore-operational-multiplier'
+          slug: 'c2-english-nearshore-operational-multiplier',
+          edition: 'Edição 1'
         },
         {
           tag: 'Sinal de Mercado',
           title: 'Empresas da UE e dos EUA estão subvalorizando o nearshore brasileiro — eis a janela antes que ela feche',
           summary: 'Sinais de demanda do LinkedIn, Stack Overflow e Glassdoor indicam que engenheiros seniores brasileiros ainda estão precificados abaixo da paridade de mercado. Padrões históricos da Polônia (2010–2018) e da Índia (2000–2012) sugerem uma janela de correção de 3–5 anos antes da arbitragem se normalizar.',
           readTime: '10 min de leitura',
-          slug: 'brazil-nearshore-arbitrage-window'
+          slug: 'brazil-nearshore-arbitrage-window',
+          edition: 'Edição 1'
         },
         {
           tag: 'Guia de Contratação',
           title: 'Como contratar um Agile PM brasileiro para um time europeu ou americano — a estrutura de contrato que realmente funciona',
           summary: 'Um guia prático sobre formatos de engajamento, acordos de cobertura de fuso horário, métricas de desempenho e as cláusulas contratuais que protegem ambos os lados. Cobre PJ vs. CLT, considerações de IVA para compradores da UE e como deve ser um SLA justo.',
           readTime: '13 min de leitura',
-          slug: 'hire-brazilian-agile-pm-eu-us-guide'
+          slug: 'hire-brazilian-agile-pm-eu-us-guide',
+          edition: 'Edição 1'
+        },
+        // ── Edição 2: Startups · Produto digital · IA remota ──────────────────
+        {
+          tag: 'Contratação Startup',
+          title: 'Por que startups com aporte estão substituindo PMs locais por talentos LATAM — e não voltam atrás',
+          summary: 'Empresas em estágio Series A e B nos EUA e UE gastam R$900k–1,4M/ano em um PM doméstico cuja agenda está dividida entre três prioridades internas. O nearshore LATAM entrega um perfil sênior dedicado a 45–55% desse custo, na mesma faixa de fuso horário, com disciplina Agile enterprise. Este artigo mapeia o padrão de decisão que está impulsionando essa mudança.',
+          readTime: '10 min de leitura',
+          slug: 'startups-latam-pm-over-local-contractors',
+          edition: 'Edição 2'
+        },
+        {
+          tag: 'IA + Times Remotos',
+          title: 'Entrega remota com IA: como PMs do LATAM usam inteligência artificial para rodar times internacionais de startup em 2× mais velocidade',
+          summary: 'PMs brasileiros trabalhando com clientes de startups nos EUA e UE estão integrando ferramentas de IA — planejamento de sprint com contexto, síntese de stand-up assíncrono, rascunhos de requisitos gerados por IA — diretamente na cadência de entrega. O resultado: 40% menos overhead de coordenação, 30% mais velocidade nas decisões e sprint reviews que realmente influenciam o backlog.',
+          readTime: '9 min de leitura',
+          slug: 'ai-augmented-remote-delivery-latam-pm',
+          edition: 'Edição 2'
+        },
+        {
+          tag: 'Produto Digital',
+          title: 'Do aporte ao MVP: como o nearshore LATAM comprime o ciclo de funding-para-produto em startups',
+          summary: 'A maioria das startups com aporte perde 6–9 meses entre fechar a rodada e entregar um produto funcional. O gargalo raramente é técnico — é descoberta, priorização e alinhamento de stakeholders. Um PM nearshore LATAM embarcado desde o primeiro dia do ciclo de aporte corta essa defasagem pela metade. Este artigo documenta o padrão com três estudos de caso anonimizados.',
+          readTime: '12 min de leitura',
+          slug: 'latam-nearshore-funding-to-mvp-startup',
+          edition: 'Edição 2'
+        },
+        {
+          tag: 'Mapeamento de Stakeholders',
+          title: 'Times de startup não falham na tecnologia — falham no alinhamento de stakeholders. Veja como resolver isso remotamente.',
+          summary: 'Times remotos com investidores distribuídos, executivos fracionados e engenheiros em fusos diferentes são um problema de mapeamento de stakeholders disfarçado de problema de produto. Este artigo apresenta a matriz de stakeholders usada em três engajamentos nearshore LATAM, os contratos de comunicação assíncrona e a cadência de OKRs que manteve investidores remotos confiantes sem calls semanais.',
+          readTime: '11 min de leitura',
+          slug: 'startup-remote-stakeholder-mapping-latam',
+          edition: 'Edição 2'
+        },
+        {
+          tag: 'Busca por PM',
+          title: 'O problema dos $50k na busca por PM: por que startups não encontram um PM que entenda produto E entrega Agile',
+          summary: 'A maioria das vagas de PM atrai candidatos fortes em visão de produto mas fracos em execução, ou fortes em cerimônias Agile mas sem contexto de negócio. O perfil que combina os dois — bilíngue, testado em enterprise, certificado em Agile, orientado a produto — é raro nos mercados ocidentais e abundante no LATAM. Este artigo explica por quê e como é uma busca calibrada por PM LATAM em 2025.',
+          readTime: '8 min de leitura',
+          slug: 'startup-pm-search-latam-product-agile',
+          edition: 'Edição 2'
         }
       ],
       whyTitle: 'Por que esta newsletter existe',
@@ -194,8 +289,8 @@ export class NewsletterPage implements OnInit {
         ? 'Artigos com base em dados sobre profissionais brasileiros bilíngues, Agile PMs C2, entrega nearshore para UE e EUA.'
         : 'Evidence-based articles on bilingual Brazilian professionals, C2 Agile PMs, and nearshore delivery for EU and US markets.',
       keywords: lang === 'pt'
-        ? 'newsletter, nearshore Brasil, Agile PM brasileiro, inglês C2, talento tech Brasil, contratação nearshore'
-        : 'newsletter, Brazil nearshore, Brazilian Agile PM, C2 English, Brazil tech talent, nearshore hiring',
+        ? 'newsletter, nearshore Brasil, Agile PM brasileiro, inglês C2, talento tech Brasil, contratação nearshore, startup PM, produto digital, IA times remotos'
+        : 'newsletter, Brazil nearshore, Brazilian Agile PM, C2 English, Brazil tech talent, nearshore hiring, startup PM search, funded startup product delivery, AI remote teams',
       alternatePath: 'newsletter'
     });
   }

@@ -31,8 +31,13 @@
 
     <div class="articles-grid">
       @for (article of copy().articles; track article.slug) {
-        <article class="article-card">
-          <span class="article-tag">{{ article.tag }}</span>
+        <article class="article-card" [class.article-card--edition2]="article.edition === 'Edition 2' || article.edition === 'Edição 2'">
+          <div class="article-meta">
+            <span class="article-tag">{{ article.tag }}</span>
+            @if (article.edition) {
+              <span class="article-edition">{{ article.edition }}</span>
+            }
+          </div>
           <h3>{{ article.title }}</h3>
           <p>{{ article.summary }}</p>
           <div class="article-footer">

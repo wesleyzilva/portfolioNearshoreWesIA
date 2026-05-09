@@ -134,6 +134,21 @@
     border-color: rgba(76, 201, 240, 0.42);
     transform: translateY(-3px);
   }
+
+  // Edition 2 — startup focus: amber accent border
+  &.article-card--edition2 {
+    border-color: rgba(255, 180, 0, 0.2);
+    background: rgba(20, 18, 8, 0.65);
+
+    &:hover { border-color: rgba(255, 180, 0, 0.55); }
+  }
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .article-tag {
@@ -146,6 +161,19 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  width: fit-content;
+}
+
+.article-edition {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 50px;
+  background: rgba(255, 180, 0, 0.12);
+  color: rgba(255, 200, 60, 0.9);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   width: fit-content;
 }
 
