@@ -1,0 +1,131 @@
+
+Skills ____________________________________________________________________________________________ 
+ 
+•  [Coloque na frente as principais. Exemplo:] JavaScript, TypeScript, React, React Native, Redux, Context API, Redux Saga, Redux Thunk 
+•   Node.js, Express, NestJS, Unit Testing & Integration Testing (TDD), AWS, CI/CD, Lambda, Docker, Kafka, Kubernetes, SQL & NoSQL 
+•   Languages: Portuguese (native), English (advanced level)  
+
+Experience _______________________________________________________________________________________ 
+
+Cargo (Ex:Frontend Engineer)
+
+Nome da Empresa
+Cidade,País 
+(Remote)
+03/2024 – Current
+Aqui você irá colocar um breve resumo da empresa, negócio, produto ou equipe específica que você trabalhou, isso irá dar contexto ao 
+leitor. Pode verificar os exemplos que colocarei abaixo.
+
+•  Nestes tópicos você deverá descrever:
+•  Responsabilidades  
+• Poderá mencionar melhorias, migração, manutenção, iniciativa, desafio técnico, etc
+•  Pode descrever também resultados, como por exemplo, aumentamos a cobertura de testes de 40% para 80%
+ 
+Tech Stack: adicione aqui as tecnologias utilizadas nesta experiência, como linguagens, frameworks, banco de dados, serviços de Cloud, 
+ferramentas de monitoramento, ferramentas de teste, IA, etc.  
+
+Senior Full Stack Engineer
+
+NOAH
+London, UK
+(Remote)
+07/2023 - 03/2024
+
+
+NOAH is a fintech platform focused on digital payments and cross-border transactions, leveraging cloud-native architecture, APIs, and 
+event-driven systems for scalable financial infrastructure.
+
+•  Led the development and implementation of a comprehensive notification system to enhance user engagement and interaction within 
+the platform. Leveraged AWS EventBridge, SQS & Lambda to orchestrate seamless communication between various systems, ensuring 
+timely and personalized notifications for users. 
+•  Collaborated closely with cross-functional teams, particularly the marketing department, to understand user behavior patterns and 
+tailor notifications accordingly, resulting in a noticeable increase in user retention and satisfaction metrics.
+•  Actively participated in system requirement elicitation, design workshops, and architecture discussions, offering valuable insights and 
+proposing solutions to enhance system scalability, performance, and maintainability.
+•  Mentored junior team members, providing guidance on best practices, code reviews, and technical troubleshooting, fostering a 
+collaborative and learning-oriented team culture. 
+•  Actively participated in knowledge-sharing sessions, workshops, and tech talks within the organization, promoting continuous learning 
+and skill development among team members. 
+
+Tech Stack: TypeScript, Node.js, React, AWS (Lambda, SQS, EventBridge), Jest, and Copilot. 
+
+
+Mid-Level Full Stack Engineer
+
+Zak
+São Paulo, BR
+(Hybrid)
+03/2022 – 07/2023
+Zak is a technology platform for restaurants, providing an all-in-one system to manage operations, orders, and payments. 
+
+•  Led the development of two enterprise-level front-end applications of the Customer Onboarding department E2E, from identifying system 
+requirements to workload balancing and metrics collection, improving the onboarding time process by 25% and the CAC by 45% using 
+modern technologies like Micro-Frontends, TypeScript, React, GraphQL, AWS & Postgres, achieving a 95% test coverage in both projects. 
+•  Led the implementation of a Micro-Frontend-based architecture across three enterprise-level front-end projects within the company using 
+TypeScript, React, Webpack & Module Federation, improving the development time & experience.
+•  Worked in the largest microservice within the company, processing more than 1 million Kafka messages per day. Participated in 
+technical, system requirements discussions and in implementing new consumers, services & APIs using Node.js & TypeScript.
+•  Participated heavily in the development of systems following the EDA (Event Driven Architecture), including scalable APIs built with 
+Clean Architecture & SOLID principles, using modern technologies like Node.js, TypeScript, Kafka & Kubernetes. 
+•  Continuous Integration/Deployment Pipeline Integration, pull requests, code reviews, load/stress testing, unit/integration/e2e testing
+
+Tech Stack: Micro-Frontends, TypeScript, React, Node.js, GraphQL, AWS, Postgres, Webpack, Module Federation, Kafka, and Kubernetes.
+
+
+
+
+
+
+Junior Full Stack Engineer
+
+
+
+
+
+Seidor
+
+
+
+
+São Paulo, BR
+(On-site)
+
+
+
+
+
+11/2020 - 03/2022
+Seidor is a global technology consulting company. I was allocated to one of the biggest breweries in Brazil (Grupo Petrópolis).
+
+•  Participated in the development of a full-stack platform (web & mobile) to one of the biggest breweries in Brazil which processed more 
+than 20.000 orders per day.. 
+•  Designed and developed systems facilitating the brewery’s employees to capture feedback from their customers (via surveys), which 
+turned out to be a major achievement for the company in order to track customer general satisfaction.
+•  Led the implementation of E2E tests in the mobile and web applications using Detox & React Testing Library. 
+•  Had a close relationship with the client, participating actively in system requirements, design & architecture discussions.
+
+Tech Stack: TypeScript, NestJS, React, React Native, Redux,  AWS, Detox, and React Testing Library.
+ 
+
+Projects __________________________________________________________________________________________
+Acelera+
+
+Github
+•  Designed and developed a full-stack mobile application that allows users to create and participate in championships in virtual 
+motorsport games, using technologies like Node.js, TypeScript, React Native, Redux, MongoDB, AWS & Firebase. 
+•  TDD methodology applied to the front-end and back-end, achieving more than 80% test coverage in both; applied Clean Architecture 
+principles to the back-end codebase.
+•  Continuous Integration/Deployment Pipeline Integration with deploy to App Store & Google Play (via Expo).
+
+
+Education _______________________________________________________________________________________ 
+ 
+•  Bachelor’s Degree in Computer Science at Universidade Federal de Santa Catarina 
+
+Certifications ____________________________________________________________________________________ 
+ 
+•  [aqui você pode tanto adicionar certificações tipo AWS, mas também cursos de curta duração que você fez como da Udemy] 
+• Big Data Foundations - Level 1 at IBM 
+•  Scrum Foundation Professional Certificate at Certiprof
+Nome e Sobrenome
+  LinkedIn  |   +55 (11) 1111-1111 |   seuemail@mail.com |    GitHub

@@ -61,7 +61,11 @@
         </a>
         <a [href]="lang() === 'pt' ? 'assets/CV_WesleySilva_IT_espec_manager_PT.pdf' : 'assets/CV_WesleySilva_IT_espec_manager_EN_Brazil.pdf'" [download]="lang() === 'pt' ? 'CV_WesleySilva_IT_espec_manager_PT.pdf' : 'CV_WesleySilva_IT_espec_manager_EN_Brazil.pdf'" class="btn-secondary">
           <i class="fas fa-file-pdf"></i>
-          {{ lang() === 'pt' ? 'Baixar CV' : 'Download CV' }}
+          {{ lang() === 'pt' ? 'Baixar CV (PDF)' : 'Download CV (PDF)' }}
+        </a>
+        <a href="assets/Wesley_Silva_IT_Manager_CV.docx" download="Wesley_Silva_IT_Manager_CV.docx" class="btn-secondary" data-gtm-event="cv_download_docx">
+          <i class="fas fa-file-word"></i>
+          {{ lang() === 'pt' ? 'Baixar CV (Word · ATS)' : 'Download CV (Word · ATS)' }}
         </a>
         <a href="https://www.linkedin.com/in/wesleyzilva/" target="_blank" rel="noopener noreferrer" class="btn-outline">
           <i class="fab fa-linkedin"></i>

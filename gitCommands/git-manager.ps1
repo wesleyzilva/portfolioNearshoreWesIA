@@ -787,6 +787,9 @@ function Invoke-DeployPages {
             Write-Host "      $lastCommit" -ForegroundColor DarkGray
             Write-Host "      $commitUrl" -ForegroundColor Gray
         }
+        Write-Host ''
+        Write-Host '  [8] Microsoft Clarity — heatmaps e gravacoes de sessao' -ForegroundColor Yellow
+        Write-Host '      https://clarity.microsoft.com/projects/view/wof8yo57z6/impressions?Browser=Chrome&date=Last%203%20days&Country=United%20States' -ForegroundColor Gray
         Write-Host '  ============================================' -ForegroundColor Cyan
         Write-Host ''
     }
