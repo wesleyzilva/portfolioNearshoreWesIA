@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { LanguageService } from '../services/language.service';
 
+declare function gtag(...args: any[]): void;
+
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -16,6 +18,16 @@ export class Header {
   readonly lang = this.langService.lang;
   /** Base route path for all home-page section links — preserves active language */
   readonly basePath = computed(() => this.lang() === 'pt' ? '/pt' : '/');
+
+  trackNav(label: string): void {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'nav_click', {
+        event_category: 'navigation',
+        event_label: label,
+        value: 1
+      });
+    }
+  }
 
   switchLanguage(): void {
     const currentPath = this.router.url.split('?')[0].split('#')[0];

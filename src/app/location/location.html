@@ -45,9 +45,7 @@
           <li><strong>Deloitte</strong> – {{ lang() === 'pt' ? 'Consultoria empresarial e tecnologia, com hubs de inovação' : 'Business consulting and technology, with innovation hubs' }}</li>
           <li><strong>Qive</strong> – {{ lang() === 'pt' ? 'Plataforma financeira B2B para gestão de documentos fiscais e automação de processos' : 'B2B financial platform for tax document management and process automation' }}</li>
         </ul>
-      </div>
 
-      <div class="location-map-frame">
         <div class="here-carousel">
           <img [src]="herePhotos[hereIndex()].src" [alt]="herePhotos[hereIndex()].alt" class="here-photo" />
           <div class="here-controls">
@@ -57,6 +55,83 @@
           </div>
         </div>
 
+      </div>
+
+      <div class="location-map-frame">
+        <h3 class="location-subtitle" style="margin-top:0">
+          <i class="fas fa-clock"></i>
+          {{ lang() === 'pt' ? 'Vantagem de Fuso Horário Global' : 'Global Timezone Advantage' }}
+        </h3>
+        <p class="tz-intro">
+          @if (lang() === 'pt') {
+            O Brasil opera no UTC-3 o ano todo — o único fuso que entrega sincronia real com as Américas e Europa de manhã e finaliza o mesmo dia útil com handoffs documentados para Médio Oriente e Ásia.
+          } @else {
+            Brazil operates at UTC-3 year-round — the only timezone that delivers live synchrony with the Americas and Europe in the morning and closes the same business day with documented handoffs to the Middle East and Asia.
+          }
+        </p>
+        <div class="tz-grid">
+          <div class="tz-card">
+            <span class="tz-flag">&#127482;&#127480;</span>
+            <strong>{{ lang() === 'pt' ? 'EUA Leste (ET)' : 'US East (ET)' }}</strong>
+            <span class="tz-badge tz-badge--live">{{ lang() === 'pt' ? 'Ao vivo' : 'Live' }}</span>
+            <p>UTC-3 = ET+2 &mdash; {{ lang() === 'pt' ? 'cobertura total das 9h às 18h ET' : '9 AM–6 PM ET full overlap' }}</p>
+          </div>
+          <div class="tz-card">
+            <span class="tz-flag">&#127482;&#127480;</span>
+            <strong>{{ lang() === 'pt' ? 'EUA Oeste (PT)' : 'US West (PT)' }}</strong>
+            <span class="tz-badge tz-badge--live">{{ lang() === 'pt' ? 'Ao vivo' : 'Live' }}</span>
+            <p>UTC-3 = PT+5 &mdash; {{ lang() === 'pt' ? 'janela de 6h–14h PT' : '6 AM–2 PM PT window' }}</p>
+          </div>
+          <div class="tz-card">
+            <span class="tz-flag">&#127464;&#127462;</span>
+            <strong>{{ lang() === 'pt' ? 'Canadá (ET/CT)' : 'Canada (ET/CT)' }}</strong>
+            <span class="tz-badge tz-badge--live">{{ lang() === 'pt' ? 'Ao vivo' : 'Live' }}</span>
+            <p>UTC-3 = ET+2 &mdash; {{ lang() === 'pt' ? 'alinhado com Toronto e Vancouver' : 'aligned with Toronto and Vancouver' }}</p>
+          </div>
+          <div class="tz-card">
+            <span class="tz-flag">&#127468;&#127463;</span>
+            <strong>{{ lang() === 'pt' ? 'Reino Unido (GMT)' : 'UK (GMT)' }}</strong>
+            <span class="tz-badge tz-badge--live">{{ lang() === 'pt' ? 'Ao vivo' : 'Live' }}</span>
+            <p>UTC-3 = GMT&minus;3 &mdash; {{ lang() === 'pt' ? 'standup de 10h GMT = 7h São Paulo' : '10 AM GMT standup = 7 AM São Paulo' }}</p>
+          </div>
+          <div class="tz-card">
+            <span class="tz-flag">&#127470;&#127466;</span>
+            <strong>{{ lang() === 'pt' ? 'Irlanda (IST)' : 'Ireland (IST)' }}</strong>
+            <span class="tz-badge tz-badge--live">{{ lang() === 'pt' ? 'Ao vivo' : 'Live' }}</span>
+            <p>UTC-3 = IST&minus;4 &mdash; {{ lang() === 'pt' ? '9h Dublin = 6h São Paulo, overlap total' : '9 AM Dublin = 6 AM São Paulo, full overlap' }}</p>
+          </div>
+          <div class="tz-card">
+            <span class="tz-flag">&#127463;&#127479;</span>
+            <strong>{{ lang() === 'pt' ? 'Europa Ocidental (CET)' : 'Western Europe (CET)' }}</strong>
+            <span class="tz-badge tz-badge--live">{{ lang() === 'pt' ? 'Ao vivo' : 'Live' }}</span>
+            <p>UTC-3 = CET&minus;4 &mdash; {{ lang() === 'pt' ? 'standup de 9h CET = 6h São Paulo' : '9 AM CET standup = 6 AM São Paulo' }}</p>
+          </div>
+          <div class="tz-card">
+            <span class="tz-flag">&#127462;&#127466;</span>
+            <strong>{{ lang() === 'pt' ? 'Arábia Saudita (AST)' : 'Saudi Arabia (AST)' }}</strong>
+            <span class="tz-badge tz-badge--partial">{{ lang() === 'pt' ? '4h ao vivo' : '4h live' }}</span>
+            <p>UTC-3 = AST&minus;6 &mdash; {{ lang() === 'pt' ? '8h–12h BRT = 14h–18h Riyadh' : '8 AM–12 PM BRT = 2 PM–6 PM Riyadh' }}</p>
+          </div>
+          <div class="tz-card">
+            <span class="tz-flag">&#127470;&#127475;</span>
+            <strong>{{ lang() === 'pt' ? 'Índia (IST)' : 'India (IST)' }}</strong>
+            <span class="tz-badge tz-badge--async">{{ lang() === 'pt' ? 'Async c/ handoff' : 'Async + handoff' }}</span>
+            <p>UTC-3 = IST&minus;8:30 &mdash; {{ lang() === 'pt' ? 'handoff documentado antes do próximo standup' : 'documented handoff before next standup' }}</p>
+          </div>
+          <div class="tz-card">
+            <span class="tz-flag">&#127464;&#127475;</span>
+            <strong>{{ lang() === 'pt' ? 'China (CST)' : 'China (CST)' }}</strong>
+            <span class="tz-badge tz-badge--async">{{ lang() === 'pt' ? 'Async c/ handoff' : 'Async + handoff' }}</span>
+            <p>UTC-3 = CST&minus;11 &mdash; {{ lang() === 'pt' ? 'artefatos entregues antes da manhã de Xangai' : 'artefacts delivered before Shanghai morning' }}</p>
+          </div>
+        </div>
+        <p class="tz-adaptability">
+          @if (lang() === 'pt') {
+            <strong>Adaptabilidade é a vantagem estrutural do Brasil.</strong> Nenhuma outra região nearshore combina fuso UTC-3 com domínio do inglês, densidade tecnológica e custo competitivo para atender múltiplos mercados globais em um único dia útil.
+          } @else {
+            <strong>Adaptability is Brazil’s structural advantage.</strong> No other nearshore region combines UTC-3 coverage, English proficiency, engineering depth, and competitive cost to serve multiple global markets within a single business day.
+          }
+        </p>
         <iframe
           title="Map showing São Carlos in Brazil"
           src="https://www.google.com/maps?q=S%C3%A3o%20Carlos%20SP&z=12&output=embed"

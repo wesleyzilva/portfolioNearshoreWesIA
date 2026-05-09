@@ -29,7 +29,7 @@ export class NearshoreProposalPage implements OnInit {
       lang,
       path,
       title: 'Nearshore Engagement Proposal · Wesley Gomes da Silva — Digital Product Lead',
-      description: 'Flexible nearshore engagement — monthly retainer or per hour. Digital Product Lead from Brazil. Engineering depth in service of product delivery. Full US-day overlap at UTC-3.',
+      description: 'Flexible nearshore engagement — monthly retainer or per hour. Digital Product Lead from Brazil. UTC-3: the only timezone that bridges the Americas, Europe, Saudi Arabia, India, and China in a single business day.',
 
       keywords: 'nearshore proposal, Brazil tech lead, flexible engagement, per hour, retainer, nearshore, Wesley Gomes',
       alternatePath: 'nearshore-proposal'
