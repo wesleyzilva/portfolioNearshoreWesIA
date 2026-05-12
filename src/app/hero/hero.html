@@ -17,11 +17,19 @@
           ? 'IT Manager · Agile Coach · Especialista em Gestão Remota com IA'
           : 'IT Manager · Agile Coach · Remote Management with AI Specialist' }}
       </p>
-      <p class="hero-tagline">
-        {{ lang() === 'pt'
-          ? 'Times entregam mais rápido. Decisões melhoram com dados. Produto e tech ficam alinhados. — Isso é o que muda depois que eu entro.'
-          : 'Teams deliver faster. Decisions improve with data. Product and tech get aligned. — That is what changes after I join.' }}
-      </p>
+      @if (ab.isB('hero_tagline')) {
+        <p class="hero-tagline">
+          {{ lang() === 'pt'
+            ? 'Nearshore do Brasil - Vamos nos conectar e entregar juntos.'
+            : 'Brazilian nearshore - Let\'s connect and deliver together.' }}
+        </p>
+      } @else {
+        <p class="hero-tagline">
+          {{ lang() === 'pt'
+            ? 'Times entregam mais rápido. Decisões melhoram com dados. Produto e tech ficam alinhados. — Vamos nos conectar e entregar juntos!'
+            : 'Teams deliver faster. Decisions improve with data. Product and tech get aligned. — Let\'s connect and deliver together!' }}
+        </p>
+      }
       <div class="hero-tags">
         <span class="tag-item">
           <i class="fas fa-home"></i>
@@ -36,46 +44,34 @@
           {{ lang() === 'pt' ? 'Disponível para Viagens' : 'Travel Available' }}
         </span>
       </div>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <span class="stat-number">14+</span>
-          <span class="stat-label">{{ lang() === 'pt' ? 'Anos de Experiência' : 'Years of Experience' }}</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">12+</span>
-          <span class="stat-label">{{ lang() === 'pt' ? 'Projetos Entregues' : 'Projects Delivered' }}</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">3</span>
-          <span class="stat-label">Americas · Europe · Africa</span>
-        </div>
-      </div>
       <div class="hero-actions">
-        <a href="tel:+5516997212966" class="btn-phone" data-gtm-event="hero_phone">
-          <i class="fas fa-phone"></i>
-          {{ lang() === 'pt' ? 'Ligar Agora' : 'Call Now' }}
-        </a>
-        <a href="mailto:wesley.zilva@gmail.com" class="btn-primary" data-gtm-event="hero_email">
-          <i class="fas fa-envelope"></i>
-          {{ lang() === 'pt' ? 'Enviar Email' : 'Send Email' }}
-        </a>
-        <a [href]="lang() === 'pt' ? 'assets/CV_WesleySilva_IT_espec_manager_PT.pdf' : 'assets/CV_WesleySilva_IT_espec_manager_EN_Brazil.pdf'" [download]="lang() === 'pt' ? 'CV_WesleySilva_IT_espec_manager_PT.pdf' : 'CV_WesleySilva_IT_espec_manager_EN_Brazil.pdf'" class="btn-secondary">
-          <i class="fas fa-file-pdf"></i>
-          {{ lang() === 'pt' ? 'Baixar CV (PDF)' : 'Download CV (PDF)' }}
-        </a>
         <a href="assets/Wesley_Silva_IT_Manager_CV.docx" download="Wesley_Silva_IT_Manager_CV.docx" class="btn-secondary" data-gtm-event="cv_download_docx">
           <i class="fas fa-file-word"></i>
-          {{ lang() === 'pt' ? 'Baixar CV (Word · ATS)' : 'Download CV (Word · ATS)' }}
+          {{ lang() === 'pt' ? 'Baixar CV · ATS (Word)' : 'Download CV · ATS (Word)' }}
         </a>
-        <a href="https://www.linkedin.com/in/wesleyzilva/" target="_blank" rel="noopener noreferrer" class="btn-outline">
-          <i class="fab fa-linkedin"></i>
-          LinkedIn
-        </a>
-        <a href="https://github.com/wesleyzilva" target="_blank" rel="noopener noreferrer" class="btn-outline">
-          <i class="fab fa-github"></i>
-          GitHub
+        <a href="mailto:wesley.zilva@gmail.com?subject=Interview%20Request%20-%20Wesley%20Silva&body=Hi%20Wesley%2C%0A%0AI%27d%20like%20to%20schedule%20an%20interview." class="btn-primary" data-gtm-event="hero_schedule_interview">
+          <i class="fas fa-calendar-check"></i>
+          {{ lang() === 'pt' ? 'Agendar Entrevista' : 'Schedule an Interview' }}
         </a>
       </div>
     </div>
+  </div>
+
+  <div class="hero-proof-strip" [class.proof-hidden]="!proofVisible()">
+    @for (item of proofWindow; track item.value) {
+      <span class="proof-item" data-clarity-unmask="True">
+        <strong [innerHTML]="item.value"></strong>
+        {{ lang() === 'pt' ? item.labelPt : item.labelEn }}
+      </span>
+      @if (!$last) { <span class="proof-divider">·</span> }
+    }
+    <a
+      class="proof-scroll-arrow"
+      href="#about"
+      (click)="scrollToAbout($event)"
+      [attr.aria-label]="lang() === 'pt' ? 'Ver projetos' : 'See projects'"
+    >
+      <i class="fas fa-chevron-down"></i>
+    </a>
   </div>
 </section>

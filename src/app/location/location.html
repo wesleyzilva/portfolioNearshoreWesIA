@@ -130,7 +130,7 @@
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
         
-        <a href="https://www.google.com/maps/place/S%C3%A3o+Carlos+-+SP/" target="_blank" rel="noopener" class="map-link">
+        <a href="https://www.google.com/maps/place/S%C3%A3o+Carlos+-+SP/" target="_blank" rel="noopener" class="map-link" (click)="trackMaps()" data-gtm-event="location_maps_click">
           <i class="fas fa-map-marker-alt"></i>
           {{ lang() === 'pt' ? 'Abrir no Google Maps' : 'Open in Google Maps' }}
         </a>

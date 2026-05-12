@@ -16,7 +16,7 @@
         <p>{{ copy().subscribeCopy }}</p>
       </div>
       <a href="https://wa.me/5516997212966?text=Newsletter%20subscription%20%E2%80%94%20I%20want%20to%20receive%20the%20Brazil%20nearshore%20talent%20articles"
-         target="_blank" rel="noopener noreferrer" class="subscribe-cta">
+         target="_blank" rel="noopener noreferrer" class="subscribe-cta" data-gtm-event="newsletter_subscribe_whatsapp">
         <i class="fab fa-whatsapp"></i>
         {{ copy().subscribeCta }}
       </a>
@@ -73,7 +73,7 @@
     <div class="cta-row">
       <a [routerLink]="['/', lang(), 'business-profile']" class="primary-cta">{{ copy().primaryCta }}</a>
       <a href="https://wa.me/5516997212966?text=Newsletter%20%E2%80%94%20I%20read%20the%20articles%20and%20want%20to%20discuss%20a%20nearshore%20engagement"
-         target="_blank" rel="noopener noreferrer" class="secondary-cta">{{ copy().secondaryCta }}</a>
+         target="_blank" rel="noopener noreferrer" class="secondary-cta" data-gtm-event="newsletter_closing_whatsapp">{{ copy().secondaryCta }}</a>
     </div>
   </section>
 

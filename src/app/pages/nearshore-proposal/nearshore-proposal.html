@@ -109,6 +109,8 @@
           target="_blank"
           rel="noopener noreferrer"
           class="primary-cta"
+          (click)="track('proposal_whatsapp_hero')"
+          data-gtm-event="proposal_whatsapp_hero"
         >
           <i class="fab fa-whatsapp"></i>
           Start the conversation on WhatsApp
@@ -497,11 +499,13 @@
           target="_blank"
           rel="noopener noreferrer"
           class="primary-cta"
+          (click)="track('proposal_whatsapp_closing')"
+          data-gtm-event="proposal_whatsapp_closing"
         >
           <i class="fab fa-whatsapp"></i>
           Message on WhatsApp
         </a>
-        <a href="mailto:wesley.zilva@gmail.com" class="secondary-cta">
+        <a href="mailto:wesley.zilva@gmail.com" class="secondary-cta" (click)="track('proposal_email')" data-gtm-event="proposal_email">
           <i class="fas fa-envelope"></i>
           Send an email
         </a>

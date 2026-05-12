@@ -1,8 +1,39 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
 import { LanguageService } from '../services/language.service';
 import { ScrollHint } from '../scroll-hint/scroll-hint';
+
+declare function gtag(...args: any[]): void;
+
+export interface ProjectStripItem { value: string; labelEn: string; labelPt: string; }
+
+export interface ServicesStripItem { value: string; labelEn: string; labelPt: string; }
+
+const ALL_SERVICES_STRIP_ITEMS: ServicesStripItem[] = [
+  { value: 'AI-First',    labelEn: 'team workflows · see services ↓',     labelPt: 'fluxos de time · ver serviços ↓'    },
+  { value: 'Nearshore',   labelEn: 'squad setup from day 1',             labelPt: 'squad estruturado desde o dia 1'     },
+  { value: 'DevSecOps',   labelEn: 'pipelines · 0 critical findings',    labelPt: 'pipelines · 0 achados críticos'     },
+  { value: 'Agile',       labelEn: 'SAFe · Scrum · Kanban',              labelPt: 'SAFe · Scrum · Kanban'              },
+  { value: 'Data Eng',    labelEn: 'ETL · analytics · billing',          labelPt: 'ETL · analytics · faturamento'      },
+  { value: '6 services',  labelEn: 'ready to start · scroll ↓',         labelPt: 'pronto para iniciar · role ↓'        },
+  { value: 'English C1',  labelEn: 'async or live · zero lag',           labelPt: 'async ou ao vivo · zero lag'        },
+  { value: 'UTC‑3',       labelEn: 'same hours as NY · no gap',          labelPt: 'mesmo fuso NY · sem gap'            },
+];
+
+const ALL_PROJECT_STRIP_ITEMS: ProjectStripItem[] = [
+  { value: '90%',      labelEn: 'vulns fixed · see P1',           labelPt: 'vulns corrigidas · ver P1'      },
+  { value: '1200→300', labelEn: 'vulns in 9 months · P1',         labelPt: 'vulns em 9 meses · P1'          },
+  { value: '40%',      labelEn: 'ETL faster · see P2',            labelPt: 'ETL mais rápido · ver P2'       },
+  { value: '35%',      labelEn: 'sprint velocity · P4 Agile',     labelPt: 'velocity no sprint · P4 Agile'  },
+  { value: '50%',      labelEn: 'blockers cut · P4',              labelPt: 'blockers cortados · P4'         },
+  { value: '12%',      labelEn: 'legal SLA · P5 AI',              labelPt: 'SLA jurídico · P5 IA'           },
+  { value: '70%',      labelEn: 'ops automated · P6',             labelPt: 'ops automatizadas · P6'         },
+  { value: '99%',      labelEn: 'availability · see P7',          labelPt: 'disponibilidade · ver P7'       },
+  { value: '300→100',  labelEn: 'daily incidents · P11',          labelPt: 'incidentes/dia · P11'           },
+  { value: '80M+',     labelEn: 'tx/day · see P3',                labelPt: 'tx/dia · ver P3'                },
+  { value: 'R$500M+',  labelEn: 'reconciled/mo · see P3',         labelPt: 'reconciliado/mês · P3'          },
+  { value: '12+',      labelEn: 'projects · scroll ↓ to see all', labelPt: 'projetos · role ↓ para ver'     },
+];
 
 type LocalizedText = { pt: string; en: string };
 type LocalizedList = { pt: string[]; en: string[] };
@@ -27,16 +58,71 @@ interface ProjectCard {
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, RouterLink, ScrollHint],
+  imports: [CommonModule, ScrollHint],
   templateUrl: './about.html',
   styleUrl: './about.scss'
 })
-export class About implements OnInit {
+export class About implements OnInit, AfterViewInit, OnDestroy {
   readonly langService = inject(LanguageService);
   lang = this.langService.lang;
 
   currentProjectIndex = 0;
   projects: ProjectCard[] = [];
+  showSwipeHint = signal(true);
+
+  projectStripVisible = signal(true);
+  projectStripOffset  = signal(0);
+
+  servicesStripVisible = signal(true);
+  servicesStripOffset  = signal(0);
+
+  get projectStripWindow(): ProjectStripItem[] {
+    const o = this.projectStripOffset();
+    return [
+      ALL_PROJECT_STRIP_ITEMS[o % ALL_PROJECT_STRIP_ITEMS.length],
+      ALL_PROJECT_STRIP_ITEMS[(o + 1) % ALL_PROJECT_STRIP_ITEMS.length],
+      ALL_PROJECT_STRIP_ITEMS[(o + 2) % ALL_PROJECT_STRIP_ITEMS.length],
+    ];
+  }
+
+  get servicesStripWindow(): ServicesStripItem[] {
+    const o = this.servicesStripOffset();
+    return [
+      ALL_SERVICES_STRIP_ITEMS[o % ALL_SERVICES_STRIP_ITEMS.length],
+      ALL_SERVICES_STRIP_ITEMS[(o + 1) % ALL_SERVICES_STRIP_ITEMS.length],
+      ALL_SERVICES_STRIP_ITEMS[(o + 2) % ALL_SERVICES_STRIP_ITEMS.length],
+    ];
+  }
+
+  private projectStripInterval: ReturnType<typeof setInterval> | null = null;
+  private servicesStripInterval: ReturnType<typeof setInterval> | null = null;
+  private touchStartX = 0;
+  private touchStartY = 0;
+  private swipeHintTimer: ReturnType<typeof setTimeout> | null = null;
+
+  ngAfterViewInit(): void {
+    this.swipeHintTimer = setTimeout(() => this.showSwipeHint.set(false), 3500);
+    this.projectStripInterval = setInterval(() => {
+      this.projectStripVisible.set(false);
+      setTimeout(() => {
+        this.projectStripOffset.set((this.projectStripOffset() + 3) % ALL_PROJECT_STRIP_ITEMS.length);
+        this.projectStripVisible.set(true);
+      }, 400);
+    }, 4500);
+    this.servicesStripInterval = setInterval(() => {
+      this.servicesStripVisible.set(false);
+      setTimeout(() => {
+        this.servicesStripOffset.set((this.servicesStripOffset() + 3) % ALL_SERVICES_STRIP_ITEMS.length);
+        this.servicesStripVisible.set(true);
+      }, 400);
+    }, 4000);
+  }
+
+  ngOnDestroy(): void {
+    if (this.swipeHintTimer) { clearTimeout(this.swipeHintTimer); }
+    if (this.projectStripInterval) { clearInterval(this.projectStripInterval); }
+    if (this.servicesStripInterval) { clearInterval(this.servicesStripInterval); }
+  }
 
   ngOnInit(): void {
     this.projects = [
@@ -651,15 +737,49 @@ export class About implements OnInit {
     return 'Qualitative';
   }
 
+  onTouchStart(event: TouchEvent): void {
+    this.touchStartX = event.touches[0].clientX;
+    this.touchStartY = event.touches[0].clientY;
+  }
+
+  onTouchEnd(event: TouchEvent): void {
+    const dx = event.changedTouches[0].clientX - this.touchStartX;
+    const dy = event.changedTouches[0].clientY - this.touchStartY;
+    // Only handle horizontal swipes where horizontal motion dominates
+    if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+    if (dx < 0) {
+      this.nextProject();
+    } else {
+      this.previousProject();
+    }
+    this.showSwipeHint.set(false);
+    if (this.swipeHintTimer) { clearTimeout(this.swipeHintTimer); }
+  }
+
+  scrollProjectsIntoView(): void {
+    const section = document.getElementById('projects');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
   nextProject(): void {
     if (this.currentProjectIndex < this.projects.length - 1) {
       this.currentProjectIndex++;
+      this.scrollProjectsIntoView();
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'project_navigate', { event_category: 'about', event_label: 'next', value: this.currentProjectIndex });
+      }
     }
   }
 
   previousProject(): void {
     if (this.currentProjectIndex > 0) {
       this.currentProjectIndex--;
+      this.scrollProjectsIntoView();
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'project_navigate', { event_category: 'about', event_label: 'previous', value: this.currentProjectIndex });
+      }
     }
   }
 
@@ -667,6 +787,9 @@ export class About implements OnInit {
     if (!project.liked) {
       project.likes++;
       project.liked = true;
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'project_like', { event_category: 'about', event_label: this.lang() === 'pt' ? project.title.pt : project.title.en });
+      }
     } else {
       project.likes--;
       project.liked = false;

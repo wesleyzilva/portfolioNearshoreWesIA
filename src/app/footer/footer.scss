@@ -20,11 +20,34 @@
   color: rgba(224, 225, 221, 0.45);
 }
 
+.footer-contact {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.footer-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: rgba(224, 225, 221, 0.55);
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  i { font-size: 0.9rem; }
+
+  &:hover { color: var(--cor-destaque-primaria); }
+}
+
+.footer-whatsapp:hover { color: #25D366; }
+
 .footer-meta {
   display: flex;
   gap: 1.5rem;
   font-size: 0.82rem;
-  color: rgba(224, 225, 221, 0.45);
+  color: rgba(224, 225, 221, 0.35);
 
   i {
     color: var(--cor-destaque-primaria);

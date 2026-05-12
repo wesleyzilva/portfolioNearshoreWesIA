@@ -1,6 +1,18 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../services/language.service';
+
+interface LocationStripItem { value: string; labelEn: string; labelPt: string; }
+
+const ALL_LOCATION_STRIP_ITEMS: LocationStripItem[] = [
+  { value: 'São Carlos',  labelEn: 'Brazil tech hub · see location ↓',  labelPt: 'polo tech do Brasil · ver localização ↓' },
+  { value: 'UTC‑3',       labelEn: 'same hours as NY · scroll ↓',       labelPt: 'mesmo fuso NY · role ↓'               },
+  { value: '0h',          labelEn: 'timezone gap w/ NY · ever',         labelPt: 'diferença de fuso com NY · nunca'     },
+  { value: '4h',          labelEn: 'overlap w/ London · book a call',   labelPt: 'sobreposição com Londres · agende'    },
+  { value: '250k',        labelEn: 'talent-rich city',                  labelPt: 'cidade rica em talentos'              },
+  { value: 'USP + UFSCar', labelEn: 'tech universities nearby',          labelPt: 'universidades tech na porta'          },
+  { value: 'Remote-first', labelEn: 'async-ready · see where I work',   labelPt: 'async-ready · veja onde trabalho'      },
+];
 
 @Component({
   selector: 'app-gallery',
@@ -9,9 +21,37 @@ import { LanguageService } from '../services/language.service';
   templateUrl: './gallery.html',
   styleUrl: './gallery.scss'
 })
-export class Gallery {
+export class Gallery implements OnInit, OnDestroy {
   readonly langService = inject(LanguageService);
   lang = this.langService.lang;
+
+  locationStripVisible = signal(true);
+  locationStripOffset  = signal(0);
+
+  get locationStripWindow(): LocationStripItem[] {
+    const o = this.locationStripOffset();
+    return [
+      ALL_LOCATION_STRIP_ITEMS[o % ALL_LOCATION_STRIP_ITEMS.length],
+      ALL_LOCATION_STRIP_ITEMS[(o + 1) % ALL_LOCATION_STRIP_ITEMS.length],
+      ALL_LOCATION_STRIP_ITEMS[(o + 2) % ALL_LOCATION_STRIP_ITEMS.length],
+    ];
+  }
+
+  private locationStripInterval: ReturnType<typeof setInterval> | null = null;
+
+  ngOnInit(): void {
+    this.locationStripInterval = setInterval(() => {
+      this.locationStripVisible.set(false);
+      setTimeout(() => {
+        this.locationStripOffset.set((this.locationStripOffset() + 3) % ALL_LOCATION_STRIP_ITEMS.length);
+        this.locationStripVisible.set(true);
+      }, 400);
+    }, 4500);
+  }
+
+  ngOnDestroy(): void {
+    if (this.locationStripInterval) { clearInterval(this.locationStripInterval); }
+  }
 
   services = [
     {

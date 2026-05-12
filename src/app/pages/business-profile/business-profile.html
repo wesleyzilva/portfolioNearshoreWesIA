@@ -8,8 +8,20 @@
       <p class="summary">{{ copy().summary }}</p>
 
       <div class="cta-row">
-        <a [routerLink]="['/', lang(), 'hot-search']" class="primary-cta">{{ copy().primaryCta }}</a>
-
+        @if (ab.isB('business_cta')) {
+          <a
+            href="https://wa.me/5516997212966?text=Hi%20Wesley%20%E2%80%94%20I%20read%20your%20business%20profile%20and%20want%20to%20discuss%20a%20nearshore%20engagement"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="primary-cta"
+            data-gtm-event="business_profile_whatsapp_b"
+          >
+            <i class="fab fa-whatsapp"></i>
+            {{ lang() === 'pt' ? 'Conversar no WhatsApp' : "Let's talk — WhatsApp" }}
+          </a>
+        } @else {
+          <a [routerLink]="['/', lang(), 'hot-search']" class="primary-cta">{{ copy().primaryCta }}</a>
+        }
       </div>
     </div>
 
@@ -80,7 +92,7 @@
     <p>{{ copy().closeCopy }}</p>
     <div class="cta-row">
       <a href="https://wa.me/5516997212966?text=Global%20project%20%E2%80%94%20I%20found%20your%20portfolio%20and%20want%20to%20discuss%20a%20nearshore%20engagement"
-         target="_blank" rel="noopener noreferrer" class="secondary-cta">{{ copy().secondaryCta }}</a>
+         target="_blank" rel="noopener noreferrer" class="secondary-cta" data-gtm-event="business_profile_whatsapp">{{ copy().secondaryCta }}</a>
     </div>
   </section>
 </main>

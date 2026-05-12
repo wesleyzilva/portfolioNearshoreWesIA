@@ -5,6 +5,7 @@ import { Footer } from '../../footer/footer';
 import { Header } from '../../header/header';
 import { Lang, LanguageService } from '../../services/language.service';
 import { PageMetaService } from '../../services/page-meta.service';
+import { AbTestService } from '../../services/ab-test.service';
 
 interface MetricItem {
   value: string;
@@ -47,6 +48,7 @@ export class BusinessProfilePage implements OnInit {
   readonly route = inject(ActivatedRoute);
   readonly langService = inject(LanguageService);
   readonly pageMeta = inject(PageMetaService);
+  readonly ab = inject(AbTestService);
   readonly lang = this.langService.lang;
 
   readonly content: Record<Lang, BusinessProfileContent> = {

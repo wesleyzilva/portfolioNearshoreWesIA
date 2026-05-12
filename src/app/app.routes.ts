@@ -21,5 +21,7 @@ export const routes: Routes = [
   { path: 'en/personal-about', redirectTo: 'personal-about', pathMatch: 'full' },
   { path: 'en/nearshore-proposal', redirectTo: 'nearshore-proposal', pathMatch: 'full' },
   { path: 'home', redirectTo: '', pathMatch: 'full' },
+  { path: 'proposal', redirectTo: 'nearshore-proposal', pathMatch: 'full' },
+  { path: 'pt/proposal', redirectTo: 'pt/nearshore-proposal', pathMatch: 'full' },
   { path: '**', redirectTo: '' }
 ];

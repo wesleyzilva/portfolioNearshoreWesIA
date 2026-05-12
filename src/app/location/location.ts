@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { LanguageService } from '../services/language.service';
 
+declare function gtag(...args: any[]): void;
+
 @Component({
   selector: 'app-location',
   standalone: true,
@@ -25,5 +27,11 @@ export class Location {
 
   hereNext(): void {
     this.hereIndex.update(i => (i + 1) % this.herePhotos.length);
+  }
+
+  trackMaps(): void {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'location_maps_click', { event_category: 'location', event_label: 'google_maps' });
+    }
   }
 }

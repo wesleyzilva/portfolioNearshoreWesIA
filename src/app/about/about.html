@@ -7,158 +7,14 @@
       <span class="label-line"></span>
     </div>
 
-    <div class="about-top-actions">
-      <a
-        routerLink="/personal-about"
-        target="_blank"
-        rel="noopener"
-        class="personal-about-link"
-        aria-label="Open personal about page in a new tab"
-      >
-        <i class="fas fa-images"></i>
-        {{ lang() === 'pt' ? 'Personal About' : 'Personal About' }}
-      </a>
-    </div>
-
     <h2 class="section-heading">
       <span class="heading-main">
-        {{ lang() === 'pt' ? 'Resumo rápido para recrutadores' : 'Quick snapshot for recruiters' }}
+        {{ lang() === 'pt' ? 'Resumo rápido para recrutadores & CTO' : 'Quick snapshot for recruiters & CTO' }}
       </span>
       <span class="accent-sub">Nearshore · Agile · Team Dynamic · IA Powered</span>
     </h2>
 
-    <p class="about-lead">
-      {{
-        lang() === 'pt'
-          ? 'Em 3 a 5 minutos você entende meu nível de senioridade, contexto internacional, stack de atuação e aderência para posições de liderança, produto e delivery.'
-          : 'In 3 to 5 minutes you can assess my seniority, international context, operating stack and fit for leadership, product and delivery roles.'
-      }}
-    </p>
-
-    <div class="impact-highlights">
-      <article class="impact-item">
-        <strong>14+ anos</strong>
-        <span>{{ lang() === 'pt' ? 'liderando tecnologia' : 'leading technology teams' }}</span>
-      </article>
-      <article class="impact-item">
-        <strong>80M+</strong>
-        <span>{{ lang() === 'pt' ? 'transações/dia' : 'transactions/day' }}</span>
-      </article>
-      <article class="impact-item">
-        <strong>R$500M+</strong>
-        <span>{{ lang() === 'pt' ? 'reconciliação mensal' : 'monthly reconciliation' }}</span>
-      </article>
-      <article class="impact-item">
-        <strong>90%</strong>
-        <span>{{
-          lang() === 'pt' ? 'redução de vulnerabilidades' : 'vulnerability reduction'
-        }}</span>
-      </article>
-      <article class="impact-item">
-        <strong>45%</strong>
-        <span>{{ lang() === 'pt' ? 'redução de MTTR' : 'MTTR reduction' }}</span>
-      </article>
-      <article class="impact-item">
-        <strong>99.95%</strong>
-        <span>uptime {{ lang() === 'pt' ? 'em sistemas críticos' : 'in critical systems' }}</span>
-      </article>
-    </div>
-
-    <div class="about-overview-grid">
-      <article class="about-spotlight">
-        <span class="spotlight-badge">{{ lang() === 'pt' ? 'Perfil' : 'Profile' }}</span>
-        <h3>Wesley <span class="hl">Gomes</span> da Silva</h3>
-        <p class="spotlight-role">IT Manager · Agile Coach · PO Tech · AI Workspace</p>
-        <p class="spotlight-text">
-          {{
-            lang() === 'pt'
-              ? 'Combino conhecimento técnico com processos ágeis e qualidade como código para criar, fortalecer e entregar projetos de produtos digitais, garantindo requisitos sustentáveis em um workspace de interação remota orientado a dados em um ambiente guiado por IA First.'
-              : 'I combine technical knowledge with agile processes and quality as code to create, strengthen and deliver digital product projects, ensuring sustainable requirements in a data-driven remote interaction workspace within an AI First-driven environment.'
-          }}
-        </p>
-        <a href="#projects" class="projects-impact-btn">
-          <i class="fas fa-chart-line"></i>
-          Projects and impacts
-        </a>
-        <div class="about-chips">
-          <span class="summary-chip">{{ lang() === 'pt' ? '14+ anos' : '14+ years' }}</span>
-          <span class="summary-chip">Nearshore</span>
-          <span class="summary-chip">English C1</span>
-          <span class="summary-chip">PO Tech</span>
-          <span class="summary-chip">DevSecOps</span>
-        </div>
-      </article>
-
-      <article class="about-summary-card">
-        <h4>
-          {{ lang() === 'pt' ? 'O que melhora depois que entro' : 'What improves after I join' }}
-        </h4>
-        <ul class="summary-list">
-          <li>
-            {{
-              lang() === 'pt'
-                ? 'Redução do lead time de entrega com adoção ágil estruturada'
-                : 'Reduce delivery lead time through structured agile adoption'
-            }}
-          </li>
-          <li>
-            {{
-              lang() === 'pt'
-                ? 'Aumento da previsibilidade do time com backlog e roadmap disciplinados'
-                : 'Increase team predictability with backlog and roadmap discipline'
-            }}
-          </li>
-          <li>
-            {{
-              lang() === 'pt'
-                ? 'Decisões orientadas a dados com IA integrada ao fluxo do time'
-                : 'Enable AI-driven decision making across the team'
-            }}
-          </li>
-          <li>
-            {{
-              lang() === 'pt'
-                ? 'Redução de vulnerabilidades com governança DevSecOps no pipeline'
-                : 'Reduce security vulnerabilities through DevSecOps pipeline governance'
-            }}
-          </li>
-        </ul>
-      </article>
-
-      <article class="about-summary-card">
-        <h4>{{ lang() === 'pt' ? 'Melhor aderência' : 'Best role fit' }}</h4>
-        <ul class="summary-list">
-          <li>IT Manager / Delivery Manager</li>
-          <li>Technical Product Owner</li>
-          <li>Agile Lead / Scrum of Scrums</li>
-          <li>
-            {{
-              lang() === 'pt'
-                ? 'Criação de times e dinâmica de equipe'
-                : 'Team creation and dynamic'
-            }}
-          </li>
-          <li>
-            {{
-              lang() === 'pt'
-                ? 'Construção de times de alta performance'
-                : 'High Performance Team building'
-            }}
-          </li>
-        </ul>
-      </article>
-      <article class="about-summary-card">
-        <h4>{{ lang() === 'pt' ? 'Domínios de atuação' : 'Industry domains' }}</h4>
-        <ul class="summary-list">
-          <li>{{ lang() === 'pt' ? 'Pagamentos & Billing' : 'Payments & Billing' }}</li>
-          <li>{{ lang() === 'pt' ? 'Vendas & Atendimento' : 'Sales & Customer Service' }}</li>
-          <li>{{ lang() === 'pt' ? 'Jurídico & Recursos Humanos' : 'Legal & Human Resources' }}</li>
-          <li>{{ lang() === 'pt' ? 'Regulatório & Compliance' : 'Regulatory & Compliance' }}</li>
-        </ul>
-      </article>
-    </div>
-
-    <!-- ===== 14-year career timeline ===== -->
+    <!-- ===== 15-year career timeline ===== -->
     <div class="career-timeline-card">
       <h4 class="career-timeline-title">
         <i class="fas fa-route"></i>
@@ -282,6 +138,76 @@
       </div>
     </div>
 
+    <div class="about-overview-grid">
+      <article class="about-summary-card">
+        <h4>
+          {{ lang() === 'pt' ? 'O que melhora depois que entro' : 'What improves after I join' }}
+        </h4>
+        <ul class="summary-list">
+          <li>
+            {{
+              lang() === 'pt'
+                ? 'Redução do lead time de entrega com adoção ágil estruturada'
+                : 'Reduce delivery lead time through structured agile adoption'
+            }}
+          </li>
+          <li>
+            {{
+              lang() === 'pt'
+                ? 'Aumento da previsibilidade do time com backlog e roadmap disciplinados'
+                : 'Increase team predictability with backlog and roadmap discipline'
+            }}
+          </li>
+          <li>
+            {{
+              lang() === 'pt'
+                ? 'Decisões orientadas a dados com IA integrada ao fluxo do time'
+                : 'Enable AI-driven decision making across the team'
+            }}
+          </li>
+          <li>
+            {{
+              lang() === 'pt'
+                ? 'Redução de vulnerabilidades com governança DevSecOps no pipeline'
+                : 'Reduce security vulnerabilities through DevSecOps pipeline governance'
+            }}
+          </li>
+        </ul>
+      </article>
+
+      <article class="about-summary-card">
+        <h4>{{ lang() === 'pt' ? 'Melhor aderência' : 'Best role fit' }}</h4>
+        <ul class="summary-list">
+          <li>IT Manager / Delivery Manager</li>
+          <li>Technical Product Owner</li>
+          <li>Agile Lead / Scrum of Scrums</li>
+          <li>
+            {{
+              lang() === 'pt'
+                ? 'Criação de times e dinâmica de equipe'
+                : 'Team creation and dynamic'
+            }}
+          </li>
+          <li>
+            {{
+              lang() === 'pt'
+                ? 'Construção de times de alta performance'
+                : 'High Performance Team building'
+            }}
+          </li>
+        </ul>
+      </article>
+      <article class="about-summary-card">
+        <h4>{{ lang() === 'pt' ? 'Domínios de atuação' : 'Industry domains' }}</h4>
+        <ul class="summary-list">
+          <li>{{ lang() === 'pt' ? 'Pagamentos & Billing' : 'Payments & Billing' }}</li>
+          <li>{{ lang() === 'pt' ? 'Vendas & Atendimento' : 'Sales & Customer Service' }}</li>
+          <li>{{ lang() === 'pt' ? 'Jurídico & Recursos Humanos' : 'Legal & Human Resources' }}</li>
+          <li>{{ lang() === 'pt' ? 'Regulatório & Compliance' : 'Regulatory & Compliance' }}</li>
+        </ul>
+      </article>
+    </div>
+
     <div class="value-grid-row">
       <div class="value-card">
         <div class="value-icon"><i class="fas fa-brain"></i></div>
@@ -344,6 +270,26 @@
         </p>
       </div>
     </div>
+
+    <!-- ===== project proof strip ===== -->
+    <div class="about-project-strip" [class.proof-hidden]="!projectStripVisible()">
+      @for (item of projectStripWindow; track item.value) {
+        <span class="proof-item" data-clarity-unmask="True">
+          <strong>{{ item.value }}</strong>
+          {{ lang() === 'pt' ? item.labelPt : item.labelEn }}
+        </span>
+        @if (!$last) { <span class="proof-divider">·</span> }
+      }
+      <a
+        class="proof-scroll-arrow"
+        href="#projects"
+        (click)="scrollProjectsIntoView()"
+        [attr.aria-label]="lang() === 'pt' ? 'Ver projetos' : 'See projects'"
+        data-gtm-event="about_strip_scroll_projects"
+      >
+        <i class="fas fa-chevron-down"></i>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -365,7 +311,9 @@
       }}
     </h2>
 
-    <div class="projects-layout">
+    <div class="projects-layout"
+         (touchstart)="onTouchStart($event)"
+         (touchend)="onTouchEnd($event)">
       <!-- Carousel -->
       <ng-container *ngFor="let project of projects; let i = index">
         <div class="project-card" *ngIf="i === currentProjectIndex">
@@ -459,6 +407,21 @@
         </div>
       </ng-container>
 
+      <!-- Progress dots -->
+      <div class="project-dots" aria-hidden="true">
+        @for (p of projects; track $index) {
+          <span class="dot" [class.dot-active]="$index === currentProjectIndex"
+                (click)="currentProjectIndex = $index; scrollProjectsIntoView()"></span>
+        }
+      </div>
+
+      @if (showSwipeHint()) {
+        <div class="swipe-hint" aria-hidden="true">
+          <i class="fas fa-hand-pointer"></i>
+          {{ lang() === 'pt' ? 'Deslize para navegar' : 'Swipe to navigate' }}
+        </div>
+      }
+
       <!-- Navigation -->
       <div class="carousel-nav">
         <button (click)="previousProject()" [disabled]="currentProjectIndex === 0" class="nav-btn">
@@ -473,6 +436,25 @@
           {{ lang() === 'pt' ? 'Próximo' : 'Next' }} <i class="fas fa-chevron-right"></i>
         </button>
       </div>
+    </div>
+
+    <!-- ===== services proof strip ===== -->
+    <div class="about-project-strip" [class.proof-hidden]="!servicesStripVisible()">
+      @for (item of servicesStripWindow; track item.value) {
+        <span class="proof-item" data-clarity-unmask="True">
+          <strong>{{ item.value }}</strong>
+          {{ lang() === 'pt' ? item.labelPt : item.labelEn }}
+        </span>
+        @if (!$last) { <span class="proof-divider">·</span> }
+      }
+      <a
+        class="proof-scroll-arrow"
+        href="#services"
+        [attr.aria-label]="lang() === 'pt' ? 'Ver serviços' : 'See services'"
+        data-gtm-event="projects_strip_scroll_services"
+      >
+        <i class="fas fa-chevron-down"></i>
+      </a>
     </div>
   </div>
 </section>

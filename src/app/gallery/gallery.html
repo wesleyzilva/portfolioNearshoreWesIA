@@ -27,5 +27,24 @@
         </div>
       </div>
     </div>
+
+    <!-- ===== location proof strip ===== -->
+    <div class="gallery-location-strip" [class.proof-hidden]="!locationStripVisible()">
+      @for (item of locationStripWindow; track item.value) {
+        <span class="proof-item" data-clarity-unmask="True">
+          <strong>{{ item.value }}</strong>
+          {{ lang() === 'pt' ? item.labelPt : item.labelEn }}
+        </span>
+        @if (!$last) { <span class="proof-divider">·</span> }
+      }
+      <a
+        class="proof-scroll-arrow"
+        href="#location"
+        [attr.aria-label]="lang() === 'pt' ? 'Ver localização' : 'See location'"
+        data-gtm-event="services_strip_scroll_location"
+      >
+        <i class="fas fa-chevron-down"></i>
+      </a>
+    </div>
   </div>
 </section>

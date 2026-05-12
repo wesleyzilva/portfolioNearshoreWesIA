@@ -6,6 +6,8 @@ import { PageMetaService } from '../../services/page-meta.service';
 import { Header } from '../../header/header';
 import { Footer } from '../../footer/footer';
 
+declare function gtag(...args: any[]): void;
+
 @Component({
   selector: 'app-nearshore-proposal',
   standalone: true,
@@ -37,6 +39,15 @@ export class NearshoreProposalPage implements OnInit {
   }
 
   printPage(): void {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'proposal_print', { event_category: 'nearshore_proposal', event_label: 'print' });
+    }
     window.print();
+  }
+
+  track(label: string): void {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'generate_lead', { event_category: 'nearshore_proposal', event_label: label, value: 1 });
+    }
   }
 }
