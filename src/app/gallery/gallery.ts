@@ -5,13 +5,13 @@ import { LanguageService } from '../services/language.service';
 interface LocationStripItem { value: string; labelEn: string; labelPt: string; }
 
 const ALL_LOCATION_STRIP_ITEMS: LocationStripItem[] = [
-  { value: 'São Carlos',  labelEn: 'Brazil tech hub · see location ↓',  labelPt: 'polo tech do Brasil · ver localização ↓' },
-  { value: 'UTC‑3',       labelEn: 'same hours as NY · scroll ↓',       labelPt: 'mesmo fuso NY · role ↓'               },
-  { value: '0h',          labelEn: 'timezone gap w/ NY · ever',         labelPt: 'diferença de fuso com NY · nunca'     },
-  { value: '4h',          labelEn: 'overlap w/ London · book a call',   labelPt: 'sobreposição com Londres · agende'    },
-  { value: '250k',        labelEn: 'talent-rich city',                  labelPt: 'cidade rica em talentos'              },
-  { value: 'USP + UFSCar', labelEn: 'tech universities nearby',          labelPt: 'universidades tech na porta'          },
-  { value: 'Remote-first', labelEn: 'async-ready · see where I work',   labelPt: 'async-ready · veja onde trabalho'      },
+  { value: 'São Carlos',   labelEn: 'Brazil tech hub',          labelPt: 'polo tech do Brasil'     },
+  { value: 'UTC‑3',        labelEn: 'strong NY overlap',        labelPt: 'forte sobreposição NY'   },
+  { value: '4h',           labelEn: 'overlap with London',      labelPt: 'sobreposição c/ Londres' },
+  { value: '250k+',        labelEn: 'talent pool',              labelPt: 'pool de talentos'        },
+  { value: 'USP+UFSCar',   labelEn: 'top tech universities',    labelPt: 'top universidades tech'  },
+  { value: 'Remote-first', labelEn: 'async or live, any TZ',    labelPt: 'async ou ao vivo'        },
+  { value: 'Brazil',       labelEn: 'nearshore · close culture', labelPt: 'nearshore próximo'       },
 ];
 
 @Component({

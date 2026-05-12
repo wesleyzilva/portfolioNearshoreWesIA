@@ -10,29 +10,29 @@ export interface ProjectStripItem { value: string; labelEn: string; labelPt: str
 export interface ServicesStripItem { value: string; labelEn: string; labelPt: string; }
 
 const ALL_SERVICES_STRIP_ITEMS: ServicesStripItem[] = [
-  { value: 'AI-First',    labelEn: 'team workflows · see services ↓',     labelPt: 'fluxos de time · ver serviços ↓'    },
-  { value: 'Nearshore',   labelEn: 'squad setup from day 1',             labelPt: 'squad estruturado desde o dia 1'     },
-  { value: 'DevSecOps',   labelEn: 'pipelines · 0 critical findings',    labelPt: 'pipelines · 0 achados críticos'     },
-  { value: 'Agile',       labelEn: 'SAFe · Scrum · Kanban',              labelPt: 'SAFe · Scrum · Kanban'              },
-  { value: 'Data Eng',    labelEn: 'ETL · analytics · billing',          labelPt: 'ETL · analytics · faturamento'      },
-  { value: '6 services',  labelEn: 'ready to start · scroll ↓',         labelPt: 'pronto para iniciar · role ↓'        },
-  { value: 'English C1',  labelEn: 'async or live · zero lag',           labelPt: 'async ou ao vivo · zero lag'        },
-  { value: 'UTC‑3',       labelEn: 'same hours as NY · no gap',          labelPt: 'mesmo fuso NY · sem gap'            },
+  { value: 'AI-First',    labelEn: 'team workflows',      labelPt: 'fluxos de time'         },
+  { value: 'Nearshore',   labelEn: 'squad from day 1',    labelPt: 'squad desde o dia 1'    },
+  { value: 'DevSecOps',   labelEn: '0 critical findings', labelPt: '0 achados críticos'     },
+  { value: 'Agile PM',    labelEn: 'SAFe · Scrum · Kanban', labelPt: 'SAFe · Scrum · Kanban' },
+  { value: 'Data Eng',    labelEn: 'ETL & analytics',     labelPt: 'ETL & analytics'        },
+  { value: '6 services',  labelEn: 'nearshore-ready',     labelPt: 'prontos nearshore'      },
+  { value: 'English C1',  labelEn: 'zero comm lag',       labelPt: 'sem lag de comunicação' },
+  { value: 'UTC‑3',       labelEn: 'strong NY overlap',   labelPt: 'forte sobreposição NY'  },
 ];
 
 const ALL_PROJECT_STRIP_ITEMS: ProjectStripItem[] = [
-  { value: '90%',      labelEn: 'vulns fixed · see P1',           labelPt: 'vulns corrigidas · ver P1'      },
-  { value: '1200→300', labelEn: 'vulns in 9 months · P1',         labelPt: 'vulns em 9 meses · P1'          },
-  { value: '40%',      labelEn: 'ETL faster · see P2',            labelPt: 'ETL mais rápido · ver P2'       },
-  { value: '35%',      labelEn: 'sprint velocity · P4 Agile',     labelPt: 'velocity no sprint · P4 Agile'  },
-  { value: '50%',      labelEn: 'blockers cut · P4',              labelPt: 'blockers cortados · P4'         },
-  { value: '12%',      labelEn: 'legal SLA · P5 AI',              labelPt: 'SLA jurídico · P5 IA'           },
-  { value: '70%',      labelEn: 'ops automated · P6',             labelPt: 'ops automatizadas · P6'         },
-  { value: '99%',      labelEn: 'availability · see P7',          labelPt: 'disponibilidade · ver P7'       },
-  { value: '300→100',  labelEn: 'daily incidents · P11',          labelPt: 'incidentes/dia · P11'           },
-  { value: '80M+',     labelEn: 'tx/day · see P3',                labelPt: 'tx/dia · ver P3'                },
-  { value: 'R$500M+',  labelEn: 'reconciled/mo · see P3',         labelPt: 'reconciliado/mês · P3'          },
-  { value: '12+',      labelEn: 'projects · scroll ↓ to see all', labelPt: 'projetos · role ↓ para ver'     },
+  { value: '90%',      labelEn: 'vulns resolved',         labelPt: 'vulns resolvidas'         },
+  { value: '1200→300', labelEn: 'vulns in 9 months',      labelPt: 'vulns em 9 meses'         },
+  { value: '40%',      labelEn: 'faster ETL',             labelPt: 'ETL mais rápido'          },
+  { value: '35%',      labelEn: 'sprint velocity',        labelPt: 'velocity no sprint'       },
+  { value: '50%',      labelEn: 'blockers cut',           labelPt: 'blockers cortados'        },
+  { value: '12%',      labelEn: 'legal SLA freed',        labelPt: 'SLA jurídico liberado'    },
+  { value: '70%',      labelEn: 'ops automated',          labelPt: 'ops automatizadas'        },
+  { value: '99%',      labelEn: 'uptime SLA',             labelPt: 'uptime SLA'               },
+  { value: '300→100',  labelEn: 'daily incidents',        labelPt: 'incidentes/dia'           },
+  { value: '80M+',     labelEn: 'tx per day',             labelPt: 'transações/dia'           },
+  { value: 'R$500M+',  labelEn: 'reconciled monthly',     labelPt: 'reconciliado/mês'         },
+  { value: '12+',      labelEn: 'projects delivered',     labelPt: 'projetos entregues'       },
 ];
 
 type LocalizedText = { pt: string; en: string };
@@ -758,7 +758,12 @@ export class About implements OnInit, AfterViewInit, OnDestroy {
 
   scrollProjectsIntoView(): void {
     const section = document.getElementById('projects');
-    if (section) {
+    if (!section) return;
+    if (window.innerWidth < 769) {
+      const headerOffset = 64;
+      const top = section.getBoundingClientRect().top + window.scrollY - headerOffset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    } else {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }

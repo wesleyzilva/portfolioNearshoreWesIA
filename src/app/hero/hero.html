@@ -65,13 +65,5 @@
       </span>
       @if (!$last) { <span class="proof-divider">·</span> }
     }
-    <a
-      class="proof-scroll-arrow"
-      href="#about"
-      (click)="scrollToAbout($event)"
-      [attr.aria-label]="lang() === 'pt' ? 'Ver projetos' : 'See projects'"
-    >
-      <i class="fas fa-chevron-down"></i>
-    </a>
   </div>
 </section>

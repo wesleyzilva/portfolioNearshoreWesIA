@@ -11,15 +11,5 @@
             <a [routerLink]="basePath()" fragment="services" (click)="trackNav('services')">{{ lang() === 'pt' ? 'Serviços' : 'Services' }}</a>
             <a [routerLink]="basePath()" fragment="location" (click)="trackNav('location')">{{ lang() === 'pt' ? 'Localização' : 'Location' }}</a>
         </nav>
-        <div class="header-actions">
-            <button class="lang-toggle" (click)="switchLanguage(); trackNav('lang-toggle')" [attr.aria-label]="'Switch language'">
-                <i class="fas fa-globe"></i>
-                {{ lang() === 'pt' ? 'EN' : 'PT' }}
-            </button>
-            <a href="https://wa.me/5516997212966?text=Hello%20Wesley" target="_blank" rel="noopener noreferrer" class="header-cta" (click)="trackNav('contact-cta')">
-                <i class="fab fa-whatsapp"></i>
-                {{ lang() === 'pt' ? 'Contato' : 'Contact' }}
-            </a>
-        </div>
     </div>
 </header>

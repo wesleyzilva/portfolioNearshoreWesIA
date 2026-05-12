@@ -280,15 +280,6 @@
         </span>
         @if (!$last) { <span class="proof-divider">·</span> }
       }
-      <a
-        class="proof-scroll-arrow"
-        href="#projects"
-        (click)="scrollProjectsIntoView()"
-        [attr.aria-label]="lang() === 'pt' ? 'Ver projetos' : 'See projects'"
-        data-gtm-event="about_strip_scroll_projects"
-      >
-        <i class="fas fa-chevron-down"></i>
-      </a>
     </div>
   </div>
 </section>
@@ -447,14 +438,6 @@
         </span>
         @if (!$last) { <span class="proof-divider">·</span> }
       }
-      <a
-        class="proof-scroll-arrow"
-        href="#services"
-        [attr.aria-label]="lang() === 'pt' ? 'Ver serviços' : 'See services'"
-        data-gtm-event="projects_strip_scroll_services"
-      >
-        <i class="fas fa-chevron-down"></i>
-      </a>
     </div>
   </div>
 </section>
