@@ -329,6 +329,31 @@
   }
 }
 
+.btn-share {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.4rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: 1px solid var(--cor-borda);
+  background: transparent;
+  color: var(--cor-texto);
+  transition: all 0.25s ease;
+
+  &:hover {
+    border-color: var(--cor-destaque-primaria);
+    color: var(--cor-destaque-primaria);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    display: inline-flex;
+  }
+}
+
 .hero-scroll-hint {
   position: absolute;
   bottom: 2rem;

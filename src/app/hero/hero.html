@@ -14,8 +14,8 @@
       <h1 class="hero-name">Wesley <span class="highlight">Gomes</span> da Silva</h1>
       <p class="hero-title">
         {{ lang() === 'pt'
-          ? 'IT Manager · Agile Coach · Especialista em Gestão Remota com IA'
-          : 'IT Manager · Agile Coach · Remote Management with AI Specialist' }}
+          ? 'Delivery Manager · Agile Coach · Especialista em Gestão Remota com IA'
+          : 'Delivery Manager · Agile Coach · Remote Management with AI Specialist' }}
       </p>
       @if (ab.isB('hero_tagline')) {
         <p class="hero-tagline">
@@ -53,6 +53,10 @@
           <i class="fas fa-calendar-check"></i>
           {{ lang() === 'pt' ? 'Agendar Entrevista' : 'Schedule an Interview' }}
         </a>
+        <button class="btn-share" (click)="shareProfile()" aria-label="Share profile">
+          <i class="fas fa-share-nodes"></i>
+          {{ lang() === 'pt' ? 'Compartilhar' : 'Share' }}
+        </button>
       </div>
     </div>
   </div>

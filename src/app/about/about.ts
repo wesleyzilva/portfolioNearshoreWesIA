@@ -759,13 +759,9 @@ export class About implements OnInit, AfterViewInit, OnDestroy {
   scrollProjectsIntoView(): void {
     const section = document.getElementById('projects');
     if (!section) return;
-    if (window.innerWidth < 769) {
-      const headerOffset = 64;
-      const top = section.getBoundingClientRect().top + window.scrollY - headerOffset;
-      window.scrollTo({ top, behavior: 'smooth' });
-    } else {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    const headerOffset = 64;
+    const top = section.getBoundingClientRect().top + window.scrollY - headerOffset;
+    window.scrollTo({ top, behavior: 'smooth' });
   }
 
   nextProject(): void {

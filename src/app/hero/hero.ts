@@ -83,4 +83,17 @@ export class Hero implements OnInit, OnDestroy {
     event.preventDefault();
     document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
   }
+
+  shareProfile(): void {
+    const url = 'https://wesleyzilva.github.io/portfolioNearshoreWesIA/';
+    const title = 'Wesley Gomes da Silva · Delivery Manager · Nearshore';
+    const text = this.lang() === 'pt'
+      ? 'Confira o portfólio de Wesley Gomes — Delivery Manager & Agile Coach disponível para projetos nearshore.'
+      : 'Check out Wesley Gomes\' portfolio — Delivery Manager & Agile Coach available for nearshore projects.';
+    if (navigator.share) {
+      navigator.share({ title, text, url }).catch(() => {});
+    } else {
+      navigator.clipboard?.writeText(url).catch(() => {});
+    }
+  }
 }

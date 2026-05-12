@@ -54,6 +54,15 @@ export class NewsletterPage implements OnInit {
       subscribeCta: 'Subscribe via WhatsApp',
       articlesTitle: 'All editions',
       articles: [
+        // ── Edition 3: Delivery Manager · AI-first · Nearshore fit ───────────────
+        {
+          tag: 'Market Signal',
+          title: 'The profile tech companies are actively seeking in 2026 — and why it is hard to find',
+          summary: '"Delivery Manager" grew ~40% in EU and North American tech job listings between 2023–2025, replacing "IT Manager" wherever DevOps and Agile matured. UTC-3 with 4h NY overlap is the nearshore sweet-spot: cost-competitive like offshore, collaborative like onshore. "AI-assisted workflows" became a hard selection criterion for senior roles in 2025–2026. Scale-ups building their first nearshore squad, digital transformation consultancies, and payments fintechs represent the three strongest fits. The profile combining DevSecOps + Data Engineering + Agile facilitation in a real payments context places in the top 10–15% of candidates — not because of a single credential, but because the combination is rare.',
+          readTime: '8 min read',
+          slug: 'delivery-manager-profile-market-demand-2026',
+          edition: 'Edition 3'
+        },
         {
           tag: 'Talent Market',
           title: 'Brazil produces more C2-level English speakers in tech than the entire Eastern European nearshore market combined',
@@ -166,6 +175,15 @@ export class NewsletterPage implements OnInit {
       subscribeCta: 'Assinar via WhatsApp',
       articlesTitle: 'Todas as edições',
       articles: [
+        // ── Edição 3: Delivery Manager · IA-first · Fit nearshore ────────────────
+        {
+          tag: 'Sinal de Mercado',
+          title: 'O perfil que o mercado tech está procurando em 2026 — e por que é difícil de encontrar',
+          summary: '"Delivery Manager" cresceu ~40% nas vagas de TI em Europa e América do Norte entre 2023–2025, substituindo "IT Manager" onde DevOps e Agile maduraram de verdade. UTC-3 com 4h de sobreposição NY é o sweet-spot nearshore: competitivo como offshore, colaborativo como onshore. "AI-assisted workflows" virou critério de seleção para vagas seniores em 2025–2026. Scale-ups montando o primeiro squad nearshore, consultorias de transformação digital e fintechs de pagamentos representam os três fits mais fortes. O perfil que combina DevSecOps + Data Engineering + Agile facilitation em contexto real de pagamentos entra no top 10–15% dos candidatos — não por uma credencial isolada, mas porque a combinação é rara.',
+          readTime: '8 min de leitura',
+          slug: 'delivery-manager-profile-market-demand-2026',
+          edition: 'Edição 3'
+        },
         {
           tag: 'Mercado de Talento',
           title: 'O Brasil forma mais falantes de inglês C2 em tech do que todo o mercado nearshore do Leste Europeu combinado',

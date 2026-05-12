@@ -146,3 +146,50 @@ When sharing `https://wesleyzilva.github.io/portfolioNearshoreWesIA/` on LinkedI
 | LinkedIn | https://www.linkedin.com/in/wesleyzilva |
 | GitHub | https://github.com/wesleyzilva |
 
+---
+
+## Changelog
+
+### [2026-05-12] — Mobile UX: projects carousel optimisation
+**Context:** Projects section was difficult to navigate on small screens — fixed header obscured the card top after each swipe/navigation, section padding consumed ~25% of the viewport, and `70vh` card height did not account for browser chrome on iOS/Android.
+
+**Changes:**
+- `about.ts` — `scrollProjectsIntoView()` now uses `getBoundingClientRect() + scrollY - 64px` offset on mobile (`< 769px`) so the card always lands below the fixed header; desktop keeps `scrollIntoView block: start`
+- `about.scss` — `.section-wrapper` padding reduced from `6rem 2rem` to `3.5rem 1rem` (≤768px) and `2.5rem 0.75rem` (≤480px)
+- `about.scss` — `.project-card` max-height changed from `70vh` to `calc(100dvh - 230px)` (≤768px) and `calc(100dvh - 200px)` (≤480px); uses `dvh` unit to account for mobile browser chrome; added `-webkit-overflow-scrolling: touch`
+- `about.scss` — `.project-title` font-size reduced to `1.15rem` / `1.05rem` on mobile to prevent title consuming half the card
+- `about.scss` — `.project-detail-section` tighter padding and margins on mobile; list items at `0.82rem` for more visible content without scrolling
+
+---
+
+### [2026-05-12] — Header: remove language-toggle + WhatsApp, fix mobile nav
+**Changes:**
+- `header.html` — removed `header-actions` div, language-toggle button, WhatsApp CTA link
+- `header.scss` — removed `.header-actions`, `.lang-toggle`, `.header-cta` rules; nav set to `justify-content: flex-end`; mobile nav (≤600px) now horizontally scrollable (`overflow-x: auto`, hidden scrollbar) instead of hidden
+
+---
+
+### [2026-05-12] — Proof strips: remove all chevron anchors
+**Changes:**
+- Removed all `fas fa-chevron-down` scroll-hint anchors from: hero strip, about→projects strip, projects→services strip, services→location strip
+- `app-scroll-hint` components handle section transitions; chevrons were redundant
+
+---
+
+### [2026-05-12] — Proof strips: clean data, short mobile labels
+**Changes:**
+- Removed internal project-code references (P1/P2 labels) from all strip items
+- Rewrote all labels to plain descriptive text readable by external visitors
+- Shortened labels to fit single-line on 375px viewport without truncation
+
+---
+
+### [2026-05-12] — Proof strip chain: projects → services → location
+**Changes:**
+- `about.ts` — added `ServicesStripItem` interface, `ALL_SERVICES_STRIP_ITEMS[8]`, `servicesStripVisible/Offset` signals, 4000ms rotation interval
+- `about.html` — added `.about-project-strip` rotating strip at bottom of projects section
+- `about.scss` — added `.about-project-strip`, `.proof-item`, `.proof-divider`, `.proof-hidden` rules (component-scoped)
+- `gallery.ts` — added `LocationStripItem` interface, `ALL_LOCATION_STRIP_ITEMS[7]`, 4500ms rotation interval
+- `gallery.html` — added `.gallery-location-strip` at bottom of services section
+- `gallery.scss` — added `.gallery-location-strip`, `.proof-item`, `.proof-divider`, `.proof-hidden` rules
+
