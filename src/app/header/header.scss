@@ -66,6 +66,19 @@
             color: var(--cor-destaque-primaria);
         }
     }
+
+    .header-nav-external {
+        color: var(--cor-destaque-primaria);
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+
+        i {
+            font-size: 0.7rem;
+            opacity: 0.85;
+        }
+    }
 }
 
 @media (max-width: 900px) {

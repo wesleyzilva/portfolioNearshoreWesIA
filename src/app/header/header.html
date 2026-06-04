@@ -1,15 +1,35 @@
 <header class="header">
-    <div class="header-content">
-        <a class="header-brand" routerLink="/" (click)="trackNav('brand')">
-            <span class="brand-name">Wesley<span class="brand-accent">Wes</span></span>
-            <span class="brand-tag">Nearshore · Agile · Team Dynamic · IA Powered</span>
-        </a>
-        <nav class="header-nav">
-            <a [routerLink]="basePath()" fragment="hero"    (click)="trackNav('home')">{{ lang() === 'pt' ? 'Início' : 'Home' }}</a>
-            <a [routerLink]="basePath()" fragment="about"   (click)="trackNav('about')">{{ lang() === 'pt' ? 'Sobre' : 'About' }}</a>
-            <a [routerLink]="basePath()" fragment="projects" (click)="trackNav('projects')">{{ lang() === 'pt' ? 'Projetos' : 'Projects' }}</a>
-            <a [routerLink]="basePath()" fragment="services" (click)="trackNav('services')">{{ lang() === 'pt' ? 'Serviços' : 'Services' }}</a>
-            <a [routerLink]="basePath()" fragment="location" (click)="trackNav('location')">{{ lang() === 'pt' ? 'Localização' : 'Location' }}</a>
-        </nav>
-    </div>
+  <div class="header-content">
+    <a class="header-brand" routerLink="/" (click)="trackNav('brand')">
+      <span class="brand-name">Wesley<span class="brand-accent">Wes</span></span>
+      <span class="brand-tag">Nearshore · Agile · Team Dynamic · IA Powered</span>
+    </a>
+    <nav class="header-nav">
+      <a [routerLink]="basePath()" fragment="hero" (click)="trackNav('home')">{{
+        lang() === 'pt' ? 'Início' : 'Home'
+      }}</a>
+      <a [routerLink]="basePath()" fragment="about" (click)="trackNav('about')">{{
+        lang() === 'pt' ? 'Sobre' : 'About'
+      }}</a>
+      <a [routerLink]="basePath()" fragment="projects" (click)="trackNav('projects')">{{
+        lang() === 'pt' ? 'Projetos' : 'Projects'
+      }}</a>
+      <a [routerLink]="basePath()" fragment="services" (click)="trackNav('services')">{{
+        lang() === 'pt' ? 'Serviços' : 'Services'
+      }}</a>
+      <a [routerLink]="basePath()" fragment="location" (click)="trackNav('location')">{{
+        lang() === 'pt' ? 'Localização' : 'Location'
+      }}</a>
+      <a
+        href="https://wesleyzilva.github.io/LATAM-AIgile-project-delivery/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="header-nav-external"
+        (click)="trackNav('latam-aigile')"
+      >
+        LATAM AIgile
+        <i class="fas fa-external-link-alt"></i>
+      </a>
+    </nav>
+  </div>
 </header>
