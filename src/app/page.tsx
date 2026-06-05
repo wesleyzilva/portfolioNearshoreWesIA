@@ -372,6 +372,8 @@ export default function HomePage() {
                   { name: "Tableau", note: "Data storytelling for stakeholders; project health reports and financial KPIs for CFO audiences" },
                   { name: "Google Analytics", note: "Product adoption tracking; user behavior insights to inform roadmap prioritization" },
                   { name: "Microsoft Clarity", note: "UX friction detection; heatmap analysis to guide sprint prioritization" },
+                  { name: "Amplitude", note: "Product analytics for feature adoption and retention; funnel analysis to drive data-informed backlog decisions" },
+                  { name: "Adobe Analytics", note: "Digital experience metrics; conversion funnel oversight; user journey analysis for product teams" },
                   { name: "Databricks", note: "Data pipeline project oversight; ETL delivery coordination; large-scale migration management" },
                 ],
               },
