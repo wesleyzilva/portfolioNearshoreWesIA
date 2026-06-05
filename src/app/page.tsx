@@ -169,8 +169,10 @@ export default function HomePage() {
               className="font-bold text-white leading-snug"
               style={{ fontSize: "clamp(1rem, 2.5vw, 1.25rem)" }}
             >
-              Empowering teams to ship faster through{" "}
-              <span className="text-[#4CC9F0]">AI frameworks</span> and deep technical leadership.
+              Full Stack Project Manager empowering{" "}
+              <span className="text-[#4CC9F0]">remote teams</span> to ship faster through{" "}
+              <span className="text-[#4CC9F0]">AI agents</span> and deep technical leadership,{" "}
+              leveraging the best professionals from around the world and delivering your project.
             </p>
 
             {/* Separador */}
