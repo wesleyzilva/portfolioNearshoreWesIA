@@ -98,7 +98,7 @@ const timeline = [
   {
     period: "2027 – next",
     role: "LATAM Agile Project Delivery | AI Agents · Contractor 🌎",
-    desc: "Lateral move into global contract delivery. Running distributed teams with AI-powered squad framework (imDev · imQA · imPO). Targeting US, Canada, UK & LATAM clients. Full Stack PM — async-first, zero hand-holding.",
+    desc: "Lateral move into global contract delivery. Running distributed teams with AI-powered squad framework (imDev · imQA · imPO). Targeting global stakeholders from LATAM. Full Stack PM — async-first, zero hand-holding.",
     tags: ["AI Agents", "imSquad", "Contractor", "LATAM", "Remote", "Async"],
     current: false,
   },
