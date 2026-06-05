@@ -569,6 +569,9 @@ export default function ProjectsSection() {
           <button
             key={p.id}
             onClick={() => setSelected(p)}
+            data-track-event="portfolio_card_click"
+            data-track-category="engagement"
+            data-track-label={p.title}
             className="text-left p-5 rounded-2xl bg-[#1B263B] border border-[#415A77] hover:border-[#4CC9F0]/60 hover:bg-[#1B263B]/80 transition-all group cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#4CC9F0]/50"
           >
             {/* Number + category */}

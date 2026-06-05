@@ -429,6 +429,9 @@ export default function HomePage() {
                   {group.items.map((tool) => (
                     <div
                       key={tool.name}
+                      data-track-event="tool_hover"
+                      data-track-category="engagement"
+                      data-track-label={tool.name}
                       className="rounded-xl bg-[#1B263B] border border-[#415A77] px-4 py-3 hover:border-[#4CC9F0]/50 transition-colors"
                     >
                       <p className="text-white font-semibold text-sm mb-1">{tool.name}</p>
