@@ -3,14 +3,15 @@
 import { useState, useEffect } from "react";
 
 const PROOF_ITEMS = [
-  { value: "14+", label: "years in tech delivery" },
+  { value: "10+", label: "years in tech delivery" },
   { value: "80M+", label: "transactions / day" },
   { value: "99.9%", label: "SLA maintained" },
   { value: "45%", label: "MTTR reduction" },
   { value: "R$500M+", label: "reconciled / month" },
-  { value: "50+", label: "engineers led" },
-  { value: "8", label: "countries · 3 continents" },
-  { value: "UTC-3", label: "aligned with NY & London" },
+  { value: "20+", label: "engineers led" },
+  { value: "6+", label: "countries · 3 continents" },
+  { value: "GMT-3", label: "night shift with 🇨🇳 China & 🇮🇳 India" },
+  { value: "GMT-3", label: "aligned with 🇨🇦 Canada & 🇺🇸 USA" },
 ];
 
 const VISIBLE = 4;

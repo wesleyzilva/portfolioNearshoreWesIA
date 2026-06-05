@@ -148,7 +148,7 @@ export default function HomePage() {
             {/* Badge disponível */}
             <span className="inline-flex items-center gap-2 self-center md:self-start px-3 py-1 rounded-full bg-green-500/15 border border-green-500/25 text-green-400 text-xs font-bold tracking-widest uppercase">
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              Remote · UTC-3
+              Remote · GMT-3 · Night shift ready
             </span>
 
             {/* Nome */}
