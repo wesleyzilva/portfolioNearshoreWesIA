@@ -90,10 +90,17 @@ const timeline = [
   },
   {
     period: "2024 – present",
-    role: "IT Coordinator | Flexpag Fintech M&A | Payments & Data · Serasa Experian 🇧🇷",
+    role: "IT Coordinator | Fintech M&A | Payments & Data · Serasa Experian 🇧🇷",
     desc: "Led Data squads on Databricks modernization (2 squads × 4 engineers). ETL squad for acquiring/sub-acquiring via Pentaho — 100% financial precision. DevSecOps zero-to-one with Veracode & Rapid7. BACEN, FEBRABAN, PCI-DSS compliance.",
     tags: ["Databricks", "Payments", "ETL", "DevSecOps", "Veracode", "PCI-DSS", "BACEN"],
     current: true,
+  },
+  {
+    period: "2027 – next",
+    role: "LATAM Agile Project Delivery | AI Agents · Contractor 🌎",
+    desc: "Lateral move into global contract delivery. Running distributed teams with AI-powered squad framework (imDev · imQA · imPO). Targeting US, Canada, UK & LATAM clients. Full Stack PM — async-first, zero hand-holding.",
+    tags: ["AI Agents", "imSquad", "Contractor", "LATAM", "Remote", "Async"],
+    current: false,
   },
 ];
 
