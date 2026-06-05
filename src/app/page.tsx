@@ -133,13 +133,11 @@ export default function HomePage() {
           {/* Foto — visível em todos os tamanhos */}
           <div className="flex-shrink-0">
             <div className="w-[100px] h-[120px] md:w-[150px] md:h-[185px] lg:w-[180px] lg:h-[220px] rounded-2xl overflow-hidden border-2 border-[#415A77]/60">
-              <Image
-                src="/wesley.jpg"
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/wesley.jpg`}
                 alt="Wesley Gomes da Silva"
-                width={180}
-                height={220}
                 className="object-cover w-full h-full"
-                priority
               />
             </div>
           </div>
