@@ -182,10 +182,10 @@ export default function HomePage() {
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
               {[
                 { value: "6+", label: "global markets" },
-                { value: "10+", label: "tools in production" },
-                { value: "10+", label: "projects delivered" },
+                { value: "30+", label: "tools in production" },
+                { value: "12+", label: "projects delivered" },
                 { value: "24/7", label: "coverage" },
-                { value: "10+", label: "squads delivered" },
+                { value: "5+", label: "squads delivered" },
               ].map((m) => (
                 <div
                   key={m.label}
@@ -455,53 +455,33 @@ export default function HomePage() {
             Real context. No script. Who I am and how I work.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              {
-                title: "Who I'm",
-                desc: "Quick intro — background, values, and how I operate in distributed teams.",
-                videoId: "375420259d694faf96147e51777c9cde",
-              },
-              {
-                title: "My 10 Years Pitch",
-                desc: "14 years condensed: from IT Technician to Global Agile PM. The arc that matters.",
-                videoId: "REPLACE_LOOM_ID_2",
-              },
-              {
-                title: "Methodologies, Frameworks & Tools",
-                desc: "Scrum, SAFe, Kanban, Jira, ServiceNow — how I actually use them day-to-day.",
-                videoId: "REPLACE_LOOM_ID_3",
-              },
-              {
-                title: "Deep Engineer",
-                desc: "Full-Stack, Observability, DevSecOps — the technical depth behind the delivery layer.",
-                videoId: "REPLACE_LOOM_ID_4",
-              },
-              {
-                title: "Data Management",
-                desc: "80M+ tx/day, R$500M reconciliation, Databricks migrations — data engineering at scale.",
-                videoId: "REPLACE_LOOM_ID_5",
-              },
-            ].map((v) => (
-              <div
-                key={v.videoId}
-                className="flex flex-col gap-3 rounded-2xl bg-[#0D1B2A] border border-[#415A77] overflow-hidden hover:border-[#4CC9F0]/50 transition-colors"
+          {/* Under Construction overlay */}
+          <div className="relative rounded-2xl border border-[#4CC9F0]/30 bg-[#0D1B2A] overflow-hidden"
+            style={{ minHeight: "320px" }}>
+            {/* blurred background hint */}
+            <div className="absolute inset-0 grid grid-cols-2 gap-4 p-6 opacity-10 pointer-events-none select-none">
+              {[1,2,3,4].map((i) => (
+                <div key={i} className="rounded-xl bg-[#415A77] h-40" />
+              ))}
+            </div>
+            {/* overlay */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 bg-[#0D1B2A]/80 backdrop-blur-sm">
+              <span className="text-5xl">🚧</span>
+              <span
+                className="font-extrabold tracking-widest uppercase"
+                style={{
+                  fontFamily: "var(--font-poppins), sans-serif",
+                  fontSize: "clamp(1.4rem, 3vw, 2rem)",
+                  color: "#4CC9F0",
+                  letterSpacing: "0.15em",
+                }}
               >
-                <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-                  <iframe
-                    src={`https://www.loom.com/embed/${v.videoId}?hide_owner=true&hide_share=true&hide_title=false&hideEmbedTopBar=true`}
-                    allowFullScreen
-                    className="absolute inset-0 w-full h-full"
-                    style={{ border: "none" }}
-                    title={v.title}
-                  />
-                </div>
-                <div className="px-5 pb-5">
-                  <h3 className="text-white font-bold text-base mb-1">{v.title}</h3>
-                  <p className="text-sm text-[#E0E1DD]/55 leading-relaxed">{v.desc}</p>
-                </div>
-              </div>
-            ))}
+                Under Construction
+              </span>
+              <p className="text-[#E0E1DD]/55 text-sm text-center max-w-sm">
+                Loom videos coming soon. Check back shortly.
+              </p>
+            </div>
           </div>
         </div>
       </section>

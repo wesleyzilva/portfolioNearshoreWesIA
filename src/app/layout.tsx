@@ -23,7 +23,7 @@ const GA_ID = "G-VWMRGK1VK6";
 const CLARITY_ID = "x1avi1ev6u";
 
 export const metadata: Metadata = {
-  title: "Wesley Zilva · Agile Delivery Manager · LATAM Remote",
+  title: "LATAM AIgile Global Deliverys",
   description:
     "Agile Delivery Manager | 14+ yrs | 80M+ tx/day | Available nearshore/remote. Connecting US & LATAM teams.",
 };
