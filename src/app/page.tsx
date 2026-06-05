@@ -226,7 +226,7 @@ export default function HomePage() {
             Quick snapshot for recruiters &amp; CTOs
           </h2>
           <p className="text-center text-[#4CC9F0]/60 text-base mb-10">
-            Nearshore · Agile · AI-Powered · Team Dynamic
+            PM + Tech · Async-First · Distributed Teams · Zero Hand-Holding
           </p>
 
           <p className="max-w-3xl mx-auto text-center text-base leading-relaxed text-[#E0E1DD]/70 mb-14">
