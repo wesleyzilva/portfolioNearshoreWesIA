@@ -1,59 +1,29 @@
 {
-  "name": "pagina-angular",
-  "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "generate-version": "node scripts/generate-version.js",
-    "prestart": "npm run generate-version",
-    "start": "ng serve",
-    "prebuild": "npm run generate-version",
-    "build": "ng build",
-    "build:pages": "ng build --base-href /portfolioNearshoreWesIA/",
-    "build:domain": "ng build --base-href /",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "deploy": "ng deploy",
-    "deploy:pages": "npm run build:pages && npx angular-cli-ghpages --dir=dist/portfolioNearshoreWesIA/browser",
-    "deploy:domain": "npm run build:domain && npx angular-cli-ghpages --dir=dist/portfolioNearshoreWesIA/browser"
-  },
-  "prettier": {
-    "printWidth": 100,
-    "singleQuote": true,
-    "overrides": [
-      {
-        "files": "*.html",
-        "options": {
-          "parser": "angular"
-        }
-      }
-    ]
-  },
+  "name": "portfolio-nearshore-wes-ia",
+  "version": "1.0.0",
   "private": true,
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start -p 3001",
+    "lint": "next lint",
+    "deploy": "next build && npx gh-pages -d out"
+  },
   "dependencies": {
-    "@angular/common": "^20.2.0",
-    "@angular/compiler": "^20.2.0",
-    "@angular/core": "^20.2.0",
-    "@angular/forms": "^20.2.0",
-    "@angular/platform-browser": "^20.2.0",
-    "@angular/router": "^20.2.0",
-    "marked": "^16.2.1",
-    "rxjs": "~7.8.0",
-    "tslib": "^2.3.0",
-    "zone.js": "~0.15.0"
+    "framer-motion": "^12.38.0",
+    "next": "^15.5.18",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
   },
   "devDependencies": {
-    "@angular/build": "^20.2.2",
-    "@angular/cli": "^20.2.2",
-    "@angular/compiler-cli": "^20.2.0",
-    "@types/jasmine": "~5.1.0",
-    "@types/marked": "^5.0.2",
-    "angular-cli-ghpages": "^2.0.3",
-    "jasmine-core": "~5.9.0",
-    "karma": "~6.4.0",
-    "karma-chrome-launcher": "~3.2.0",
-    "karma-coverage": "~2.2.0",
-    "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.9.2"
+    "@tailwindcss/postcss": "^4.3.0",
+    "@types/node": "^25.8.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.6",
+    "postcss": "^8.5.14",
+    "tailwindcss": "^4.3.0",
+    "typescript": "^6.0.3"
   }
 }
