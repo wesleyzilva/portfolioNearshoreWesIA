@@ -98,7 +98,7 @@ const timeline = [
   {
     period: "2027 – next",
     role: "LATAM Agile Project Delivery | AI Agents · Contractor 🌎",
-    desc: "Lateral move into global contract delivery. Running distributed teams with AI-powered squad framework (imDev · imQA · imPO). Targeting global stakeholders from LATAM. Full Stack PM — async-first, zero hand-holding.",
+    desc: "Lateral move into global contract delivery. Running distributed teams with AI-powered squad framework (imDev · imQA · imPO). Targeting global stakeholders from LATAM. Full Stack specialist PM — async-first, zero hand-holding.",
     tags: ["AI Agents", "imSquad", "Contractor", "LATAM", "Remote", "Async"],
     current: false,
   },
@@ -176,7 +176,7 @@ export default function HomePage() {
               className="font-bold text-white leading-snug"
               style={{ fontSize: "clamp(1rem, 2.5vw, 1.25rem)" }}
             >
-              Full Stack Project Manager empowering{" "}
+              Full Stack specialist PM empowering{" "}
               <span className="text-[#4CC9F0]">remote teams</span> to ship faster through{" "}
               <span className="text-[#4CC9F0]">AI agents</span> and deep technical leadership,{" "}
               leveraging the best professionals from around the world and delivering your project.
