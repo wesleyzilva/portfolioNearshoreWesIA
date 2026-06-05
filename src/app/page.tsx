@@ -1,6 +1,7 @@
 import Image from "next/image";
 import ProofStrip from "@/components/ProofStrip";
 import ProjectsSection from "@/components/ProjectsSection";
+import LoomVideoGrid from "@/components/LoomVideoGrid";
 
 // ── DATA ──────────────────────────────────────────────────────────
 
@@ -468,33 +469,25 @@ export default function HomePage() {
             Real context. No script. Who I am and how I work.
           </p>
 
-          {/* Under Construction overlay */}
-          <div className="relative rounded-2xl border border-[#4CC9F0]/30 bg-[#0D1B2A] overflow-hidden"
-            style={{ minHeight: "320px" }}>
-            {/* blurred background hint */}
-            <div className="absolute inset-0 grid grid-cols-2 gap-4 p-6 opacity-10 pointer-events-none select-none">
-              {[1,2,3,4].map((i) => (
-                <div key={i} className="rounded-xl bg-[#415A77] h-40" />
-              ))}
-            </div>
-            {/* overlay */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 bg-[#0D1B2A]/80 backdrop-blur-sm">
-              <span className="text-5xl">🚧</span>
-              <span
-                className="font-extrabold tracking-widest uppercase"
-                style={{
-                  fontFamily: "var(--font-poppins), sans-serif",
-                  fontSize: "clamp(1.4rem, 3vw, 2rem)",
-                  color: "#4CC9F0",
-                  letterSpacing: "0.15em",
-                }}
-              >
-                Under Construction
-              </span>
-              <p className="text-[#E0E1DD]/55 text-sm text-center max-w-sm">
-                Loom videos coming soon. Check back shortly.
-              </p>
-            </div>
+          {/* Video thumbnails — click to open lightbox */}
+          <LoomVideoGrid />
+
+          {/* Under Construction — more videos coming */}
+          <div className="mt-10 flex flex-col items-center gap-3 py-8 rounded-2xl border border-[#415A77]/30 bg-[#0D1B2A]/60">
+            <span className="text-3xl">🚧</span>
+            <span
+              className="font-extrabold tracking-widest uppercase text-[#4CC9F0]"
+              style={{
+                fontFamily: "var(--font-poppins), sans-serif",
+                fontSize: "clamp(0.85rem, 2vw, 1.1rem)",
+                letterSpacing: "0.15em",
+              }}
+            >
+              More videos coming soon
+            </span>
+            <p className="text-[#E0E1DD]/40 text-xs text-center max-w-xs">
+              Additional recordings being edited. Check back shortly.
+            </p>
           </div>
         </div>
       </section>
