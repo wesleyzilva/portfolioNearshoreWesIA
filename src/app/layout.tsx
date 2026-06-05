@@ -23,9 +23,16 @@ const GA_ID = "G-VWMRGK1VK6";
 const CLARITY_ID = "x1avi1ev6u";
 
 export const metadata: Metadata = {
-  title: "LATAM AIgile Global Deliverys",
+  title: "Wesley Gomes da Silva · Full Stack PM · Nearshore · AI Agents",
   description:
-    "Agile Delivery Manager | 14+ yrs | 80M+ tx/day | Available nearshore/remote. Connecting US & LATAM teams.",
+    "Full Stack specialist PM — async-first, AI-driven delivery. 12+ projects · 80M+ tx/day · 5+ global squads. Available nearshore/remote from LATAM.",
+  openGraph: {
+    title: "Wesley Gomes da Silva · Full Stack PM · Nearshore · AI Agents",
+    description:
+      "Full Stack specialist PM — async-first, AI-driven delivery. 12+ projects · 80M+ tx/day · 5+ global squads.",
+    type: "profile",
+    locale: "en_US",
+  },
 };
 
 export default function RootLayout({
