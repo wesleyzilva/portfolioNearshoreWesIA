@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { trackEvent } from "@/hooks/useTracking";
+import { trackEvent, trackPageView } from "@/hooks/useTracking";
 
 const menuItems = [
   { label: "Home", href: "#home" },
@@ -33,6 +33,8 @@ export default function Sidebar() {
 
   const handleMenuItemClick = (label: string, href: string) => {
     trackEvent("menu_click", { event_category: "navigation", event_label: label });
+    history.pushState(null, "", href);
+    trackPageView(href, label);
     const targetId = href.replace("#", "");
     const target = document.getElementById(targetId);
     if (target) target.scrollIntoView({ behavior: "smooth" });

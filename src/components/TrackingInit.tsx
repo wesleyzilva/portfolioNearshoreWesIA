@@ -1,7 +1,17 @@
 "use client";
 
 import { useEffect } from "react";
-import { trackEvent, setClarity } from "@/hooks/useTracking";
+import { trackEvent, trackPageView, setClarity } from "@/hooks/useTracking";
+
+// Mapeia section id → label legível (usado no page_view e pushState)
+const SECTION_LABELS: Record<string, string> = {
+  home:      "Home",
+  about:     "Chronology",
+  portfolio: "Portfolio Projects",
+  tools:     "Tools & Platforms",
+  loom:      "See me on Loom",
+  contact:   "Contact",
+};
 
 export default function TrackingInit() {
   useEffect(() => {
@@ -47,6 +57,9 @@ export default function TrackingInit() {
             entryTime[id] = Date.now();
             if (!seen.has(id)) {
               seen.add(id);
+              const label = SECTION_LABELS[id] ?? id;
+              history.pushState(null, "", `#${id}`);
+              trackPageView(`#${id}`, label);
               trackEvent("section_view", { event_category: "navigation", event_label: id });
             }
           } else if (entryTime[id]) {
