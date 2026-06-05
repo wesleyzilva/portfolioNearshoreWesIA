@@ -25,8 +25,8 @@ export function trackPageView(hash: string, sectionLabel: string): void {
   const path = window.location.pathname + hash;
   const title = `${sectionLabel} · Wesley Gomes da Silva`;
   window.gtag?.("event", "page_view", {
-    page_title:    title,
-    page_path:     path,
+    page_title: title,
+    page_path: path,
     page_location: window.location.origin + path,
   });
   window.clarity?.("event", "page_view");

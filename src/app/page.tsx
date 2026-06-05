@@ -298,7 +298,7 @@ export default function HomePage() {
             12 projects · real results
           </h2>
           <p className="text-center text-[#E0E1DD]/45 text-sm mb-10">
-            Click any card to see context, actions, and outcomes.
+            Click any card to see Context, Role, Actions, Results and References.
           </p>
           <ProjectsSection />
         </div>
