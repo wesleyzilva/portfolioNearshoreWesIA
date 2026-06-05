@@ -230,12 +230,13 @@ export default function HomePage() {
           </p>
 
           <p className="max-w-3xl mx-auto text-center text-base leading-relaxed text-[#E0E1DD]/70 mb-14">
-            The engineer who went from OracleDB tuning on{" "}
-            <strong className="text-white">India 🇮🇳 &amp; USA 🇺🇸</strong> night shifts
-            {" — "}to orchestrating 5 Agile squads for a 10M+ user fintech
-            {" — "}while building DevSecOps from zero. 14 years of{" "}
-            <strong className="text-white">getting things done</strong>{" "}
-            across Brazil 🇧🇷, London 🇬🇧, Africa 🌍 and beyond.
+            From{" "}
+            <strong className="text-white">24/7 support engineer</strong>{" "}
+            on India 🇮🇳 &amp; USA 🇺🇸 night shifts — to orchestrating{" "}
+            <strong className="text-white">5 global Agile squads</strong>{" "}
+            across USA 🇺🇸, London 🇬🇧 &amp; Colombia 🇨🇴 — to{" "}
+            <strong className="text-white">fine-tuned technical coordinator</strong>{" "}
+            delivering with the precision of a watchmaker.
           </p>
 
           {/* Career timeline */}
