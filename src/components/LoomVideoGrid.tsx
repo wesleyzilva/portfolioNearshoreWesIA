@@ -9,6 +9,11 @@ const VIDEOS = [
     subtitle: "Who I am, how I work",
   },
   {
+    id: "bf531fb333744e37bc79a626fc47ade7",
+    title: "Presentation",
+    subtitle: "Overview & highlights",
+  },
+  {
     id: "d0ecb82a63f846e8976f5a69a0993b8d",
     title: "Projects · Last 2 Years",
     subtitle: "Real deliveries, real results",
@@ -47,7 +52,7 @@ export default function LoomVideoGrid() {
   return (
     <>
       {/* ── VIDEO THUMBNAIL GRID ── */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         {VIDEOS.map((v) => (
           <button
             key={v.id}
