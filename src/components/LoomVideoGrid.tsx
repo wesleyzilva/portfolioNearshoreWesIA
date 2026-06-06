@@ -5,22 +5,22 @@ import { useEffect, useState } from "react";
 const VIDEOS = [
   {
     id: "ce4ac8e75f2241a9b79c050b6a62719b",
-    title: "Wesley Silva | About Me",
+    title: "About Me",
     subtitle: "Who I am, how I work",
   },
   {
     id: "bf531fb333744e37bc79a626fc47ade7",
-    title: "Wesley Silva | Pitch",
+    title: "Pitch",
     subtitle: "Why hire me for your team",
   },
   {
     id: "d0ecb82a63f846e8976f5a69a0993b8d",
-    title: "Wesley Silva | Project Portfolio",
+    title: "Project Portfolio",
     subtitle: "Last 2 years · real deliveries",
   },
   {
     id: "d8a765fd73fa4f73a35ba44609f621df",
-    title: "Wesley | Tooling, OKRs & Agile",
+    title: "Tooling, OKRs & Agile",
     subtitle: "Business & discipline for delivery",
   },
 ];
