@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const VIDEOS = [
+const VIDEOS: { id?: string; title: string; subtitle: string; comingSoon?: true }[] = [
   {
     id: "ce4ac8e75f2241a9b79c050b6a62719b",
     title: "About Me",
@@ -22,6 +22,26 @@ const VIDEOS = [
     id: "d8a765fd73fa4f73a35ba44609f621df",
     title: "Tooling, OKRs & Agile",
     subtitle: "Business & discipline for delivery",
+  },
+  {
+    comingSoon: true,
+    title: "Data Management",
+    subtitle: "Governance, pipelines & compliance",
+  },
+  {
+    comingSoon: true,
+    title: "Support 24/7",
+    subtitle: "Incident response & global coverage",
+  },
+  {
+    comingSoon: true,
+    title: "Cybersecurity",
+    subtitle: "DevSecOps, PCI-DSS & risk management",
+  },
+  {
+    comingSoon: true,
+    title: "ImSquad Framework",
+    subtitle: "AI-powered distributed squad model",
   },
 ];
 
@@ -53,10 +73,30 @@ export default function LoomVideoGrid() {
     <>
       {/* ── VIDEO THUMBNAIL GRID ── */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        {VIDEOS.map((v) => (
+        {VIDEOS.map((v) =>
+          v.comingSoon ? (
+            /* ── COMING SOON PLACEHOLDER ── */
+            <div
+              key={v.title}
+              className="flex flex-col rounded-2xl overflow-hidden border border-[#415A77]/30 bg-[#0D1B2A]/60"
+            >
+              {/* 16:9 placeholder area */}
+              <div className="relative w-full aspect-video bg-[#0a1628] flex flex-col items-center justify-center gap-2">
+                <span className="text-3xl">🚧</span>
+                <span className="text-[#4CC9F0] text-xs font-bold tracking-widest uppercase">
+                  Under Construction
+                </span>
+              </div>
+              {/* Card footer */}
+              <div className="px-4 py-3">
+                <p className="text-[#E0E1DD]/50 font-semibold text-sm leading-tight">{v.title}</p>
+                <p className="text-[#415A77] text-xs mt-0.5">{v.subtitle}</p>
+              </div>
+            </div>
+          ) : (
           <button
             key={v.id}
-            onClick={() => setActive(v.id)}
+            onClick={() => setActive(v.id!)}
             aria-label={`Play video: ${v.title}`}
             className="group relative flex flex-col rounded-2xl overflow-hidden border border-[#415A77]/50 hover:border-[#4CC9F0]/70 bg-[#0D1B2A] transition-all duration-200 hover:shadow-[0_0_24px_rgba(76,201,240,0.12)] text-left cursor-pointer"
           >
@@ -94,7 +134,8 @@ export default function LoomVideoGrid() {
               <p className="text-[#4CC9F0]/60 text-xs mt-0.5">{v.subtitle}</p>
             </div>
           </button>
-        ))}
+          )
+        )}
       </div>
 
       {/* ── LIGHTBOX MODAL ── */}
